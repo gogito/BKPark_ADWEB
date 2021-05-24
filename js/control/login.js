@@ -1,10 +1,12 @@
 
 function login() {
-    var user = document.getElementById('username').value;
-    var pass = document.getElementById('password').value;
+    var userE = document.getElementById('username');
+    var passE = document.getElementById('password');
+    var user = userE.value;
+    var pass = passE.value;
     console.log("Click login button");
 
-    fetch('http://gogito.duckdns.org:3002/login', {
+    fetch('http://gogito.duckdns.org:3002/admin_login', {
         method: 'POST', // or 'PUT'
         headers: {
             'Content-Type': 'application/json',
@@ -16,7 +18,12 @@ function login() {
             
             // window.location.href = "index.html"
             if (data._id != null) window.location.href = "index.php";
-            else console.log(data);
+            else{
+                console.log(data);
+                userE.value = '';
+                passE.value = '';
+                alert("Wrong username or password");
+            } 
         })
         .catch((error) => {
             // console.log(error.response);
