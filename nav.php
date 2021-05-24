@@ -5,7 +5,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-location-arrow"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">BK Park<sup>AI</sup></div>
+        <div class="sidebar-brand-text mx-3">BK Park Test<sup>AI</sup></div>
     </a>
 
     <!-- Divider -->
