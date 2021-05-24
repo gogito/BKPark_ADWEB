@@ -15,7 +15,7 @@ function login() {
         .then(data => {
             
             // window.location.href = "index.html"
-            if (data._id != null) window.location.href = "index.html";
+            if (data._id != null) window.location.href = "index.php";
             else console.log(data);
         })
         .catch((error) => {
