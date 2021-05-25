@@ -6,7 +6,7 @@ function login() {
     var pass = passE.value;
     console.log("Click login button");
 
-    fetch('http://gogito.duckdns.org:3002/admin_login', {
+    fetch(API_ADMIN_LOGIN, {
         method: 'POST', // or 'PUT'
         headers: {
             'Content-Type': 'application/json',
