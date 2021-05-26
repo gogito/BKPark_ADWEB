@@ -17,7 +17,6 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
 </head>
 
 <body id="page-top">
@@ -222,19 +221,19 @@
                     </div>
 
                     <!-- Content Row -->
-               
-                        <!-- Approach -->
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">System Map</h6>
-                            </div>
-                            <div class="card-body">
+
+                    <!-- Approach -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">System Map</h6>
+                        </div>
+                        <div class="card-body">
 
                             <?php include 'map.php'; ?>
-                            </div>
                         </div>
+                    </div>
 
-                   
+
                 </div>
                 <!-- /.container-fluid -->
 
@@ -297,7 +296,12 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
-
+    <script>
+        var userinfo = document.getElementById("userinfo_name");
+        console.log(userinfo.textContent);
+        userinfo.textContent = JSON.parse(document.cookie).name.FName + " " + JSON.parse(document.cookie).name.LName;
+    </script>
+   
 </body>
 
 </html>

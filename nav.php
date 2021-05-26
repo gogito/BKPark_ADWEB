@@ -28,28 +28,28 @@
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link" href="tables.php">
+        <a class="nav-link" href="booking.php">
             <i class="fas fa-fw fa-table"></i>
             <span>Users</span></a>
     </li>
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link" href="tables.php">
+        <a class="nav-link" href="booking.php">
             <i class="fas fa-fw fa-table"></i>
             <span>Owners</span></a>
     </li>
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link" href="tables.php">
+        <a class="nav-link" href="booking.php">
             <i class="fas fa-fw fa-table"></i>
             <span>Bookings</span></a>
     </li>
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link" href="tables.php">
+        <a class="nav-link" href="booking.php">
             <i class="fas fa-fw fa-table"></i>
             <span>Parking Lots</span></a>
     </li>
