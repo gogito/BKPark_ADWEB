@@ -20,13 +20,13 @@
 
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <script src="js/control/parkinglots.js">
+    <script src="js/control/user.js">
     </script>
     <script src="model/var.js">
     </script>
 </head>
 
-<body id="page-top" onload="getParkingLotsList()">
+<body id="page-top" onload="getUserList()">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -73,46 +73,16 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Parkinglots</h1>
-                    <p class="mb-4">View and Manage Parkinglots using the table below or download our mobile app at<a target="_blank" href="https://datatables.net"> BK Parking</a>.</p>
+                    <h1 class="h3 mb-2 text-gray-800">Add Users</h1>
+                    <p class="mb-4">Add New Users using the form below or download our mobile app at<a target="_blank" href="https://datatables.net"> BK Parking</a>.</p>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Parkinglot Table</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Add User Form</h6>
                         </div>
                         <div class="card-body">
-                            <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                                <a href="add_user.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Add Parkinglot</a>
-                            </div>
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Name</th>
-                                            <th>Address</th>
-                                            <th>Total Area</th>
-                                            <th>Total Slot</th>
-                                            <th>Status</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Name</th>
-                                            <th>Address</th>
-                                            <th>Total Area</th>
-                                            <th>Total Slot</th>
-                                            <th>Status</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody id='tableBodyParkingLots'>
-                                    </tbody>
-                                </table>
-                            </div>
+                        <p class="mb-4">Test</p>
                         </div>
                     </div>
 
