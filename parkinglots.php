@@ -20,13 +20,13 @@
 
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <script src="js/control/booking.js">
+    <script src="js/control/parkinglots.js">
     </script>
     <script src="model/var.js">
     </script>
 </head>
 
-<body id="page-top" onload="getBookingList()">
+<body id="page-top" onload="getParkingLotsList()">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -88,32 +88,24 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>User</th>
-                                            <th>Parking lot</th>
-                                            <th>Area name</th>
-                                            <th>Slot ID</th>
+                                            <th>Name</th>
+                                            <th>Address</th>
+                                            <th>Total Area</th>
+                                            <th>Total Slot</th>
                                             <th>Status</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>ID</th>
-                                            <th>User ID</th>
-                                            <th>Parking lot</th>
-                                            <th>Area name</th>
-                                            <th>Slot ID</th>
+                                            <th>Name</th>
+                                            <th>Address</th>
+                                            <th>Total Area</th>
+                                            <th>Total Slot</th>
                                             <th>Status</th>
                                         </tr>
                                     </tfoot>
-                                    <tbody id='tableBody'>
-                                        <!-- <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr> -->
+                                    <tbody id='tableBodyParkingLots'>
                                     </tbody>
                                 </table>
                             </div>
