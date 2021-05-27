@@ -83,7 +83,7 @@
                         </div>
                         <div class="card-body">
                             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                                <a href="add_user.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Add Owner</a>
+                                <a href="add_owner.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Add Owner</a>
                             </div>
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTableUser" width="100%" cellspacing="0">
