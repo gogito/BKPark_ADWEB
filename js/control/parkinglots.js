@@ -1,17 +1,22 @@
-function getBookingList() {
+function getParkingLotsList() {
  
   console.log("create Booking List");
-  fetch(API_BOOKING_LIST)
+  fetch(API_PARKINGLOTS_LIST)
     .then((response) => response.json())
     .then((data) => {
       for (var i = 0; i < data.length; i++){
-        createNewRow(data[i]._id, data[i].userName.FName + " " + data[i].userName.LName, data[i].parkinglotName, data[i].areaName, data[i].slot_id, data[i].status);
+        var totalslot = 0;
+        var totalarea = data[i].area.length;
+        for (var j = 0; j < totalarea; j++){
+          totalslot = totalslot + data[i].area[j].freeslot + data[i].area[j].fullslot;
+        }
+        createNewRow(data[i]._id, data[i].name, data[i].address, totalarea, totalslot, Math.round(data[i].status*100)+"%");
       }
     });
 }
 
 function createNewRow(id, userid, parkingid, areaname, slotid, status) {
-  var body = document.getElementById("tableBody");
+  var body = document.getElementById("tableBodyParkingLots");
 
   var row = document.createElement("tr");
 

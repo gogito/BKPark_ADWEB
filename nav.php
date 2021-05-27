@@ -28,7 +28,7 @@
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link" href="booking.php">
+        <a class="nav-link" href="user.php">
             <i class="fas fa-fw fa-table"></i>
             <span>Users</span></a>
     </li>
@@ -49,7 +49,7 @@
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link" href="booking.php">
+        <a class="nav-link" href="parkinglots.php">
             <i class="fas fa-fw fa-table"></i>
             <span>Parking Lots</span></a>
     </li>

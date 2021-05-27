@@ -1,11 +1,17 @@
-function getBookingList() {
+function getUserList() {
  
   console.log("create Booking List");
-  fetch(API_BOOKING_LIST)
+  fetch(API_USER_LIST)
     .then((response) => response.json())
     .then((data) => {
+      
+      
       for (var i = 0; i < data.length; i++){
-        createNewRow(data[i]._id, data[i].userName.FName + " " + data[i].userName.LName, data[i].parkinglotName, data[i].areaName, data[i].slot_id, data[i].status);
+        var carplate = '';
+        for (var j = 0; j < data[i].carplateNumber.length; j++){
+          carplate = carplate + data[i].carplateNumber[j] + '\n';
+        }
+        createNewRow(data[i]._id, data[i].name.FName + " " + data[i].name.LName, data[i].personalID, data[i].email, carplate, data[i].currentBooking);
       }
     });
 }
