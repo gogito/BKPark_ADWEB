@@ -20,13 +20,13 @@
 
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <script src="js/control/booking.js">
+    <script src="js/control/user.js">
     </script>
     <script src="model/var.js">
     </script>
 </head>
 
-<body id="page-top" onload="getBookingList()">
+<body id="page-top" onload="getUserList()">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -73,36 +73,36 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Bookings</h1>
-                    <p class="mb-4">View and Manage Bookings using the table below or download our mobile app at<a target="_blank" href="https://datatables.net"> BK Parking</a>.</p>
+                    <h1 class="h3 mb-2 text-gray-800">Owners</h1>
+                    <p class="mb-4">View and Manage Owners using the table below or download our mobile app at<a target="_blank" href="https://datatables.net"> BK Parking</a>.</p>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Booking Table</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Owner Table</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered" id="dataTableUser" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>User</th>
-                                            <th>Parking lot</th>
-                                            <th>Area name</th>
-                                            <th>Slot ID</th>
-                                            <th>Status</th>
+                                            <th>Name</th>
+                                            <th>Personal ID</th>
+                                            <th>Email</th>
+                                            <th>Car plate</th>
+                                            <th>Current booking</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>ID</th>
-                                            <th>User ID</th>
-                                            <th>Parking lot</th>
-                                            <th>Area name</th>
-                                            <th>Slot ID</th>
-                                            <th>Status</th>
+                                            <th>Name</th>
+                                            <th>Personal ID</th>
+                                            <th>Email</th>
+                                            <th>Car plate</th>
+                                            <th>Current booking</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>

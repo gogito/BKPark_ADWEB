@@ -35,7 +35,7 @@
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link" href="booking.php">
+        <a class="nav-link" href="owner.php">
             <i class="fas fa-fw fa-table"></i>
             <span>Owners</span></a>
     </li>
