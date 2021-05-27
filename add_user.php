@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Tables</title>
+    <title>BK Parking - Add User</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -76,13 +76,66 @@
                     <h1 class="h3 mb-2 text-gray-800">Add Users</h1>
                     <p class="mb-4">Add New Users using the form below or download our mobile app at<a target="_blank" href="https://datatables.net"> BK Parking</a>.</p>
 
-                    <!-- DataTales Example -->
+                    <!-- Main Content -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Add User Form</h6>
                         </div>
                         <div class="card-body">
-                        <p class="mb-4">Test</p>
+                            <form>
+
+
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputFirstname">First Name</label>
+                                        <input type="text" class="form-control" id="inputFirstname" placeholder="First Name">
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="inputLastname">Last Name</label>
+                                        <input type="text" class="form-control" id="inputLastname" placeholder="Last Name">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputUsername4">Username</label>
+                                        <input type="text" class="form-control" id="inputUsername4" placeholder="Username">
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="inputPassword4">Password</label>
+                                        <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="inputEmail4">Email</label>
+                                        <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                                    </div>
+
+                                    <div class="form-group col-md-4">
+                                        <label for="inputPersonalID">Personal ID</label>
+                                        <input type="text" class="form-control" id="inputPersonalID" placeholder="Personal ID">
+                                    </div>
+
+                                    <div class="form-group col-md-4">
+                                        <label for="inputLicensePlate">License Plate</label>
+                                        <input type="text" class="form-control" id="inputLicensePlate" placeholder="License Plate">
+                                    </div>
+                                </div>
+
+
+
+
+
+
+                                <button type="submit" class="btn btn-primary">Add User</button>
+                            </form>
                         </div>
                     </div>
 
