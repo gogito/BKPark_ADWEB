@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Tables</title>
+    <title>BK Parking - Booking</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -73,16 +73,18 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-                    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-                        For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
+                    <h1 class="h3 mb-2 text-gray-800">Bookings</h1>
+                    <p class="mb-4">View and Manage Bookings using the table below or download our mobile app at<a target="_blank" href="https://datatables.net"> BK Parking</a>.</p>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Booking Table</h6>
                         </div>
                         <div class="card-body">
+                            <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                                <a href="add_user.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Add Booking</a>
+                            </div> -->
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
@@ -93,6 +95,7 @@
                                             <th>Area name</th>
                                             <th>Slot ID</th>
                                             <th>Status</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -103,6 +106,7 @@
                                             <th>Area name</th>
                                             <th>Slot ID</th>
                                             <th>Status</th>
+                                            <th>Action</th>
                                         </tr>
                                     </tfoot>
                                     <tbody id='tableBody'>
@@ -127,13 +131,7 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
-                    </div>
-                </div>
-            </footer>
+            <?php include 'footer.php'; ?>
             <!-- End of Footer -->
 
         </div>
@@ -180,8 +178,8 @@
     <script src="vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="js/demo/datatables-demo.js"></script>
+    <!-- Page level custom scripts
+    <script src="js/demo/datatables-demo.js"></script> -->
 
 </body>
 

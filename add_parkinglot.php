@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>BK Parking - User</title>
+    <title>BK Parking - Add Parkinglot</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -73,54 +73,69 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Users</h1>
-                    <p class="mb-4">View and Manage Users using the table below or download our mobile app at<a target="_blank" href="https://datatables.net"> BK Parking</a>.</p>
+                    <h1 class="h3 mb-2 text-gray-800">Add Parkinglots</h1>
+                    <p class="mb-4">Add New Users using the form below or download our mobile app at<a target="_blank" href="https://datatables.net"> BK Parking</a>.</p>
 
-                    <!-- DataTales Example -->
+                    <!-- Main Content -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">User Table</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Add Parkinglot Form</h6>
                         </div>
                         <div class="card-body">
-                            <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                                <a href="add_user.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Add User</a>
-                            </div>
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTableUser" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Name</th>
-                                            <th>Personal ID</th>
-                                            <th>Email</th>
-                                            <th>Car plate</th>
-                                            <th>Current booking</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Name</th>
-                                            <th>Personal ID</th>
-                                            <th>Email</th>
-                                            <th>Car plate</th>
-                                            <th>Current booking</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody id='tableBody'>
-                                        <!-- <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr> -->
-                                    </tbody>
-                                </table>
-                            </div>
+                            <form>
+
+
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputFirstname">First Name</label>
+                                        <input type="text" class="form-control" id="inputFirstname" placeholder="First Name">
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="inputLastname">Last Name</label>
+                                        <input type="text" class="form-control" id="inputLastname" placeholder="Last Name">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputUsername4">Username</label>
+                                        <input type="text" class="form-control" id="inputUsername4" placeholder="Username">
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="inputPassword4">Password</label>
+                                        <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="inputEmail4">Email</label>
+                                        <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                                    </div>
+
+                                    <div class="form-group col-md-4">
+                                        <label for="inputPersonalID">Personal ID</label>
+                                        <input type="text" class="form-control" id="inputPersonalID" placeholder="Personal ID">
+                                    </div>
+
+                                    <div class="form-group col-md-4">
+                                        <label for="inputLicensePlate">License Plate</label>
+                                        <input type="text" class="form-control" id="inputLicensePlate" placeholder="License Plate">
+                                    </div>
+                                </div>
+
+
+
+
+
+
+                                <button type="submit" class="btn btn-primary">Add User</button>
+                            </form>
                         </div>
                     </div>
 
@@ -130,8 +145,8 @@
             </div>
             <!-- End of Main Content -->
 
-           <!-- Footer -->
-           <?php include 'footer.php'; ?>
+            <!-- Footer -->
+            <?php include 'footer.php'; ?>
             <!-- End of Footer -->
 
         </div>

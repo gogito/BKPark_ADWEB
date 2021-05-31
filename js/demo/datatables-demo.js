@@ -5,7 +5,8 @@ $(document).ready(function () {
   };
 
   // use setTimeout() to execute
-  setTimeout(showpanel, 5000)
+  setTimeout(showpanel, 7000)
 });
 
 
+// Call the dataTables jQuery plugin

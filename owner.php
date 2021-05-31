@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>BK Parking - User</title>
+    <title>BK Parking - Owner</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -73,17 +73,17 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Users</h1>
-                    <p class="mb-4">View and Manage Users using the table below or download our mobile app at<a target="_blank" href="https://datatables.net"> BK Parking</a>.</p>
+                    <h1 class="h3 mb-2 text-gray-800">Owners</h1>
+                    <p class="mb-4">View and Manage Owners using the table below or download our mobile app at<a target="_blank" href="https://datatables.net"> BK Parking</a>.</p>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">User Table</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Owner Table</h6>
                         </div>
                         <div class="card-body">
                             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                                <a href="add_user.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Add User</a>
+                                <a href="add_owner.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Add Owner</a>
                             </div>
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTableUser" width="100%" cellspacing="0">
@@ -130,8 +130,8 @@
             </div>
             <!-- End of Main Content -->
 
-           <!-- Footer -->
-           <?php include 'footer.php'; ?>
+            <!-- Footer -->
+            <?php include 'footer.php'; ?>
             <!-- End of Footer -->
 
         </div>

@@ -22,7 +22,7 @@
 
 
 <body style="padding: 0; margin: 0">
-    <div id="mapid" style="width: 100%; height: 100vh"></div>
+    <div id="mapid" style="width: 100%; height: 40vh"></div>
     <script>
         var popupArray = [];
         var markerArray = [];
