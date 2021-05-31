@@ -78,14 +78,15 @@ function addButton(row, id, option) {
 
 }
 
-function matchFunction(btnGroup, option){
-  var id  = btnGroup.id;
+function matchFunction(btnGroup, option) {
+  var id = btnGroup.id;
   switch (option) {
     case 1:
       var confirmBtn = btnGroup.children[0];
       var infoBtn = btnGroup.children[1];
       var cancelBtn = btnGroup.children[2];
-      confirmBtn.addEventListener("click", handleConfirmButtonPress(id));
+      confirmBtn.onclick = function () { handleConfirmButtonPress(id) };
+      cancelBtn.onclick = function () { handleCancelButtonPress(id) };
       // handleConfirmButtonPress();
       break;
     case 2:
@@ -94,8 +95,44 @@ function matchFunction(btnGroup, option){
   }
 }
 
-function handleConfirmButtonPress(id){
+function handleConfirmButtonPress(id) {
   // alert(id);
   console.log(id);
+  if (confirm("Are you sure to make this booking success?")) {
+    confirmSuccessBooking(id);
+    // location.reload();
+  }
 }
 
+function confirmSuccessBooking(id) {
+  fetch(API_BOOKING_LIST + "/" + id, {
+    method: "PUT",
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      location.reload();
+    })
+    .catch((error) => {
+    });
+}
+function handleCancelButtonPress(id) {
+  console.log(id);
+  if (confirm("Are you sure to cancel this booking?")) {
+    confirmCancelBooking(id);
+    // location.reload();
+  }
+}
+
+function confirmCancelBooking(id) {
+  fetch(API_BOOKING_LIST + "/" + id, {
+    method: "DELETE",
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      location.reload();
+    })
+    .catch((error) => {
+    });
+}
