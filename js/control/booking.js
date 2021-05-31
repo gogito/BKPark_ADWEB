@@ -1,14 +1,14 @@
-var action_btn = '<a href="#" class="btn btn-primary btn-default">'
+var confirm_btn = '<a href="#" id="confirm" class="btn btn-primary btn-default">'
   + '<span class="icon text-white-50">'
   + '<i class="fas fa-check"></i>'
   + '</span>'
   + '</a>'
-  + '<a href="#" class="btn btn-success btn-default">'
+var info_btn = '<a href="#" id="info" class="btn btn-success btn-default">'
   + '<span class="icon text-white-50">'
   + '<i class="fas fa-info"></i>'
   + '</span>'
   + '</a>'
-  + '<a href="#" class="btn btn-danger btn-default">'
+var cancel_btn = '<a href="#" id="cancel" class="btn btn-danger btn-default">'
   + '<span class="icon text-white-50">'
   + '<i class="fas fa-times"></i>'
   + '</span>'
@@ -16,18 +16,18 @@ var action_btn = '<a href="#" class="btn btn-primary btn-default">'
 
 
 function getBookingList() {
- 
+
   console.log("create Booking List");
   fetch(API_BOOKING_LIST)
     .then((response) => response.json())
     .then((data) => {
-      for (var i = 0; i < data.length; i++){
+      for (var i = 0; i < data.length; i++) {
         createNewRow(data[i]._id, data[i].userName.FName + " " + data[i].userName.LName, data[i].parkinglotName, data[i].areaName, data[i].slot_id, data[i].status);
       }
-      $(document).ready(function() {
+      $(document).ready(function () {
         $('#dataTable').DataTable();
       });
-      
+
     });
 }
 
@@ -42,7 +42,13 @@ function createNewRow(id, userid, parkingid, areaname, slotid, status) {
   createSingleBox(areaname, row);
   createSingleBox(slotid, row);
   createSingleBox(status, row);
-  myFunction(row);
+  if (status == "Booked") {
+    addButton(row, id, 1);
+  }
+  else {
+    addButton(row, id, 2);
+  }
+
   body.appendChild(row);
 }
 
@@ -54,9 +60,42 @@ function createSingleBox(content, row) {
 }
 
 
-function myFunction(row) {
+function addButton(row, id, option) {
   var btn = document.createElement("td");
-  btn.innerHTML = action_btn;
+  btn.id = id;
+  switch (option) {
+    case 1:
+      btn.innerHTML = confirm_btn + info_btn + cancel_btn;
+      break;
+    case 2:
+      btn.innerHTML = info_btn;
+      break;
+  }
   document.body.appendChild(btn);
   row.appendChild(btn);
+
+  matchFunction(btn, option);
+
 }
+
+function matchFunction(btnGroup, option){
+  var id  = btnGroup.id;
+  switch (option) {
+    case 1:
+      var confirmBtn = btnGroup.children[0];
+      var infoBtn = btnGroup.children[1];
+      var cancelBtn = btnGroup.children[2];
+      confirmBtn.addEventListener("click", handleConfirmButtonPress(id));
+      // handleConfirmButtonPress();
+      break;
+    case 2:
+      // btn.innerHTML = info_btn;
+      break;
+  }
+}
+
+function handleConfirmButtonPress(id){
+  // alert(id);
+  console.log(id);
+}
+
