@@ -1,22 +1,23 @@
-var action_btn = '<a href="#" class="btn btn-primary btn-default">'
+var confirm_btn = '<a href="#" id="confirm" class="btn btn-primary btn-default">'
   + '<span class="icon text-white-50">'
   + '<i class="fas fa-check"></i>'
   + '</span>'
   + '</a>'
-  + '<a href="#" class="btn btn-success btn-default">'
+var info_btn = '<a href="#" id="info" class="btn btn-success btn-default">'
   + '<span class="icon text-white-50">'
   + '<i class="fas fa-info"></i>'
   + '</span>'
   + '</a>'
-  + '<a href="#" class="btn btn-danger btn-default">'
+var cancel_btn = '<a href="#" id="cancel" class="btn btn-danger btn-default">'
   + '<span class="icon text-white-50">'
   + '<i class="fas fa-times"></i>'
   + '</span>'
   + '</a>';
 
+
 function getParkingLotsList() {
  
-  console.log("create Booking List");
+  console.log("create Parking lots List");
   fetch(API_PARKINGLOTS_LIST)
     .then((response) => response.json())
     .then((data) => {
@@ -45,7 +46,7 @@ function createNewRow(id, userid, parkingid, areaname, slotid, status) {
   createSingleBox(areaname, row);
   createSingleBox(slotid, row);
   createSingleBox(status, row);
-  myFunction(row);
+  addButton(row, id);
   body.appendChild(row);
 }
 
@@ -56,9 +57,41 @@ function createSingleBox(content, row) {
   row.appendChild(p);
 }
 
-function myFunction(row) {
+
+function addButton(row, id) {
   var btn = document.createElement("td");
-  btn.innerHTML = action_btn;
+  btn.id = id;
+  btn.innerHTML = info_btn + cancel_btn;
   document.body.appendChild(btn);
   row.appendChild(btn);
+
+  matchFunction(btn);
+
+}
+
+function matchFunction(btnGroup) {
+  var id = btnGroup.id;
+  var infoBtn = btnGroup.children[0];
+  var cancelBtn = btnGroup.children[1];
+  cancelBtn.onclick = function () { handleCancelButtonPress(id) };
+}
+
+function handleCancelButtonPress(id) {
+  console.log(id);
+  if (confirm("Are you sure to DELETE this parking lot?")) {
+    confirmCancelBooking(id);
+  }
+}
+
+function confirmCancelBooking(id) {
+  fetch(API_PARKINGLOT_INFO + "/" + id, {
+    method: "DELETE",
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      location.reload();
+    })
+    .catch((error) => {
+    });
 }

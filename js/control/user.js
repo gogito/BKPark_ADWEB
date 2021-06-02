@@ -1,35 +1,36 @@
-var action_btn = '<a href="#" class="btn btn-primary btn-default">'
+var confirm_btn = '<a href="#" id="confirm" class="btn btn-primary btn-default">'
   + '<span class="icon text-white-50">'
   + '<i class="fas fa-check"></i>'
   + '</span>'
   + '</a>'
-  + '<a href="#" class="btn btn-success btn-default">'
+var info_btn = '<a href="#" id="info" class="btn btn-success btn-default">'
   + '<span class="icon text-white-50">'
   + '<i class="fas fa-info"></i>'
   + '</span>'
   + '</a>'
-  + '<a href="#" class="btn btn-danger btn-default">'
+var cancel_btn = '<a href="#" id="cancel" class="btn btn-danger btn-default">'
   + '<span class="icon text-white-50">'
   + '<i class="fas fa-times"></i>'
   + '</span>'
   + '</a>';
 
+
 function getUserList() {
- 
+
   console.log("create Booking List");
   fetch(API_USER_LIST)
     .then((response) => response.json())
     .then((data) => {
-      
-      
-      for (var i = 0; i < data.length; i++){
+
+
+      for (var i = 0; i < data.length; i++) {
         var carplate = '';
-        for (var j = 0; j < data[i].carplateNumber.length; j++){
+        for (var j = 0; j < data[i].carplateNumber.length; j++) {
           carplate = carplate + data[i].carplateNumber[j] + '\n';
         }
         createNewRow(data[i]._id, data[i].name.FName + " " + data[i].name.LName, data[i].personalID, data[i].email, carplate, data[i].currentBooking);
       }
-      $(document).ready(function() {
+      $(document).ready(function () {
         $('#dataTable').DataTable();
       });
     });
@@ -46,9 +47,11 @@ function createNewRow(id, userid, parkingid, areaname, slotid, status) {
   createSingleBox(areaname, row);
   createSingleBox(slotid, row);
   createSingleBox(status, row);
-  myFunction(row);
+  addButton(row, id);
+
   body.appendChild(row);
 }
+
 
 function createSingleBox(content, row) {
   var p = document.createElement("td");
@@ -57,9 +60,62 @@ function createSingleBox(content, row) {
   row.appendChild(p);
 }
 
-function myFunction(row) {
+function addButton(row, id) {
   var btn = document.createElement("td");
-  btn.innerHTML = action_btn;
+  btn.id = id;
+  btn.innerHTML = info_btn + cancel_btn;
   document.body.appendChild(btn);
   row.appendChild(btn);
+
+  matchFunction(btn);
+
+}
+
+function matchFunction(btnGroup) {
+  var id = btnGroup.id;
+  // var confirmBtn = btnGroup.children[0];
+  var infoBtn = btnGroup.children[0];
+  var cancelBtn = btnGroup.children[1];
+  // confirmBtn.onclick = function () { handleConfirmButtonPress(id) };
+  cancelBtn.onclick = function () { handleCancelButtonPress(id) };
+}
+
+// function handleConfirmButtonPress(id) {
+//   console.log(id);
+//   if (confirm("Are you sure to make this booking success?")) {
+//     confirmSuccessBooking(id);
+//   }
+// }
+
+// function confirmSuccessBooking(id) {
+//   fetch(API_BOOKING_LIST + "/" + id, {
+//     method: "PUT",
+//   })
+//     .then((response) => response.json())
+//     .then((data) => {
+//       console.log(data);
+//       location.reload();
+//     })
+//     .catch((error) => {
+//     });
+// }
+function handleCancelButtonPress(id) {
+  console.log(id);
+  if (confirm("Are you sure to DELETE this user?")) {
+    confirmCancelBooking(id);
+    // location.reload();
+  }
+}
+
+function confirmCancelBooking(id) {
+  fetch(API_USER_LIST + "/" + id, {
+    method: "DELETE",
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      location.reload();
+    })
+    .catch((error) => {
+    });
 }
