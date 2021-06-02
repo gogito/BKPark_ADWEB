@@ -12,7 +12,7 @@ var cancel_btn = '<a href="#" id="cancel" class="btn btn-danger btn-default">'
   + '<span class="icon text-white-50">'
   + '<i class="fas fa-times"></i>'
   + '</span>'
-  + '</a>';
+  + '</a>'
 
 
 function getParkingLotsList() {
@@ -46,6 +46,7 @@ function createNewRow(id, userid, parkingid, areaname, slotid, status) {
   createSingleBox(areaname, row);
   createSingleBox(slotid, row);
   createSingleBox(status, row);
+  console.log(userid);
   addButton(row, id);
   body.appendChild(row);
 }
@@ -84,7 +85,7 @@ function handleCancelButtonPress(id) {
 }
 
 function confirmCancelBooking(id) {
-  fetch(API_PARKINGLOT_INFO + "/" + id, {
+  fetch(API_PARKINGLOTS_LIST + "/" + id, {
     method: "DELETE",
   })
     .then((response) => response.json())
