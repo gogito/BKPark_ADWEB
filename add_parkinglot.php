@@ -88,7 +88,7 @@
 
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="inputFirstname">First Name</label>
+                                        <label for="inputFirstname"></label>
                                         <input type="text" class="form-control" id="inputFirstname" placeholder="First Name">
                                     </div>
 

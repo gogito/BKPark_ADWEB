@@ -21,8 +21,10 @@ function getBookingList() {
   fetch(API_BOOKING_LIST)
     .then((response) => response.json())
     .then((data) => {
+      console.log(data);
       for (var i = 0; i < data.length; i++) {
-        createNewRow(data[i]._id, data[i].userName.FName + " " + data[i].userName.LName, data[i].parkinglotName, data[i].areaName, data[i].slot_id, data[i].status);
+        // createNewRow(data[i]._id, data[i].userName.FName + " " + data[i].userName.LName, data[i].parkinglotName, data[i].areaName, data[i].slot_id, data[i].status);
+        createNewRow(data[i]._id, data[i].userName? data[i].userName.FName + " " + data[i].userName.LName : "Username", data[i].parkinglotName, data[i].areaName, data[i].slot_id, data[i].status);
       }
       $(document).ready(function () {
         $('#dataTable').DataTable();
