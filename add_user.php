@@ -20,13 +20,13 @@
 
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <script src="js/control/user.js">
+    <script src="js/control/add_user.js">
     </script>
     <script src="model/var.js">
     </script>
 </head>
 
-<body id="page-top" onload="getUserList()">
+<body id="page-top">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -89,24 +89,24 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="inputFirstname">First Name</label>
-                                        <input type="text" class="form-control" id="inputFirstname" placeholder="First Name">
+                                        <input id="Fname" type="text" class="form-control" id="inputFirstname" placeholder="First Name">
                                     </div>
 
                                     <div class="form-group col-md-6">
                                         <label for="inputLastname">Last Name</label>
-                                        <input type="text" class="form-control" id="inputLastname" placeholder="Last Name">
+                                        <input id="Lname"type="text" class="form-control" id="inputLastname" placeholder="Last Name">
                                     </div>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="inputUsername4">Username</label>
-                                        <input type="text" class="form-control" id="inputUsername4" placeholder="Username">
+                                        <label for="inputUsername">Username</label>
+                                        <input id="username" type="text" class="form-control" id="inputUsername4" placeholder="Username">
                                     </div>
 
                                     <div class="form-group col-md-6">
-                                        <label for="inputPassword4">Password</label>
-                                        <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                                        <label for="inputPassword">Password</label>
+                                        <input id="password" type="password" class="form-control" id="inputPassword4" placeholder="Password">
                                     </div>
                                 </div>
 
@@ -114,18 +114,18 @@
 
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
-                                        <label for="inputEmail4">Email</label>
-                                        <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                                        <label for="inputEmail">Email</label>
+                                        <input id="email" type="email" class="form-control" id="inputEmail4" placeholder="Email">
                                     </div>
 
                                     <div class="form-group col-md-4">
                                         <label for="inputPersonalID">Personal ID</label>
-                                        <input type="text" class="form-control" id="inputPersonalID" placeholder="Personal ID">
+                                        <input id="personalID" type="text" class="form-control" id="inputPersonalID" placeholder="Personal ID">
                                     </div>
 
                                     <div class="form-group col-md-4">
                                         <label for="inputLicensePlate">License Plate</label>
-                                        <input type="text" class="form-control" id="inputLicensePlate" placeholder="License Plate">
+                                        <input id="plate" type="text" class="form-control" id="inputLicensePlate" placeholder="License Plate">
                                     </div>
                                 </div>
 
@@ -134,7 +134,7 @@
 
 
 
-                                <button type="submit" class="btn btn-primary">Add User</button>
+                                <button onclick="addUser()" class="btn btn-primary">Add User</button>
                             </form>
                         </div>
                     </div>
