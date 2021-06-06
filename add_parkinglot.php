@@ -74,7 +74,7 @@
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Add Parkinglots</h1>
-                    <p class="mb-4">Add New Users using the form below or download our mobile app at<a target="_blank" href="https://datatables.net"> BK Parking</a>.</p>
+                    <p class="mb-4">Add New Parkinglots using the form below or download our mobile app at<a target="_blank" href="https://datatables.net"> BK Parking</a>.</p>
 
                     <!-- Main Content -->
                     <div class="card shadow mb-4">
@@ -88,7 +88,7 @@
 
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="inputFirstname"></label>
+                                        <label for="inputFirstname">First Name</label>
                                         <input type="text" class="form-control" id="inputFirstname" placeholder="First Name">
                                     </div>
 
