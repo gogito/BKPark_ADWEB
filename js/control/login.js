@@ -18,7 +18,7 @@ function login() {
       if (data._id != null) {
         console.log("Success");
         window.location.href = "index.php";
-        document.cookie = JSON.stringify(data);
+        document.cookie = "currentUser="+JSON.stringify(data)+"; max-age=86400; path=/;"; 
       } else {
         console.log(data);
         userE.value = "";

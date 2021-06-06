@@ -15,8 +15,10 @@ function addUser() {
   var personal = personalE.value;
   var plate = plateE.value;
   console.log(fname + lname + username + password + email + personal);
+  console.log(API_USER_REGISTER);
+  // window.location.href = "../user.php";
   fetch(API_USER_REGISTER, {
-    method: "POST", // or 'PUT'
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
@@ -33,6 +35,7 @@ function addUser() {
   })
     .then((response) => response.json())
     .then((data) => {
+      console.log(data);
       if (data._id != null) {
         alert("Create account successfully");
         window.location.href = "user.php";
@@ -49,6 +52,7 @@ function addUser() {
       }
     })
     .catch((error) => {
+      console.log(error);
       console.log(error.response);
     });
 }
