@@ -20,13 +20,13 @@
 
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <script src="js/control/user.js">
+    <script src="js/control/owner.js">
     </script>
     <script src="model/var.js">
     </script>
 </head>
 
-<body id="page-top" onload="getUserList()">
+<body id="page-top" onload="getOwnerList()">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -91,10 +91,8 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Name</th>
-                                            <th>Personal ID</th>
                                             <th>Email</th>
-                                            <th>Car plate</th>
-                                            <th>Current booking</th>
+                                            <th>Parking lot ID</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -102,10 +100,8 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Name</th>
-                                            <th>Personal ID</th>
                                             <th>Email</th>
-                                            <th>Car plate</th>
-                                            <th>Current booking</th>
+                                            <th>Parking lot ID</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>
