@@ -175,7 +175,7 @@
             fetch("http://bkparking.ddns.net:3002/parkinglots/" + id)
                 .then((response) => response.json())
                 .then((data) => {
-                    updateDetailPopup(id, data.name, Math.round(data.status*100)+"% free");
+                    updateDetailPopup(id, data.name, Math.round(data.status * 100) + "% free");
                 });
         }
 
@@ -183,16 +183,38 @@
             console.log(popupArray[id]);
             popupArray[id].setContent("<p>" + name + "<br/>" + status + "</p>");
         }
-
-        fetch("http://bkparking.ddns.net:3002/parkinglots")
+        var currentUserCookie = document.cookie
+            .split('; ')
+            .find(row => row.startsWith('currentUser='))
+            .split('=')[1];
+        if (JSON.parse(currentUserCookie).userType == "Admin") {
+            fetch("http://bkparking.ddns.net:3002/parkinglots")
                 .then((response) => response.json())
                 .then((data) => {
                     // console.log(data[0]);
-                    for (var i = 0; i < data.length; i++){
+                    for (var i = 0; i < data.length; i++) {
                         console.log(data[i]);
                         markLocation(data[i].coordinate.longitude, data[i].coordinate.latitude, 1, data[i]._id);
                     }
                 });
+        } else {
+            fetch("http://bkparking.ddns.net:3002/owners/" + JSON.parse(currentUserCookie)._id)
+                .then((response) => response.json())
+                .then((data) => {
+                    // console.log(data[0]);
+                    for (var i = 0; i < data.ownedParking.length; i++) {
+                        markParkingLot(data.ownedParking[i]);
+                    }
+                });
+        }
+
+        function markParkingLot(id) {
+            fetch("http://bkparking.ddns.net:3002/parkinglots/" + id)
+                .then((response) => response.json())
+                .then((data) => {
+                    markLocation(data.coordinate.longitude, data.coordinate.latitude, 1, data._id);
+                });
+        }
     </script>
 </body>
 
