@@ -108,14 +108,14 @@ function handleCancelButtonPress(id) {
 }
 
 function confirmCancelBooking(id) {
-    fetch(API_USER_LIST + "/" + id, {
-        method: "DELETE",
-    })
-        .then((response) => response.json())
-        .then((data) => {
-            console.log(data);
-            location.reload();
-        })
-        .catch((error) => {
-        });
+    // fetch(API_USER_LIST + "/" + id, {
+    //     method: "DELETE",
+    // })
+    //     .then((response) => response.json())
+    //     .then((data) => {
+    //         console.log(data);
+    //         location.reload();
+    //     })
+    //     .catch((error) => {
+    //     });
 }
