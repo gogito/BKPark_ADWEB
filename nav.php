@@ -18,6 +18,13 @@
             <span>Dashboard</span></a>
     </li>
 
+
+    <li class="nav-item active">
+        <a class="nav-link" href="owner_dashboard.php">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Owner Dashboard</span></a>
+    </li>
+
     <!-- Divider -->
     <hr class="sidebar-divider">
 
@@ -52,6 +59,22 @@
         <a class="nav-link" href="parkinglots.php">
             <i class="fas fa-fw fa-table"></i>
             <span>Parking Lots</span></a>
+    </li>
+
+
+
+    <!-- Nav Item - Tables -->
+    <li class="nav-item">
+        <a class="nav-link" href="owner_booking.php">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Owner Bookings</span></a>
+    </li>
+
+    <!-- Nav Item - Tables -->
+    <li class="nav-item">
+        <a class="nav-link" href="owner_parkinglot.php">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Owner Parking Lots</span></a>
     </li>
 
 
