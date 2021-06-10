@@ -12,50 +12,50 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
+    <li id="dashboard_ad" class="nav-item active">
         <a class="nav-link" href="index.php">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
 
 
-    <li class="nav-item active">
+    <li id="dashboard_owner" class="nav-item active">
         <a class="nav-link" href="owner_dashboard.php">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Owner Dashboard</span></a>
+            <span> Dashboard</span></a>
     </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider">
 
     <!-- Heading -->
-    <div class="sidebar-heading">
+    <div id="manage_ad" class="sidebar-heading">
         Manage
     </div>
 
     <!-- Nav Item - Tables -->
-    <li class="nav-item">
+    <li id="user_ad" class="nav-item">
         <a class="nav-link" href="user.php">
             <i class="fas fa-fw fa-table"></i>
             <span>Users</span></a>
     </li>
 
     <!-- Nav Item - Tables -->
-    <li class="nav-item">
+    <li id="owner_ad" class="nav-item">
         <a class="nav-link" href="owner.php">
             <i class="fas fa-fw fa-table"></i>
             <span>Owners</span></a>
     </li>
 
     <!-- Nav Item - Tables -->
-    <li class="nav-item">
+    <li id="booking_ad" class="nav-item">
         <a class="nav-link" href="booking.php">
             <i class="fas fa-fw fa-table"></i>
             <span>Bookings</span></a>
     </li>
 
     <!-- Nav Item - Tables -->
-    <li class="nav-item">
+    <li id="pl_ad" class="nav-item">
         <a class="nav-link" href="parkinglots.php">
             <i class="fas fa-fw fa-table"></i>
             <span>Parking Lots</span></a>
@@ -64,17 +64,17 @@
 
 
     <!-- Nav Item - Tables -->
-    <li class="nav-item">
+    <li id="booking_owner" class="nav-item">
         <a class="nav-link" href="owner_booking.php">
             <i class="fas fa-fw fa-table"></i>
-            <span>Owner Bookings</span></a>
+            <span>Bookings</span></a>
     </li>
 
     <!-- Nav Item - Tables -->
-    <li class="nav-item">
+    <li id="pl_owner" class="nav-item">
         <a class="nav-link" href="owner_parkinglot.php">
             <i class="fas fa-fw fa-table"></i>
-            <span>Owner Parking Lots</span></a>
+            <span>Parking Lots</span></a>
     </li>
 
 

@@ -26,7 +26,7 @@
     </script>
 </head>
 
-<body id="page-top" onload="getParkingLotsList()">
+<body id="page-top" onload="getOwnedParkingLotsList()">
 
     <!-- Page Wrapper -->
     <div id="wrapper">

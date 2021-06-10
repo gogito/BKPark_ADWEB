@@ -20,7 +20,7 @@
 
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <script src="js/control/user.js">
+    <script src="js/control/add_parkinglot.js">
     </script>
     <script src="model/var.js">
     </script>
@@ -88,25 +88,25 @@
 
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="inputFirstname">First Name</label>
-                                        <input type="text" class="form-control" id="inputFirstname" placeholder="First Name">
+                                        <label for="inputFirstname">Latitude</label>
+                                        <input type="text" class="form-control" id="lat" placeholder="Latitude">
                                     </div>
 
                                     <div class="form-group col-md-6">
-                                        <label for="inputLastname">Last Name</label>
-                                        <input type="text" class="form-control" id="inputLastname" placeholder="Last Name">
+                                        <label for="inputLastname">Longitude</label>
+                                        <input type="text" class="form-control" id="long" placeholder="Longitude">
                                     </div>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="inputUsername4">Username</label>
-                                        <input type="text" class="form-control" id="inputUsername4" placeholder="Username">
+                                        <label for="inputUsername4">Name</label>
+                                        <input type="text" class="form-control" id="name" placeholder="Name">
                                     </div>
 
                                     <div class="form-group col-md-6">
-                                        <label for="inputPassword4">Password</label>
-                                        <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                                        <label for="inputPassword4">Address</label>
+                                        <input type="password" class="form-control" id="adress" placeholder="Address">
                                     </div>
                                 </div>
 
@@ -114,18 +114,13 @@
 
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
-                                        <label for="inputEmail4">Email</label>
-                                        <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                                        <label for="inputEmail4">Thumnail</label>
+                                        <input type="email" class="form-control" id="img" placeholder="Thumnail link">
                                     </div>
 
                                     <div class="form-group col-md-4">
-                                        <label for="inputPersonalID">Personal ID</label>
-                                        <input type="text" class="form-control" id="inputPersonalID" placeholder="Personal ID">
-                                    </div>
-
-                                    <div class="form-group col-md-4">
-                                        <label for="inputLicensePlate">License Plate</label>
-                                        <input type="text" class="form-control" id="inputLicensePlate" placeholder="License Plate">
+                                        <label for="inputPersonalID">Owner ID</label>
+                                        <input type="text" class="form-control" id="ownerID" placeholder="Owner ID">
                                     </div>
                                 </div>
 
@@ -134,7 +129,7 @@
 
 
 
-                                <button type="submit" class="btn btn-primary">Add User</button>
+                                <a onClick="addParkinglot()" type="submit" class="btn btn-primary">Add Parking lot</a>
                             </form>
                         </div>
                     </div>

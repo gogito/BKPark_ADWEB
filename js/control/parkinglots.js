@@ -35,6 +35,30 @@ function getParkingLotsList() {
     });
 }
 
+function getOwnedParkingLotsList() {
+  var currentUserCookie = document.cookie
+  .split('; ')
+  .find(row => row.startsWith('currentUser='))
+  .split('=')[1];
+
+  console.log("create Owned Parking lots List");
+  fetch(API_OWNER_LIST + '/' + JSON.parse(currentUserCookie)._id)
+    .then((response) => response.json())
+    .then((data) => {
+      for (var i = 0; i < data.length; i++){
+        var totalslot = 0;
+        var totalarea = data[i].area.length;
+        for (var j = 0; j < totalarea; j++){
+          totalslot = totalslot + data[i].area[j].freeslot + data[i].area[j].fullslot;
+        }
+        createNewRow(data[i]._id, data[i].name, data[i].address, totalarea, totalslot, Math.round(data[i].status*100)+"%");
+      }
+      $(document).ready(function() {
+        $('#dataTable').DataTable();
+      });
+    });
+}
+
 function createNewRow(id, userid, parkingid, areaname, slotid, status) {
   var body = document.getElementById("tableBodyParkingLots");
 
