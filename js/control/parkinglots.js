@@ -1,64 +1,90 @@
-var confirm_btn = '<a href="#" id="confirm" class="btn btn-primary btn-default">'
-  + '<span class="icon text-white-50">'
-  + '<i class="fas fa-check"></i>'
-  + '</span>'
-  + '</a>'
-var info_btn = '<a href="#" id="info" class="btn btn-success btn-default">'
-  + '<span class="icon text-white-50">'
-  + '<i class="fas fa-info"></i>'
-  + '</span>'
-  + '</a>'
-var cancel_btn = '<a href="#" id="cancel" class="btn btn-danger btn-default">'
-  + '<span class="icon text-white-50">'
-  + '<i class="fas fa-times"></i>'
-  + '</span>'
-  + '</a>'
-
+var confirm_btn =
+  '<a href="#" id="confirm" class="btn btn-primary btn-default">' +
+  '<span class="icon text-white-50">' +
+  '<i class="fas fa-check"></i>' +
+  "</span>" +
+  "</a>";
+var info_btn =
+  '<a href="#" id="info" class="btn btn-success btn-default">' +
+  '<span class="icon text-white-50">' +
+  '<i class="fas fa-info"></i>' +
+  "</span>" +
+  "</a>";
+var cancel_btn =
+  '<a href="#" id="cancel" class="btn btn-danger btn-default">' +
+  '<span class="icon text-white-50">' +
+  '<i class="fas fa-times"></i>' +
+  "</span>" +
+  "</a>";
 
 function getParkingLotsList() {
- 
   console.log("create Parking lots List");
   fetch(API_PARKINGLOTS_LIST)
     .then((response) => response.json())
     .then((data) => {
-      for (var i = 0; i < data.length; i++){
+      for (var i = 0; i < data.length; i++) {
         var totalslot = 0;
         var totalarea = data[i].area.length;
-        for (var j = 0; j < totalarea; j++){
-          totalslot = totalslot + data[i].area[j].freeslot + data[i].area[j].fullslot;
+        for (var j = 0; j < totalarea; j++) {
+          totalslot =
+            totalslot + data[i].area[j].freeslot + data[i].area[j].fullslot;
         }
-        createNewRow(data[i]._id, data[i].name, data[i].address, totalarea, totalslot, Math.round(data[i].status*100)+"%");
+        createNewRow(
+          data[i]._id,
+          data[i].name,
+          data[i].address,
+          totalarea,
+          totalslot,
+          Math.round(data[i].status * 100) + "%"
+        );
       }
-      $(document).ready(function() {
-        $('#dataTable').DataTable();
+      $(document).ready(function () {
+        $("#dataTable").DataTable();
       });
     });
 }
 
 function getOwnedParkingLotsList() {
   var currentUserCookie = document.cookie
-  .split('; ')
-  .find(row => row.startsWith('currentUser='))
-  .split('=')[1];
+    .split("; ")
+    .find((row) => row.startsWith("currentUser="))
+    .split("=")[1];
 
   console.log("create Owned Parking lots List");
-  fetch(API_OWNER_LIST + '/' + JSON.parse(currentUserCookie)._id)
+  // console.log(API_OWNER_LIST + '/' + JSON.parse(currentUserCookie)._id);
+  fetch(API_OWNER_LIST + "/" + JSON.parse(currentUserCookie)._id)
     .then((response) => response.json())
     .then((data) => {
-      for (var i = 0; i < data.length; i++){
-        var totalslot = 0;
-        var totalarea = data[i].area.length;
-        for (var j = 0; j < totalarea; j++){
-          totalslot = totalslot + data[i].area[j].freeslot + data[i].area[j].fullslot;
-        }
-        createNewRow(data[i]._id, data[i].name, data[i].address, totalarea, totalslot, Math.round(data[i].status*100)+"%");
+      console.log(data);
+      for (var i = 0; i < data.ownedParking.length; i++) {
+        getParkingLotInfo(data.ownedParking[i]);
       }
-      $(document).ready(function() {
-        $('#dataTable').DataTable();
+      $(document).ready(function () {
+        $("#dataTable").DataTable();
       });
     });
 }
 
+function getParkingLotInfo(id) {
+  fetch(API_PARKINGLOTS_LIST + "/" + id)
+    .then((response) => response.json())
+    .then((data) => {
+      var totalslot = 0;
+      var totalarea = data.area.length;
+      for (var j = 0; j < totalarea; j++) {
+        totalslot =
+          totalslot + data.area.freeslot + data.area[j].fullslot;
+      }
+      createNewRow(
+        data._id,
+        data.name,
+        data.address,
+        totalarea,
+        totalslot,
+        Math.round(data.status * 100) + "%"
+      );
+    });
+}
 function createNewRow(id, userid, parkingid, areaname, slotid, status) {
   var body = document.getElementById("tableBodyParkingLots");
 
@@ -82,7 +108,6 @@ function createSingleBox(content, row) {
   row.appendChild(p);
 }
 
-
 function addButton(row, id) {
   var btn = document.createElement("td");
   btn.id = id;
@@ -91,14 +116,15 @@ function addButton(row, id) {
   row.appendChild(btn);
 
   matchFunction(btn);
-
 }
 
 function matchFunction(btnGroup) {
   var id = btnGroup.id;
   var infoBtn = btnGroup.children[0];
   var cancelBtn = btnGroup.children[1];
-  cancelBtn.onclick = function () { handleCancelButtonPress(id) };
+  cancelBtn.onclick = function () {
+    handleCancelButtonPress(id);
+  };
 }
 
 function handleCancelButtonPress(id) {
@@ -117,6 +143,5 @@ function confirmCancelBooking(id) {
       console.log(data);
       location.reload();
     })
-    .catch((error) => {
-    });
+    .catch((error) => {});
 }

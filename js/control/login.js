@@ -47,7 +47,7 @@ function adminLogin(user, pass) {
     });
 }
 function ownerLogin(user, pass) {
-  fetch("http://bkparking.ddns.net:3002/owner_login", {
+  fetch("http://bkparking.ddns.net:3002/ownerlogin", {
     method: "POST", // or 'PUT'
     headers: {
       "Content-Type": "application/json",
