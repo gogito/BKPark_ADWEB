@@ -26,7 +26,7 @@
     </script>
 </head>
 
-<body id="page-top" onload="getUserList()">
+<body id="page-top">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -106,7 +106,7 @@
 
                                     <div class="form-group col-md-6">
                                         <label for="inputPassword4">Address</label>
-                                        <input type="password" class="form-control" id="adress" placeholder="Address">
+                                        <input type="text" class="form-control" id="address" placeholder="Address">
                                     </div>
                                 </div>
 
@@ -118,7 +118,7 @@
                                         <input type="email" class="form-control" id="img" placeholder="Thumnail link">
                                     </div>
 
-                                    <div class="form-group col-md-4">
+                                    <div class="form-group col-md-4" id = "ownerCom">
                                         <label for="inputPersonalID">Owner ID</label>
                                         <input type="text" class="form-control" id="ownerID" placeholder="Owner ID">
                                     </div>
@@ -190,7 +190,20 @@
 
     <!-- Page level custom scripts
     <script src="js/demo/datatables-demo.js"></script> -->
-
+    <script>
+        var ownerIDE = document.getElementById("ownerCom");
+        var currentUserCookie = document.cookie
+            .split("; ")
+            .find((row) => row.startsWith("currentUser="))
+            .split("=")[1];
+        console.log(JSON.parse(currentUserCookie).userType);
+        if (JSON.parse(currentUserCookie).userType == "Admin") {
+            ownerIDE.style.display = "block";
+        } else if (JSON.parse(currentUserCookie).userType == "Owner") {
+            ownerIDE.style.display = "none";
+            // ownerID = JSON.parse(currentUserCookie)._id;
+        }
+    </script>
 </body>
 
 </html>

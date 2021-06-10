@@ -26,7 +26,7 @@
     </script>
 </head>
 
-<body id="page-top" onload="getBookingList()">
+<body id="page-top" onload="getOwnerBookingList()">
 
     <!-- Page Wrapper -->
     <div id="wrapper">

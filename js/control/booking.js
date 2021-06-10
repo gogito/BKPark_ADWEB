@@ -33,6 +33,27 @@ function getBookingList() {
     });
 }
 
+function getOwnerBookingList() {
+  console.log("create Owner Booking List");
+  var currentUserCookie = document.cookie
+  .split('; ')
+  .find(row => row.startsWith('currentUser='))
+  .split('=')[1];
+  fetch(API_OWNER_LIST + "/" + JSON.parse(currentUserCookie)._id + "/booking")
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      for (var i = 0; i < data.length; i++) {
+        // createNewRow(data[i]._id, data[i].userName.FName + " " + data[i].userName.LName, data[i].parkinglotName, data[i].areaName, data[i].slot_id, data[i].status);
+        createNewRow(data[i]._id, data[i].userName? data[i].userName.FName + " " + data[i].userName.LName : "Username", data[i].parkinglotName, data[i].areaName, data[i].slot_id, data[i].status);
+      }
+      $(document).ready(function () {
+        $('#dataTable').DataTable();
+      });
+
+    });
+}
+
 function createNewRow(id, userid, parkingid, areaname, slotid, status) {
   var body = document.getElementById("tableBody");
 
