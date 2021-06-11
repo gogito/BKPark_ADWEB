@@ -50,7 +50,7 @@ function addParkinglot() {
         if (JSON.parse(currentUserCookie).userType == "Admin") {
           window.location.href = "parkinglots.php";
       } else if (JSON.parse(currentUserCookie).userType == "Owner") {
-        window.location.href = "owner_parkinglots.php";
+        window.location.href = "owner_parkinglot.php";
       }
         
       } else {

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>BK Parking - Add User</title>
+    <title>BK Parking - Add Parkinglot</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -20,13 +20,13 @@
 
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <script src="js/control/info.js">
+    <script src="js/control/add_area.js">
     </script>
     <script src="model/var.js">
     </script>
 </head>
 
-<body id="page-top" onload="updateUserInfo()">
+<body id="page-top" onload="updateInfo()">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -73,62 +73,36 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">User Info</h1>
-                    <p class="mb-4">View User Info using the form below or download our mobile app at<a target="_blank" href="https://datatables.net"> BK Parking</a>.</p>
+                    <h1 class="h3 mb-2 text-gray-800">Add Areas</h1>
+                    <p class="mb-4">Add New Parkinglots using the form below or download our mobile app at<a target="_blank" href="https://datatables.net"> BK Parking</a>.</p>
 
                     <!-- Main Content -->
-                    <div class="row">
-                        <div class="col-xl-4 col-md-6 mb-4">
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Profile Picture</h6>
-                                </div>
-                                <div class="card-body text-center">
-                                    <!-- Profile picture image-->
-                                    <img class="img-account-profile rounded-circle mb-2" src="https://sb-admin-pro.startbootstrap.com/assets/img/illustrations/profiles/profile-1.png" alt="">
-                                    <!-- Profile picture help block-->
-                                    <div id = "name" class="h3 font-italic text-muted mb-4">User name</div>
-
-                                </div>
-                            </div>
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 id="parkinglotName" class="m-0 font-weight-bold text-primary">Add Parkinglot Form</h6>
                         </div>
+                        <div class="card-body">
+                            <form>
 
-                        <div class="col-xl-8 col-md-6 mb-4">
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Account Info</h6>
+
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputFirstname">Area Name</label>
+                                        <input type="text" class="form-control" id="name" placeholder="Latitude">
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="inputLastname">Number of Slots</label>
+                                        <input type="text" class="form-control" id="slot" placeholder="Longitude">
+                                    </div>
                                 </div>
-                                <div class="card-body">
-                                    <form>
 
-                                        <div class="form-row">
-                                            <div class="form-group col-md-6">
-                                                <label for="inputUsername4">Username</label>
-                                                <input id='username' type="text" class="form-control" id="username" placeholder="Username" readonly>
-                                            </div>
-                                        </div>
-
-
-
-                                        <div class="form-row">
-                                            <div class="form-group col-md-6">
-                                                <label for="inputEmail4">Email</label>
-                                                <input type="email" class="form-control" id="email" placeholder="Email" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-group col-md-6">
-                                                <label for="inputEmail4">Personal ID</label>
-                                                <input  type="text" class="form-control" id="personalID" placeholder="Email" readonly>
-                                            </div>
-                                        </div>
-                                        <div id="ownerParkinglot" class="form-row">
-                                            <div class="form-group col-md-6">
-                                                <label for="inputEmail4">Total parking lot</label>
-                                                <input type="email" class="form-control" id="parkinglot" placeholder="Email" readonly>
-                                            </div>
-                                        </div>
-
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputUsername4">Price</label>
+                                        <input type="text" class="form-control" id="price" placeholder="Name">
+                                    </div>
                                 </div>
 
 
@@ -136,24 +110,23 @@
 
 
 
-                                <a onClick="addUser()" type="submit" class="btn btn-primary">Update</a>
-                                </form>
-                            </div>
+                                <a onClick="addParkinglot()" type="submit" class="btn btn-primary">Add Area</a>
+                            </form>
                         </div>
                     </div>
+
                 </div>
+                <!-- /.container-fluid -->
+
             </div>
-            <!-- /.container-fluid -->
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <?php include 'footer.php'; ?>
+            <!-- End of Footer -->
 
         </div>
-        <!-- End of Main Content -->
-
-        <!-- Footer -->
-        <?php include 'footer.php'; ?>
-        <!-- End of Footer -->
-
-    </div>
-    <!-- End of Content Wrapper -->
+        <!-- End of Content Wrapper -->
 
     </div>
     <!-- End of Page Wrapper -->
@@ -198,7 +171,20 @@
 
     <!-- Page level custom scripts
     <script src="js/demo/datatables-demo.js"></script> -->
-
+    <script>
+        var ownerIDE = document.getElementById("ownerCom");
+        var currentUserCookie = document.cookie
+            .split("; ")
+            .find((row) => row.startsWith("currentUser="))
+            .split("=")[1];
+        console.log(JSON.parse(currentUserCookie).userType);
+        if (JSON.parse(currentUserCookie).userType == "Admin") {
+            ownerIDE.style.display = "block";
+        } else if (JSON.parse(currentUserCookie).userType == "Owner") {
+            ownerIDE.style.display = "none";
+            // ownerID = JSON.parse(currentUserCookie)._id;
+        }
+    </script>
 </body>
 
 </html>

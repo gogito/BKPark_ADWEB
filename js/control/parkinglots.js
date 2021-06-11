@@ -1,7 +1,7 @@
 var confirm_btn =
   '<a href="#" id="confirm" class="btn btn-primary btn-default">' +
   '<span class="icon text-white-50">' +
-  '<i class="fas fa-check"></i>' +
+  '<i class="fas fa-plus"></i>' +
   "</span>" +
   "</a>";
 var info_btn =
@@ -16,7 +16,10 @@ var cancel_btn =
   '<i class="fas fa-times"></i>' +
   "</span>" +
   "</a>";
-
+var currentUserCookie = document.cookie
+  .split("; ")
+  .find((row) => row.startsWith("currentUser="))
+  .split("=")[1];
 function getParkingLotsList() {
   console.log("create Parking lots List");
   fetch(API_PARKINGLOTS_LIST)
@@ -45,11 +48,6 @@ function getParkingLotsList() {
 }
 
 function getOwnedParkingLotsList() {
-  var currentUserCookie = document.cookie
-    .split("; ")
-    .find((row) => row.startsWith("currentUser="))
-    .split("=")[1];
-
   console.log("create Owned Parking lots List");
   fetch(API_OWNER_LIST + "/" + JSON.parse(currentUserCookie)._id + "/parking")
     .then((response) => response.json())
@@ -89,7 +87,7 @@ function createNewRow(id, userid, parkingid, areaname, slotid, status) {
   createSingleBox(slotid, row);
   createSingleBox(status, row);
   console.log(userid);
-  addButton(row, id);
+  addButton(row, id, userid);
   body.appendChild(row);
 }
 
@@ -100,22 +98,37 @@ function createSingleBox(content, row) {
   row.appendChild(p);
 }
 
-function addButton(row, id) {
+function addButton(row, id, name) {
   var btn = document.createElement("td");
   btn.id = id;
-  btn.innerHTML = info_btn + cancel_btn;
+  if (JSON.parse(currentUserCookie).userType == "Admin"){
+    btn.innerHTML = info_btn + cancel_btn;
+  }
+  else if (JSON.parse(currentUserCookie).userType == "Owner"){
+    btn.innerHTML = confirm_btn +  info_btn + cancel_btn;
+  }
+
   document.body.appendChild(btn);
   row.appendChild(btn);
 
-  matchFunction(btn);
+  matchFunction(btn, name);
 }
 
-function matchFunction(btnGroup) {
+function matchFunction(btnGroup, name) {
   var id = btnGroup.id;
-  var infoBtn = btnGroup.children[0];
-  var cancelBtn = btnGroup.children[1];
+  var addBtn = btnGroup.children[0];
+  var infoBtn = btnGroup.children[1];
+  var cancelBtn = btnGroup.children[2];
   cancelBtn.onclick = function () {
     handleCancelButtonPress(id);
+  };
+  var cookie = {
+    id: btnGroup.id,
+    name: name
+  }
+  addBtn.onclick = function () {
+    document.cookie = "updateParkinglot=" + JSON.stringify(cookie) + "; max-age=300; path=/;";
+    window.location.href = "add_area.php";
   };
 }
 

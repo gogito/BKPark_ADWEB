@@ -7,17 +7,9 @@
             </a>
             <!-- Dropdown - User Information -->
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
+                <a onclick="setInfo()" id="profile" class="dropdown-item" href="user_info.php">
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     Profile
-                </a>
-                <a class="dropdown-item" href="#">
-                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Settings
-                </a>
-                <a class="dropdown-item" href="#">
-                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Activity Log
                 </a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
@@ -27,15 +19,28 @@
             </div>
         </li>
         <script>
-        var userinfo = document.getElementById("userinfo_name");
+            var userinfo = document.getElementById("userinfo_name");
 
-        var currentUserCookie = document.cookie
-            .split('; ')
-            .find(row => row.startsWith('currentUser='))
-            .split('=')[1];
-   
-        console.log(userinfo.textContent);
-        userinfo.textContent = JSON.parse(currentUserCookie).name.FName + " " + JSON.parse(currentUserCookie).name.LName;
-    </script>
+            var currentUserCookie = document.cookie
+                .split('; ')
+                .find(row => row.startsWith('currentUser='))
+                .split('=')[1];
+
+            var userType = JSON.parse(currentUserCookie).userType;
+            var profile = document.getElementById("profile");
+            if (userType == "Admin") {
+                profile.style.display = "none";
+            } else if (userType == "Owner") {
+                profile.style.display = "block";
+                // parkinglot.value = JSON.parse(currentUserCookie).ownedParking.length;
+            }
+            console.log(userinfo.textContent);
+            userinfo.textContent = JSON.parse(currentUserCookie).name.FName + " " + JSON.parse(currentUserCookie).name.LName;
+
+            function setInfo(){
+                document.cookie = "currentUserInfo=" + JSON.parse(currentUserCookie)._id + "; max-age=3600; path=/;";
+                document.cookie = "currentUserInfoType=" + JSON.parse(currentUserCookie).userType + "; max-age=3600; path=/;";
+            }
+        </script>
 
     </ul>
