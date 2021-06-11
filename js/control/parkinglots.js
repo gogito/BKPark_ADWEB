@@ -51,13 +51,25 @@ function getOwnedParkingLotsList() {
     .split("=")[1];
 
   console.log("create Owned Parking lots List");
-  // console.log(API_OWNER_LIST + '/' + JSON.parse(currentUserCookie)._id);
-  fetch(API_OWNER_LIST + "/" + JSON.parse(currentUserCookie)._id)
+  fetch(API_OWNER_LIST + "/" + JSON.parse(currentUserCookie)._id + "/parking")
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      for (var i = 0; i < data.ownedParking.length; i++) {
-        getParkingLotInfo(data.ownedParking[i]);
+      for (var i = 0; i < data.length; i++) {
+        var totalslot = 0;
+        var totalarea = data[i].area.length;
+        for (var j = 0; j < totalarea; j++) {
+          totalslot =
+            totalslot + data[i].area.freeslot + data[i].area[j].fullslot;
+        }
+        createNewRow(
+          data[i]._id,
+          data[i].name,
+          data[i].address,
+          totalarea,
+          totalslot,
+          Math.round(data[i].status * 100) + "%"
+        );
       }
       $(document).ready(function () {
         $("#dataTable").DataTable();
@@ -65,26 +77,6 @@ function getOwnedParkingLotsList() {
     });
 }
 
-function getParkingLotInfo(id) {
-  fetch(API_PARKINGLOTS_LIST + "/" + id)
-    .then((response) => response.json())
-    .then((data) => {
-      var totalslot = 0;
-      var totalarea = data.area.length;
-      for (var j = 0; j < totalarea; j++) {
-        totalslot =
-          totalslot + data.area.freeslot + data.area[j].fullslot;
-      }
-      createNewRow(
-        data._id,
-        data.name,
-        data.address,
-        totalarea,
-        totalslot,
-        Math.round(data.status * 100) + "%"
-      );
-    });
-}
 function createNewRow(id, userid, parkingid, areaname, slotid, status) {
   var body = document.getElementById("tableBodyParkingLots");
 
