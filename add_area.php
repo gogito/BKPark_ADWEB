@@ -89,19 +89,19 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="inputFirstname">Area Name</label>
-                                        <input type="text" class="form-control" id="name" placeholder="Latitude">
+                                        <input type="text" class="form-control" id="name" placeholder="Name">
                                     </div>
 
                                     <div class="form-group col-md-6">
                                         <label for="inputLastname">Number of Slots</label>
-                                        <input type="text" class="form-control" id="slot" placeholder="Longitude">
+                                        <input type="text" class="form-control" id="slot" placeholder="Total Slot">
                                     </div>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="inputUsername4">Price</label>
-                                        <input type="text" class="form-control" id="price" placeholder="Name">
+                                        <input type="text" class="form-control" id="price" placeholder="Price">
                                     </div>
                                 </div>
 

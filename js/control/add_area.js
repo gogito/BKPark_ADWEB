@@ -14,45 +14,27 @@ function addParkinglot() {
   var name = nameE.value;
   var slot = slotE.value;
   var price = priceE.value;
+  var slotsStatus = [];
+  for (var i = 0; i < slot; i++){
+    slotsStatus.push(0);
+  }
 
-
-  fetch(API_PARKINGLOTS_LIST + "/" + JSON.parse(currentParkingrCookie).id, {
+  fetch(API_PARKINGLOTS_LIST + "/" + JSON.parse(currentParkingrCookie).id + "/area", {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      coordinate: {
-        name: slot,
-        slot: name,
-      },
-      address: address,
-      name: name,
-      image: price,
-      ownerID: ownerID,
-      status: 1,
+      area:{
+        name: name,
+        price: price,
+        slots:slotsStatus
+      }
     }),
   })
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      if (data._id != null) {
-        alert("Create account successfully");
-        if (JSON.parse(currentUserCookie).userType == "Admin") {
-          window.location.href = "parkinglots.php";
-      } else if (JSON.parse(currentUserCookie).userType == "Owner") {
-        window.location.href = "owner_parkinglot.php";
-      }
-        
-      } else {
-        console.log(data);
-        nameE.value = "";
-        slotE.value = "";
-        addressE.value = "";
-        ownerIDE.value = "";
-        priceE.value = "";
-        alert("Failed to create account");
-      }
     })
     .catch((error) => {
       console.log(error);

@@ -136,7 +136,7 @@
 
 
 
-                                <a onClick="addUser()" type="submit" class="btn btn-primary">Update</a>
+                                <a id="updateBtn" onClick="addUser()" type="submit" class="btn btn-primary">Update</a>
                                 </form>
                             </div>
                         </div>

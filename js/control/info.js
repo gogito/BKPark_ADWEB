@@ -2,7 +2,7 @@ var currentUserCookie = document.cookie
   .split("; ")
   .find((row) => row.startsWith("currentUser="))
   .split("=")[1];
-var userType = document.cookie
+var userTypeInfo = document.cookie
   .split("; ")
   .find((row) => row.startsWith("currentUserInfoType="))
   .split("=")[1];
@@ -11,9 +11,10 @@ var currentUserInfoCookie = document.cookie
   .find((row) => row.startsWith("currentUserInfo="))
   .split("=")[1];
 
-console.log(userType);
+// console.log(userTypeInfo);
 function updateUserInfo() {
   var ownerParkinglot = document.getElementById("ownerParkinglot");
+  var updateBtn = document.getElementById("updateBtn");
 
   var name = document.getElementById("name");
   var username = document.getElementById("username");
@@ -23,7 +24,9 @@ function updateUserInfo() {
 
   if (userType == "Admin") {
     ownerParkinglot.style.display = "none";
+    updateBtn.style.display = "block";
   } else if (userType == "Owner") {
+    updateBtn.style.display = "none";
     ownerParkinglot.style.display = "block";
     parkinglot.value = JSON.parse(currentUserCookie).ownedParking.length;
   }
@@ -33,7 +36,8 @@ function updateUserInfo() {
 
 function getUserInfo(name, username, email, personalID) {
     var LINKAPI = API_USER_LIST;
-  if (userType == "Owner") LINKAPI = API_OWNER_LIST
+    // console.log(userTypeInfo);
+  if (userTypeInfo == "Owner") LINKAPI = API_OWNER_LIST
   console.log(LINKAPI);
   fetch(LINKAPI + "/" + currentUserInfoCookie, {
     method: "PUT",

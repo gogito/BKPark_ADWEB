@@ -116,20 +116,33 @@ function addButton(row, id, name) {
 
 function matchFunction(btnGroup, name) {
   var id = btnGroup.id;
-  var addBtn = btnGroup.children[0];
-  var infoBtn = btnGroup.children[1];
-  var cancelBtn = btnGroup.children[2];
+  var addBtn;
+  var infoBtn;
+  var cancelBtn;
+  if (JSON.parse(currentUserCookie).userType == "Owner"){
+    addBtn = btnGroup.children[0];
+    infoBtn = btnGroup.children[1];
+    cancelBtn = btnGroup.children[2];
+
+    var cookie = {
+      id: btnGroup.id,
+      name: name
+    }
+    addBtn.onclick = function () {
+      document.cookie = "updateParkinglot=" + JSON.stringify(cookie) + "; max-age=300; path=/;";
+      window.location.href = "add_area.php";
+    };
+  }
+  else if (JSON.parse(currentUserCookie).userType == "Admin"){
+    infoBtn = btnGroup.children[0];
+    cancelBtn = btnGroup.children[1];
+  }
+
   cancelBtn.onclick = function () {
     handleCancelButtonPress(id);
   };
-  var cookie = {
-    id: btnGroup.id,
-    name: name
-  }
-  addBtn.onclick = function () {
-    document.cookie = "updateParkinglot=" + JSON.stringify(cookie) + "; max-age=300; path=/;";
-    window.location.href = "add_area.php";
-  };
+
+
 }
 
 function handleCancelButtonPress(id) {

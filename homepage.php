@@ -17,6 +17,8 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <script src="model/var.js" type="text/javascript">
+    </script>
 </head>
 
 <body id="page-top">
@@ -79,7 +81,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Total Bookings</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">268</div>
+                                            <div id="totalBooking" class="h5 mb-0 font-weight-bold text-gray-800">268</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-car fa-2x text-gray-300"></i>
@@ -90,14 +92,14 @@
                         </div>
 
                         <!-- Total Users Card -->
-                        <div class="col-xl-3 col-md-6 mb-4">
+                        <div  class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Total Users</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">939</div>
+                                            <div id="totalUser" class="h5 mb-0 font-weight-bold text-gray-800">939</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-user fa-2x text-gray-300"></i>
@@ -115,7 +117,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                                 Total Parking Lots</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">67</div>
+                                            <div id="totalParkingLot" class="h5 mb-0 font-weight-bold text-gray-800">67</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-map-marker fa-2x text-gray-300"></i>
@@ -134,7 +136,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
                                                 Total Owners</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">14</div>
+                                            <div id="totalOwner" class="h5 mb-0 font-weight-bold text-gray-800">14</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-male fa-2x text-gray-300"></i>
@@ -289,6 +291,8 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
+    <script src="js/control/dashboard.js"></script>
+   
 
 </body>
 

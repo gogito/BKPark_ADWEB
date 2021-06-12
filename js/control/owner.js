@@ -78,6 +78,12 @@ function matchFunction(btnGroup) {
     var cancelBtn = btnGroup.children[1];
     // confirmBtn.onclick = function () { handleConfirmButtonPress(id) };
     cancelBtn.onclick = function () { handleCancelButtonPress(id) };
+    infoBtn.onclick = function () { 
+        console.log("checked");
+        document.cookie = "currentUserInfo=" + id + "; max-age=3600; path=/;"; 
+        document.cookie = "currentUserInfoType=Owner; max-age=3600; path=/;"; 
+      };
+      infoBtn.href = "user_info.php"
 }
 
 // function handleConfirmButtonPress(id) {
