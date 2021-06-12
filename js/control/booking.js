@@ -39,6 +39,7 @@ function getOwnerBookingList() {
   .split('; ')
   .find(row => row.startsWith('currentUser='))
   .split('=')[1];
+  console.log(API_OWNER_LIST + "/" + JSON.parse(currentUserCookie)._id + "/booking");
   fetch(API_OWNER_LIST + "/" + JSON.parse(currentUserCookie)._id + "/booking")
     .then((response) => response.json())
     .then((data) => {

@@ -4,7 +4,7 @@ function addOwner() {
     var usernameE = document.getElementById("username");
     var passE = document.getElementById("password");
     var emailE = document.getElementById("email");
-    // var personalE = document.getElementById("personalID");
+    var personalE = document.getElementById("personalID");
     // var plateE = document.getElementById("plate");
   
     var fname = fnameE.value;
@@ -12,11 +12,9 @@ function addOwner() {
     var username = usernameE.value;
     var password = passE.value;
     var email = emailE.value;
-    // var personal = personalE.value;
+    var personal = personalE.value;
     // var plate = plateE.value;
-    // console.log(fname + lname + username + password + email + personal);
-    // console.log(API_USER_REGISTER);
-    // window.location.href = "../user.php";
+    console.log(fname + lname + username + password + email + personal);
     fetch(API_OWNER_LIST, {
       method: "POST",
       headers: {
@@ -30,6 +28,7 @@ function addOwner() {
         username: username,
         password: password,
         email: email,
+        personalID: "123456"
       }),
     })
       .then((response) => response.json())

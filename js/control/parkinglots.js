@@ -1,7 +1,7 @@
 var confirm_btn =
   '<a href="#" id="confirm" class="btn btn-primary btn-default">' +
   '<span class="icon text-white-50">' +
-  '<i class="fas fa-check"></i>' +
+  '<i class="fas fa-plus"></i>' +
   "</span>" +
   "</a>";
 var info_btn =
@@ -16,7 +16,10 @@ var cancel_btn =
   '<i class="fas fa-times"></i>' +
   "</span>" +
   "</a>";
-
+var currentUserCookie = document.cookie
+  .split("; ")
+  .find((row) => row.startsWith("currentUser="))
+  .split("=")[1];
 function getParkingLotsList() {
   console.log("create Parking lots List");
   fetch(API_PARKINGLOTS_LIST)
@@ -45,19 +48,26 @@ function getParkingLotsList() {
 }
 
 function getOwnedParkingLotsList() {
-  var currentUserCookie = document.cookie
-    .split("; ")
-    .find((row) => row.startsWith("currentUser="))
-    .split("=")[1];
-
   console.log("create Owned Parking lots List");
-  // console.log(API_OWNER_LIST + '/' + JSON.parse(currentUserCookie)._id);
-  fetch(API_OWNER_LIST + "/" + JSON.parse(currentUserCookie)._id)
+  fetch(API_OWNER_LIST + "/" + JSON.parse(currentUserCookie)._id + "/parking")
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      for (var i = 0; i < data.ownedParking.length; i++) {
-        getParkingLotInfo(data.ownedParking[i]);
+      for (var i = 0; i < data.length; i++) {
+        var totalslot = 0;
+        var totalarea = data[i].area.length;
+        for (var j = 0; j < totalarea; j++) {
+          totalslot =
+            totalslot + data[i].area.freeslot + data[i].area[j].fullslot;
+        }
+        createNewRow(
+          data[i]._id,
+          data[i].name,
+          data[i].address,
+          totalarea,
+          totalslot,
+          Math.round(data[i].status * 100) + "%"
+        );
       }
       $(document).ready(function () {
         $("#dataTable").DataTable();
@@ -65,26 +75,6 @@ function getOwnedParkingLotsList() {
     });
 }
 
-function getParkingLotInfo(id) {
-  fetch(API_PARKINGLOTS_LIST + "/" + id)
-    .then((response) => response.json())
-    .then((data) => {
-      var totalslot = 0;
-      var totalarea = data.area.length;
-      for (var j = 0; j < totalarea; j++) {
-        totalslot =
-          totalslot + data.area.freeslot + data.area[j].fullslot;
-      }
-      createNewRow(
-        data._id,
-        data.name,
-        data.address,
-        totalarea,
-        totalslot,
-        Math.round(data.status * 100) + "%"
-      );
-    });
-}
 function createNewRow(id, userid, parkingid, areaname, slotid, status) {
   var body = document.getElementById("tableBodyParkingLots");
 
@@ -97,7 +87,7 @@ function createNewRow(id, userid, parkingid, areaname, slotid, status) {
   createSingleBox(slotid, row);
   createSingleBox(status, row);
   console.log(userid);
-  addButton(row, id);
+  addButton(row, id, userid);
   body.appendChild(row);
 }
 
@@ -108,23 +98,51 @@ function createSingleBox(content, row) {
   row.appendChild(p);
 }
 
-function addButton(row, id) {
+function addButton(row, id, name) {
   var btn = document.createElement("td");
   btn.id = id;
-  btn.innerHTML = info_btn + cancel_btn;
+  if (JSON.parse(currentUserCookie).userType == "Admin"){
+    btn.innerHTML = info_btn + cancel_btn;
+  }
+  else if (JSON.parse(currentUserCookie).userType == "Owner"){
+    btn.innerHTML = confirm_btn +  info_btn + cancel_btn;
+  }
+
   document.body.appendChild(btn);
   row.appendChild(btn);
 
-  matchFunction(btn);
+  matchFunction(btn, name);
 }
 
-function matchFunction(btnGroup) {
+function matchFunction(btnGroup, name) {
   var id = btnGroup.id;
-  var infoBtn = btnGroup.children[0];
-  var cancelBtn = btnGroup.children[1];
+  var addBtn;
+  var infoBtn;
+  var cancelBtn;
+  if (JSON.parse(currentUserCookie).userType == "Owner"){
+    addBtn = btnGroup.children[0];
+    infoBtn = btnGroup.children[1];
+    cancelBtn = btnGroup.children[2];
+
+    var cookie = {
+      id: btnGroup.id,
+      name: name
+    }
+    addBtn.onclick = function () {
+      document.cookie = "updateParkinglot=" + JSON.stringify(cookie) + "; max-age=300; path=/;";
+      window.location.href = "add_area.php";
+    };
+  }
+  else if (JSON.parse(currentUserCookie).userType == "Admin"){
+    infoBtn = btnGroup.children[0];
+    cancelBtn = btnGroup.children[1];
+  }
+
   cancelBtn.onclick = function () {
     handleCancelButtonPress(id);
   };
+
+
 }
 
 function handleCancelButtonPress(id) {

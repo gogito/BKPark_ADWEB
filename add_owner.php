@@ -117,12 +117,12 @@
                                         <label for="inputEmail4">Email</label>
                                         <input type="email" class="form-control" id="email" placeholder="Email">
                                     </div>
-<!-- 
+
                                     <div class="form-group col-md-4">
                                         <label for="inputPersonalID">Personal ID</label>
-                                        <input type="text" class="form-control" id="inputPersonalID" placeholder="Personal ID">
+                                        <input type="text" class="form-control" id="personalID" placeholder="Personal ID">
                                     </div>
-
+<!-- 
                                     <div class="form-group col-md-4">
                                         <label for="inputLicensePlate">License Plate</label>
                                         <input type="text" class="form-control" id="inputLicensePlate" placeholder="License Plate">
