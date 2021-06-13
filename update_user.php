@@ -20,13 +20,12 @@
 
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <script src="js/control/info.js">
-    </script>
+
     <script src="model/var.js">
     </script>
 </head>
 
-<body id="page-top" onload="updateUserInfo()">
+<body id="page-top">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -73,62 +72,40 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">User Info</h1>
-                    <p class="mb-4">View User Info using the form below or download our mobile app at<a target="_blank" href="https://datatables.net"> BK Parking</a>.</p>
+                    <h1 class="h3 mb-2 text-gray-800">Add Users</h1>
+                    <p class="mb-4">Add New User using the form below or download our mobile app at<a target="_blank" href="https://datatables.net"> BK Parking</a>.</p>
 
                     <!-- Main Content -->
-                    <div class="row">
-                        <div class="col-xl-4 col-md-6 mb-4">
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Profile Picture</h6>
-                                </div>
-                                <div class="card-body text-center">
-                                    <!-- Profile picture image-->
-                                    <img class="img-account-profile rounded-circle mb-2" src="https://sb-admin-pro.startbootstrap.com/assets/img/illustrations/profiles/profile-1.png" alt="">
-                                    <!-- Profile picture help block-->
-                                    <div id = "name" class="h3 font-italic text-muted mb-4">User name</div>
-
-                                </div>
-                            </div>
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Add User Form</h6>
                         </div>
+                        <div class="card-body">
+                            <form>
 
-                        <div class="col-xl-8 col-md-6 mb-4">
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Account Info</h6>
+
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputFirstname">First Name</label>
+                                        <input id='Fname' type="text" class="form-control" id="inputFirstname" placeholder="First Name">
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="inputLastname">Last Name</label>
+                                        <input id='Lname' type="text" class="form-control" id="inputLastname" placeholder="Last Name">
+                                    </div>
                                 </div>
-                                <div class="card-body">
-                                    <form>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="inputEmail4">Email</label>
+                                        <input id='email' type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                                    </div>
 
-                                        <div class="form-row">
-                                            <div class="form-group col-md-6">
-                                                <label for="inputUsername4">Username</label>
-                                                <input id='username' type="text" class="form-control" id="username" placeholder="Username" readonly>
-                                            </div>
-                                        </div>
-
-
-
-                                        <div class="form-row">
-                                            <div class="form-group col-md-6">
-                                                <label for="inputEmail4">Email</label>
-                                                <input type="email" class="form-control" id="email" placeholder="Email" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-group col-md-6">
-                                                <label for="inputEmail4">Personal ID</label>
-                                                <input  type="text" class="form-control" id="personalID" placeholder="Email" readonly>
-                                            </div>
-                                        </div>
-                                        <div id="ownerParkinglot" class="form-row">
-                                            <div class="form-group col-md-6">
-                                                <label for="inputEmail4">Total parking lot</label>
-                                                <input type="email" class="form-control" id="parkinglot" placeholder="Email" readonly>
-                                            </div>
-                                        </div>
-
+                                    <div class="form-group col-md-4">
+                                        <label for="inputPersonalID">Personal ID</label>
+                                        <input id='personalID' type="text" class="form-control" id="inputPersonalID" placeholder="Personal ID">
+                                    </div>
                                 </div>
 
 
@@ -136,24 +113,23 @@
 
 
 
-                                <a id="updateBtn" href="update_user.php" type="submit" class="btn btn-primary">Update</a>
-                                </form>
-                            </div>
+                                <a onClick="updateUserInfo()" type="submit" class="btn btn-primary">Update</a>
+                            </form>
                         </div>
                     </div>
+
                 </div>
+                <!-- /.container-fluid -->
+
             </div>
-            <!-- /.container-fluid -->
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <?php include 'footer.php'; ?>
+            <!-- End of Footer -->
 
         </div>
-        <!-- End of Main Content -->
-
-        <!-- Footer -->
-        <?php include 'footer.php'; ?>
-        <!-- End of Footer -->
-
-    </div>
-    <!-- End of Content Wrapper -->
+        <!-- End of Content Wrapper -->
 
     </div>
     <!-- End of Page Wrapper -->
@@ -195,7 +171,8 @@
     <!-- Page level plugins -->
     <script src="vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
+    <script src="js/control/update_user.js">
+    </script>
     <!-- Page level custom scripts
     <script src="js/demo/datatables-demo.js"></script> -->
 
