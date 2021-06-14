@@ -1,7 +1,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="homepage.php">
+    <a id="logo" class="sidebar-brand d-flex align-items-center justify-content-center">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-location-arrow"></i>
         </div>
@@ -103,6 +103,7 @@
         var pl_ad = document.getElementById("pl_ad");
         var pl_owner = document.getElementById("pl_owner");
         var booking_owner = document.getElementById("booking_owner");
+        var logo = document.getElementById("logo");
         var currentUserCookie = document.cookie
             .split('; ')
             .find(row => row.startsWith('currentUser='))
@@ -117,6 +118,7 @@
             booking_ad.style.display = 'block';
             user_ad.style.display = 'block';
             owner_ad.style.display = 'block';
+            logo.href = "homepage.php"
         } else {
             dashboard_owner.style.display = 'block';
             pl_owner.style.display = 'block';
@@ -126,6 +128,7 @@
             booking_ad.style.display = 'none';
             user_ad.style.display = 'none';
             owner_ad.style.display = 'none';
+            logo.href = "owner_dashboard.php"
 
         }
     </script>
