@@ -19,6 +19,8 @@
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <script src="model/var.js" type="text/javascript">
     </script>
+    <script src="control/update_user.js" type="text/javascript">
+    </script>
 </head>
 
 <body id="page-top">
