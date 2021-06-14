@@ -87,26 +87,43 @@
 
 
                                 <div class="form-row">
-                                    <div class="form-group col-md-6">
+                                <div class="form-group col-md-4">
+                                        <label for="inputUsername4">Name</label>
+                                        <input type="text" class="form-control" id="name" placeholder="Name">
+                                    </div>
+                                    <div class="form-group col-md-4">
                                         <label for="inputFirstname">Latitude</label>
                                         <input type="text" class="form-control" id="lat" placeholder="Latitude">
                                     </div>
 
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-4">
                                         <label for="inputLastname">Longitude</label>
                                         <input type="text" class="form-control" id="long" placeholder="Longitude">
                                     </div>
                                 </div>
 
                                 <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="inputUsername4">Name</label>
-                                        <input type="text" class="form-control" id="name" placeholder="Name">
-                                    </div>
+                                    
 
-                                    <div class="form-group col-md-6">
-                                        <label for="inputPassword4">Address</label>
-                                        <input type="text" class="form-control" id="address" placeholder="Address">
+                                    <div class="form-group col-md-2">
+                                        <label for="inputPassword4">Number</label>
+                                        <input type="text" class="form-control" id="address_number" placeholder="Address">
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="inputPassword4">Street</label>
+                                        <input type="text" class="form-control" id="address_street" placeholder="Address">
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="inputPassword4">district</label>
+                                        <input type="text" class="form-control" id="address_district" placeholder="Address">
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="inputPassword4">City</label>
+                                        <input type="text" class="form-control" id="address_city" placeholder="Address">
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="inputPassword4">Country</label>
+                                        <input type="text" class="form-control" id="address_country" placeholder="Address">
                                     </div>
                                 </div>
 

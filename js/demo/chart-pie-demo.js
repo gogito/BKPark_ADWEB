@@ -39,7 +39,7 @@ function ownerUpdate() {
   fetch(API_OWNER_LIST + "/" + JSON.parse(currentUserCookie)._id + "/booking")
     .then((response) => response.json())
     .then((data) => {
-      // console.log(data);
+      console.log(data);
       for (var i = 0; i < data.length; i++) {
         if (data[i].status == "Success") success = success + 1;
         if (data[i].status == "Failed") failed = failed + 1;
