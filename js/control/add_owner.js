@@ -28,7 +28,7 @@ function addOwner() {
         username: username,
         password: password,
         email: email,
-        personalID: "123456"
+        personalID: personal
       }),
     })
       .then((response) => response.json())
