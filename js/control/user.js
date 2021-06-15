@@ -86,25 +86,6 @@ function matchFunction(btnGroup) {
   infoBtn.href = "user_info.php"
 }
 
-// function handleConfirmButtonPress(id) {
-//   console.log(id);
-//   if (confirm("Are you sure to make this booking success?")) {
-//     confirmSuccessBooking(id);
-//   }
-// }
-
-// function confirmSuccessBooking(id) {
-//   fetch(API_BOOKING_LIST + "/" + id, {
-//     method: "PUT",
-//   })
-//     .then((response) => response.json())
-//     .then((data) => {
-//       console.log(data);
-//       location.reload();
-//     })
-//     .catch((error) => {
-//     });
-// }
 function handleCancelButtonPress(id) {
   console.log(id);
   if (confirm("Are you sure to DELETE this user?")) {
