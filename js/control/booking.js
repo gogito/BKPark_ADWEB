@@ -24,7 +24,7 @@ function getBookingList() {
       console.log(data);
       for (var i = 0; i < data.length; i++) {
         // createNewRow(data[i]._id, data[i].userName.FName + " " + data[i].userName.LName, data[i].parkinglotName, data[i].areaName, data[i].slot_id, data[i].status);
-        createNewRow(data[i]._id, data[i].userName? data[i].userName.FName + " " + data[i].userName.LName : "Username", data[i].parkinglotName, data[i].areaName, data[i].slot_id, data[i].status);
+        createNewRow(data[i]._id, data[i].userName? data[i].userName.FName + " " + data[i].userName.LName : "Username", data[i].parkinglotName, data[i].areaName, data[i].slot_id, data[i].status, data[i].price, data[i].created_at);
       }
       $(document).ready(function () {
         $('#dataTable').DataTable();
@@ -46,7 +46,7 @@ function getOwnerBookingList() {
       console.log(data);
       for (var i = 0; i < data.length; i++) {
         // createNewRow(data[i]._id, data[i].userName.FName + " " + data[i].userName.LName, data[i].parkinglotName, data[i].areaName, data[i].slot_id, data[i].status);
-        createNewRow(data[i]._id, data[i].userName? data[i].userName.FName + " " + data[i].userName.LName : "Username", data[i].parkinglotName, data[i].areaName, data[i].slot_id, data[i].status);
+        createNewRow(data[i]._id, data[i].userName? data[i].userName.FName + " " + data[i].userName.LName : "Username", data[i].parkinglotName, data[i].areaName, data[i].slot_id, data[i].status, data[i].price, data[i].created_at);
       }
       $(document).ready(function () {
         $('#dataTable').DataTable();
@@ -55,7 +55,7 @@ function getOwnerBookingList() {
     });
 }
 
-function createNewRow(id, userid, parkingid, areaname, slotid, status) {
+function createNewRow(id, userid, parkingid, areaname, slotid, status, price, date) {
   var body = document.getElementById("tableBody");
 
   var row = document.createElement("tr");
@@ -66,6 +66,8 @@ function createNewRow(id, userid, parkingid, areaname, slotid, status) {
   createSingleBox(areaname, row);
   createSingleBox(slotid, row);
   createSingleBox(status, row);
+  createSingleBox(date, row);
+  createSingleBox(price, row);
   if (status == "Booked") {
     addButton(row, id, 1);
   }

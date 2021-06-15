@@ -95,18 +95,23 @@
                                             <th>Area name</th>
                                             <th>Slot ID</th>
                                             <th>Status</th>
+                                            <th>Date</th>
+                                            <th>Price</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>ID</th>
-                                            <th>User ID</th>
+                                        <th>ID</th>
+                                            <th>User</th>
                                             <th>Parking lot</th>
                                             <th>Area name</th>
                                             <th>Slot ID</th>
                                             <th>Status</th>
+                                            <th>Date</th>
+                                            <th>Price</th>
                                             <th>Action</th>
+                                        </tr>
                                         </tr>
                                     </tfoot>
                                     <tbody id='tableBody'>

@@ -5,14 +5,22 @@ var currentUserCookie = document.cookie
 function addParkinglot() {
   var latitudeE = document.getElementById("lat");
   var longitudeE = document.getElementById("long");
-  var addressE = document.getElementById("address");
+  var numberE = document.getElementById("address_number");
+  var streetE = document.getElementById("address_street");
+  var districtE = document.getElementById("address_district");
+  var cityE = document.getElementById("address_city");
+  var countryE = document.getElementById("address_country");
   var nameE = document.getElementById("name");
   var thumnailE = document.getElementById("img");
   var ownerIDE = document.getElementById("ownerID");
 
   var latitude = latitudeE.value;
   var longitude = longitudeE.value;
-  var address = addressE.value;
+  var number = numberE.value;
+  var street = streetE.value;
+  var district = districtE.value;
+  var city = cityE.value;
+  var country = countryE.value;
   var name = nameE.value;
   var thumnail = thumnailE.value;
   var ownerID = ownerIDE.value;
@@ -35,7 +43,13 @@ function addParkinglot() {
         latitude: longitude,
         longitude: latitude,
       },
-      address: address,
+      detail_address:{
+        number: number,
+        street: street,
+        district: district,
+        city_province: city,
+        country: country
+      },
       name: name,
       image: thumnail,
       ownerID: ownerID,
@@ -46,25 +60,29 @@ function addParkinglot() {
     .then((data) => {
       console.log(data);
       if (data._id != null) {
-        alert("Create account successfully");
+        alert("Create parking lot successfully");
         if (JSON.parse(currentUserCookie).userType == "Admin") {
           window.location.href = "parkinglots.php";
-      } else if (JSON.parse(currentUserCookie).userType == "Owner") {
-        window.location.href = "owner_parkinglot.php";
-      }
-        
+        } else if (JSON.parse(currentUserCookie).userType == "Owner") {
+          window.location.href = "owner_parkinglot.php";
+        }
       } else {
         console.log(data);
         latitudeE.value = "";
         longitudeE.value = "";
-        addressE.value = "";
+        numberE.value = "";
+        streetE.value = "";
+        districtE.value = "";
+        cityE.value = "";
+        countryE.value = "";
         ownerIDE.value = "";
         thumnailE.value = "";
-        alert("Failed to create account");
+        alert("Failed to create parking lot");
       }
     })
     .catch((error) => {
       console.log(error);
       console.log(error.response);
     });
+
 }
