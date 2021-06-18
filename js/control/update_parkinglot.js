@@ -1,14 +1,13 @@
+var latitudeE = document.getElementById("lat");
+var longitudeE = document.getElementById("long");
+var numberE = document.getElementById("address_number");
+var streetE = document.getElementById("address_street");
+var districtE = document.getElementById("address_district");
+var cityE = document.getElementById("address_city");
+var countryE = document.getElementById("address_country");
+var nameE = document.getElementById("name");
+var thumnailE = document.getElementById("img");
 function updateParkinglotInfo() {
-  var latitudeE = document.getElementById("lat");
-  var longitudeE = document.getElementById("long");
-  var numberE = document.getElementById("address_number");
-  var streetE = document.getElementById("address_street");
-  var districtE = document.getElementById("address_district");
-  var cityE = document.getElementById("address_city");
-  var countryE = document.getElementById("address_country");
-  var nameE = document.getElementById("name");
-  var thumnailE = document.getElementById("img");
-
   var latitude = latitudeE.value;
   var longitude = longitudeE.value;
   var number = numberE.value;
@@ -25,70 +24,70 @@ function updateParkinglotInfo() {
     // console.log("Run");
     data.info = { coordinate: { longitude: latitude, latitude: longitude } };
   }
-  if (number != "")
+  if (country != "")
     data.info = {
       ...data.info,
-      detailAddress: {
-        number: number,
+      detail_address: {
+        country: country,
       },
     };
-  if (street != "") {
-    if (data.info.detailAddress) {
-      data.info.detailAddress = {
-        ...data.info.detailAddress,
-        street: street,
-      };
-    } else {
-      data.info = {
-        ...data.info,
-        detailAddress: {
-          street: street,
-        },
-      };
-    }
-  }
-  if (district != "") {
-    if (data.info.detailAddress) {
-      data.info.detailAddress = {
-        ...data.info.detailAddress,
-        district: district,
-      };
-    } else {
-      data.info = {
-        ...data.info,
-        detailAddress: {
-          district: district,
-        },
-      };
-    }
-  }
   if (city != "") {
-    if (data.info.detailAddress) {
-      data.info.detailAddress = {
-        ...data.info.detailAddress,
+    if (data.info.detail_address) {
+      data.info.detail_address = {
+        ...data.info.detail_address,
         city_province: city,
       };
     } else {
       data.info = {
         ...data.info,
-        detailAddress: {
+        detail_address: {
           city_province: city,
         },
       };
     }
   }
-
-  if (country != "") {
-    if (data.info.detailAddress) {
-      data.info.detailAddress = {
-        ...data.info.detailAddress,
-        country: country,
+  if (district != "") {
+    if (data.info.detail_address) {
+      data.info.detail_address = {
+        ...data.info.detail_address,
+        district: district,
       };
     } else {
       data.info = {
         ...data.info,
-        detailAddress: {
-          country: country,
+        detail_address: {
+          district: district,
+        },
+      };
+    }
+  }
+  if (street != "") {
+    if (data.info.detail_address) {
+      data.info.detail_address = {
+        ...data.info.detail_address,
+        street: street,
+      };
+    } else {
+      data.info = {
+        ...data.info,
+        detail_address: {
+          street: street,
+        },
+      };
+    }
+  }
+
+  if (number != "") {
+    if (data.info.detail_address) {
+      data.info.detail_address = {
+        ...data.info.detail_address,
+        number: number,
+      };
+    } else {
+      data.info = {
+        ...data.info,
+        detail_address: {
+          number: number,
         },
       };
     }
