@@ -45,8 +45,8 @@ function ownerUpdate() {
         if (data[i].status == "Failed") failed = failed + 1;
         if (data[i].status == "Booked") booked = booked + 1;
       }
-      // console.log(failed + booked + success);
-      setPieChart(failed, booked, success);
+      console.log(failed);
+      setPieChart(success, booked, failed);
       var myPieChart = new Chart(ctx, {
         type: 'pie',
         data: {
@@ -92,7 +92,7 @@ function systemUpdate() {
         if (data[i].status == "Failed") failed = failed + 1;
         if (data[i].status == "Booked") booked = booked + 1;
       }
-      setPieChart(failed, booked, success);
+      setPieChart(success, booked, failed);
       var myPieChart = new Chart(ctx, {
         type: 'pie',
         data: {

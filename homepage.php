@@ -83,7 +83,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Total Bookings</div>
-                                            <div id="totalBooking" class="h5 mb-0 font-weight-bold text-gray-800">268</div>
+                                            <div id="totalBooking" class="h5 mb-0 font-weight-bold text-gray-800">0</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-car fa-2x text-gray-300"></i>
@@ -101,7 +101,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Total Users</div>
-                                            <div id="totalUser" class="h5 mb-0 font-weight-bold text-gray-800">939</div>
+                                            <div id="totalUser" class="h5 mb-0 font-weight-bold text-gray-800">0</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-user fa-2x text-gray-300"></i>
@@ -119,7 +119,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                                 Total Parking Lots</div>
-                                            <div id="totalParkingLot" class="h5 mb-0 font-weight-bold text-gray-800">67</div>
+                                            <div id="totalParkingLot" class="h5 mb-0 font-weight-bold text-gray-800">0</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-map-marker fa-2x text-gray-300"></i>
@@ -138,7 +138,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
                                                 Total Owners</div>
-                                            <div id="totalOwner" class="h5 mb-0 font-weight-bold text-gray-800">14</div>
+                                            <div id="totalOwner" class="h5 mb-0 font-weight-bold text-gray-800">0</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-male fa-2x text-gray-300"></i>
