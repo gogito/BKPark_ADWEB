@@ -143,6 +143,11 @@ function matchFunction(btnGroup, name) {
     handleCancelButtonPress(id);
   };
 
+  infoBtn.onclick = function () {
+    document.cookie = "currentParkinglot=" + id + "; max-age=3000; path=/;";
+    window.location.href = "update_parkinglot.php";
+  };
+
 
 }
 
@@ -150,6 +155,7 @@ function handleCancelButtonPress(id) {
   console.log(id);
   if (confirm("Are you sure to DELETE this parking lot?")) {
     confirmCancelBooking(id);
+    // window.location.href("parkinglots.php");
   }
 }
 
@@ -160,7 +166,11 @@ function confirmCancelBooking(id) {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      location.reload();
+      alert("Delete parking lot successfully!");
+      window.location.href("parkinglots.php");
     })
-    .catch((error) => {});
+    .catch((error) => {
+      alert("Failed to delete parking lot!");
+    });
+    // location.reload();
 }

@@ -91,10 +91,7 @@ function addButton(row, id, option) {
   btn.id = id;
   switch (option) {
     case 1:
-      btn.innerHTML = confirm_btn + info_btn + cancel_btn;
-      break;
-    case 2:
-      btn.innerHTML = info_btn;
+      btn.innerHTML = confirm_btn + cancel_btn;
       break;
   }
   document.body.appendChild(btn);
@@ -109,8 +106,7 @@ function matchFunction(btnGroup, option) {
   switch (option) {
     case 1:
       var confirmBtn = btnGroup.children[0];
-      var infoBtn = btnGroup.children[1];
-      var cancelBtn = btnGroup.children[2];
+      var cancelBtn = btnGroup.children[1];
       confirmBtn.onclick = function () { handleConfirmButtonPress(id) };
       cancelBtn.onclick = function () { handleCancelButtonPress(id) };
       // handleConfirmButtonPress();

@@ -191,9 +191,9 @@
             fetch("http://bkparking.ddns.net:3002/parkinglots")
                 .then((response) => response.json())
                 .then((data) => {
-                    // console.log(data[0]);
+                    console.log(data);
                     for (var i = 0; i < data.length; i++) {
-                        console.log(data[i]);
+                        // console.log(data[i]);
                         markLocation(data[i].coordinate.longitude, data[i].coordinate.latitude, 1, data[i]._id);
                     }
                 });
