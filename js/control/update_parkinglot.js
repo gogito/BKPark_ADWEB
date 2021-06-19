@@ -103,6 +103,7 @@ function updateParkinglotInfo() {
 
 function getOldData(){
   // console.log("get old data");
+  getParkingLotsList()
   var currentParkinglotID = document.cookie
     .split("; ")
     .find((row) => row.startsWith("currentParkinglot="))

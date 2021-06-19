@@ -13,6 +13,7 @@ var currentUserInfoCookie = document.cookie
 
 // console.log(userTypeInfo);
 function updateUserInfo() {
+  
   var ownerParkinglot = document.getElementById("ownerParkinglot");
   var updateBtn = document.getElementById("updateBtn");
 
@@ -35,6 +36,8 @@ function updateUserInfo() {
 }
 
 function getUserInfo(name, username, email, personalID) {
+  getBookingList();
+  getParkingLotsList();
     var LINKAPI = API_USER_LIST;
     // console.log(userTypeInfo);
   if (userTypeInfo == "Owner") LINKAPI = API_OWNER_LIST

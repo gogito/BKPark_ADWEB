@@ -22,6 +22,10 @@
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <script src="js/control/info.js">
     </script>
+    <script src="js/control/booking.js">
+    </script>
+    <!-- <script src="js/control/parkinglots.js">
+    </script> -->
     <script src="model/var.js">
     </script>
 </head>
@@ -87,7 +91,7 @@
                                     <!-- Profile picture image-->
                                     <img class="img-account-profile rounded-circle mb-2" src="https://sb-admin-pro.startbootstrap.com/assets/img/illustrations/profiles/profile-1.png" alt="">
                                     <!-- Profile picture help block-->
-                                    <div id = "name" class="h3 font-italic text-muted mb-4">User name</div>
+                                    <div id="name" class="h3 font-italic text-muted mb-4">User name</div>
 
                                 </div>
                             </div>
@@ -119,7 +123,7 @@
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="inputEmail4">Personal ID</label>
-                                                <input  type="text" class="form-control" id="personalID" placeholder="Email" readonly>
+                                                <input type="text" class="form-control" id="personalID" placeholder="Email" readonly>
                                             </div>
                                         </div>
                                         <div id="ownerParkinglot" class="form-row">
@@ -141,19 +145,116 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-xl-12 col-md-12 mb-12">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Booking Table</h6>
+                                </div>
+                                <div class="card-body">
+                                    <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                                <a href="add_user.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Add Booking</a>
+                            </div> -->
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>User</th>
+                                                    <th>Parking lot</th>
+                                                    <th>Area name</th>
+                                                    <th>Slot ID</th>
+                                                    <th>Status</th>
+                                                    <th>Date</th>
+                                                    <th>Price</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>User</th>
+                                                    <th>Parking lot</th>
+                                                    <th>Area name</th>
+                                                    <th>Slot ID</th>
+                                                    <th>Status</th>
+                                                    <th>Date</th>
+                                                    <th>Price</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                                </tr>
+                                            </tfoot>
+                                            <tbody id='tableBody'>
+                                                <!-- <tr>
+                                            <td>Tiger Nixon</td>
+                                            <td>System Architect</td>
+                                            <td>Edinburgh</td>
+                                            <td>61</td>
+                                            <td>2011/04/25</td>
+                                            <td>$320,800</td>
+                                        </tr> -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-12 col-md-12 mb-12">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Parkinglot Table</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                                        <a href="add_parkinglot.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Add Parkinglot</a>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Name</th>
+                                                    <th>Address</th>
+                                                    <th>Total Area</th>
+                                                    <th>Total Slot</th>
+                                                    <th>Status</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Name</th>
+                                                    <th>Address</th>
+                                                    <th>Total Area</th>
+                                                    <th>Total Slot</th>
+                                                    <th>Status</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </tfoot>
+                                            <tbody id='tableBodyParkingLots'>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <!-- /.container-fluid -->
 
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <?php include 'footer.php'; ?>
+            <!-- End of Footer -->
+
         </div>
-        <!-- End of Main Content -->
-
-        <!-- Footer -->
-        <?php include 'footer.php'; ?>
-        <!-- End of Footer -->
-
-    </div>
-    <!-- End of Content Wrapper -->
+        <!-- End of Content Wrapper -->
 
     </div>
     <!-- End of Page Wrapper -->
