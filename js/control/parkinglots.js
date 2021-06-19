@@ -49,7 +49,15 @@ function getParkingLotsList() {
 
 function getOwnedParkingLotsList() {
   console.log("create Owned Parking lots List");
-  fetch(API_OWNER_LIST + "/" + JSON.parse(currentUserCookie)._id + "/parking")
+  var api = API_OWNER_LIST + "/" + JSON.parse(currentUserCookie)._id + "/parking"
+  if (JSON.parse(currentUserCookie).userType == "Admin"){
+    var currentUserInfoCookie = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith("currentUserInfo="))
+    .split("=")[1];
+    api = API_OWNER_LIST + "/" + currentUserInfoCookie + "/parking"
+  }
+  fetch(api)
     .then((response) => response.json())
     .then((data) => {
       console.log(data);

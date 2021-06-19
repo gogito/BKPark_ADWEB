@@ -145,7 +145,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div id="bookingtable" class="row">
                         <div class="col-xl-12 col-md-12 mb-12">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
@@ -185,14 +185,6 @@
                                                 </tr>
                                             </tfoot>
                                             <tbody id='tableBody'>
-                                                <!-- <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr> -->
                                             </tbody>
                                         </table>
                                     </div>
@@ -200,7 +192,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div id="parkinglottable" class="row">
                         <div class="col-xl-12 col-md-12 mb-12">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
@@ -211,7 +203,7 @@
                                         <a href="add_parkinglot.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Add Parkinglot</a>
                                     </div>
                                     <div class="table-responsive">
-                                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <table class="table table-bordered" id="dataParkinglotTable" width="100%" cellspacing="0">
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
