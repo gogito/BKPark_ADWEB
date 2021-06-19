@@ -17,7 +17,6 @@ function updateParkinglotInfo() {
   var country = countryE.value;
   var name = nameE.value;
   var thumnail = thumnailE.value;
-
   var data = { info: {} };
   //   console.log(latitude);
   if (latitude.length > 0 && longitude.length > 0) {
@@ -102,6 +101,27 @@ function updateParkinglotInfo() {
   putUserInfo(data);
 }
 
+function getOldData(){
+  // console.log("get old data");
+  var currentParkinglotID = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith("currentParkinglot="))
+    .split("=")[1];
+    console.log(API_PARKINGLOTS_LIST + "/" + currentParkinglotID);
+    fetch(API_PARKINGLOTS_LIST + "/" + currentParkinglotID)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      latitudeE.placeholder = data.coordinate.longitude;
+      longitudeE.placeholder = data.coordinate.latitude;
+      nameE.placeholder = data.name;
+      numberE.placeholder = data.detail_address.number;
+      streetE.placeholder = data.detail_address.street;
+      districtE.placeholder = data.detail_address.district;
+      cityE.placeholder = data.detail_address.city_province;
+      countryE.placeholder = data.detail_address.country;
+    });
+}
 function putUserInfo(dataIn) {
   var currentParkinglotID = document.cookie
     .split("; ")

@@ -23,13 +23,15 @@ function getOwnerList() {
         .then((data) => {
 
             for (var i = 0; i < data.length; i++) {
-                console.log(data[i]);
-                var parkingId = '';
-                for (var j = 0; j < data[i].ownedParking.length; j++) {
-                    if (j != data[i].ownedParking.length - 1)
-                        parkingId = parkingId + data[i].ownedParking[j] + '----';
-                    else parkingId = parkingId + data[i].ownedParking[j];
-                }
+                var parkingId =
+                '<a href="#" class="btn">' + data[i].ownedParking.length + '</a>';
+                // console.log(data[i]);
+                // var parkingId = '';
+                // for (var j = 0; j < data[i].ownedParking.length; j++) {
+                //     if (j != data[i].ownedParking.length - 1)
+                //         parkingId = parkingId + data[i].ownedParking[j] + '----';
+                //     else parkingId = parkingId + data[i].ownedParking[j];
+                // }
                 createNewRow(data[i]._id, data[i].name.FName + " " + data[i].name.LName, data[i].email, parkingId);
             }
             $(document).ready(function () {
@@ -46,7 +48,8 @@ function createNewRow(id, name, email, parkinglotID) {
     createSingleBox(id, row);
     createSingleBox(name, row);
     createSingleBox(email, row);
-    createSingleBox(parkinglotID, row);
+    // createSingleBox(parkinglotID, row);
+    addAButton(row, id, parkinglotID);
     addButton(row, id);
 
     body.appendChild(row);
@@ -102,4 +105,17 @@ function confirmCancelBooking(id) {
         })
         .catch((error) => {
         });
+}
+
+function addAButton(row, id, content) {
+    var btn = document.createElement("td");
+    btn.innerHTML = content
+    document.body.appendChild(btn);
+    row.appendChild(btn);
+
+    
+}
+
+function addfunction(){
+    
 }

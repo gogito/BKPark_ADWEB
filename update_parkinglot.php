@@ -25,7 +25,7 @@
     </script>
 </head>
 
-<body id="page-top">
+<body id="page-top" onload="getOldData()">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
