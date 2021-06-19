@@ -83,8 +83,6 @@
                         <div class="card-body">
                             <form>
 
-
-
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="inputFirstname">First Name</label>
@@ -107,11 +105,6 @@
                                         <input id='personalID' type="text" class="form-control" id="inputPersonalID" placeholder="Personal ID">
                                     </div>
                                 </div>
-
-
-
-
-
 
                                 <a onClick="updateUserInfo()" type="submit" class="btn btn-primary">Update</a>
                             </form>
