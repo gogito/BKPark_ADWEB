@@ -92,7 +92,7 @@
                                             <th>ID</th>
                                             <th>Name</th>
                                             <th>Email</th>
-                                            <th>Parking lot ID</th>
+                                            <th>Parking lot</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -101,7 +101,7 @@
                                             <th>ID</th>
                                             <th>Name</th>
                                             <th>Email</th>
-                                            <th>Parking lot ID</th>
+                                            <th>Parking lot</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>
