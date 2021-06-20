@@ -138,7 +138,7 @@
                             </form>
                         </div>
                     </div>
-                    <div class="card shadow mb-4">
+                    <div id="areatable" class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Area Table</h6>
                         </div>
@@ -154,7 +154,7 @@
                                         </tr>
                                     </thead>
                                     <tfoot>
-                                    <tr>
+                                        <tr>
                                             <th>Area name</th>
                                             <th>Total Slot</th>
                                             <th>Price</th>
@@ -168,17 +168,53 @@
                         </div>
                     </div>
                 </div>
-                <!-- /.container-fluid -->
+
+                <div id="addareatable" class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 id="parkinglotName" class="m-0 font-weight-bold text-primary">Add Area Form</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <form>
+
+
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputFirstname">Area Name</label>
+                                        <input type="text" class="form-control" id="areaname" placeholder="Name">
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="inputLastname">Number of Slots</label>
+                                        <input type="text" class="form-control" id="areaslot" placeholder="Total Slot">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputUsername4">Price</label>
+                                        <input type="text" class="form-control" id="areaprice" placeholder="Price">
+                                    </div>
+                                </div>
+                                <a onClick="addArea()" type="submit" class="btn btn-primary">Add Area</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
 
             </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <?php include 'footer.php'; ?>
-            <!-- End of Footer -->
+            <!-- /.container-fluid -->
 
         </div>
-        <!-- End of Content Wrapper -->
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <?php include 'footer.php'; ?>
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
 
     </div>
     <!-- End of Page Wrapper -->

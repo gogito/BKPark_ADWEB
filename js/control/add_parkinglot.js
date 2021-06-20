@@ -12,7 +12,7 @@ function addParkinglot() {
   var countryE = document.getElementById("address_country");
   var nameE = document.getElementById("name");
   var thumnailE = document.getElementById("img");
-  var ownerIDE = document.getElementById("ownerID");
+  // var ownerIDE = document.getElementById("ownerID");
 
   var latitude = latitudeE.value;
   var longitude = longitudeE.value;
@@ -23,13 +23,13 @@ function addParkinglot() {
   var country = countryE.value;
   var name = nameE.value;
   var thumnail = thumnailE.value;
-  var ownerID = ownerIDE.value;
+  var ownerID = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith("currentOwnerID="))
+    .split("=")[1];
 
   console.log(JSON.parse(currentUserCookie).userType);
-  if (JSON.parse(currentUserCookie).userType == "Admin") {
-    ownerIDE.style.display = "block";
-  } else if (JSON.parse(currentUserCookie).userType == "Owner") {
-    ownerIDE.style.display = "none";
+  if (JSON.parse(currentUserCookie).userType == "Owner") {
     ownerID = JSON.parse(currentUserCookie)._id;
   }
 
@@ -43,7 +43,7 @@ function addParkinglot() {
         latitude: longitude,
         longitude: latitude,
       },
-      detail_address:{
+      detail_address: {
         number: number,
         street: street,
         district: district,

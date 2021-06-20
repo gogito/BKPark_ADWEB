@@ -1,6 +1,6 @@
 var confirm_btn = '<a href="#" id="confirm" class="btn btn-primary btn-default">'
     + '<span class="icon text-white-50">'
-    + '<i class="fas fa-check"></i>'
+    + '<i class="fas fa-plus"></i>'
     + '</span>'
     + '</a>'
 var info_btn = '<a href="#" id="info" class="btn btn-success btn-default">'
@@ -14,6 +14,10 @@ var cancel_btn = '<a href="#" id="cancel" class="btn btn-danger btn-default">'
     + '</span>'
     + '</a>';
 
+var currentUserCookie = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith("currentUser="))
+    .split("=")[1];
 
 function getOwnerList() {
 
@@ -24,7 +28,7 @@ function getOwnerList() {
 
             for (var i = 0; i < data.length; i++) {
                 var parkingId =
-                '<a href="#" class="btn">' + data[i].ownedParking.length + '</a>';
+                    '<a href="#" class="btn">' + data[i].ownedParking.length + '</a>';
                 // console.log(data[i]);
                 // var parkingId = '';
                 // for (var j = 0; j < data[i].ownedParking.length; j++) {
@@ -67,6 +71,9 @@ function addButton(row, id) {
     var btn = document.createElement("td");
     btn.id = id;
     btn.innerHTML = info_btn + cancel_btn;
+    if (JSON.parse(currentUserCookie).userType == "Admin") {
+        btn.innerHTML = confirm_btn + info_btn + cancel_btn;
+    }
     document.body.appendChild(btn);
     row.appendChild(btn);
     matchFunction(btn);
@@ -75,15 +82,26 @@ function addButton(row, id) {
 
 function matchFunction(btnGroup) {
     var id = btnGroup.id;
+    var addBtn;
     var infoBtn = btnGroup.children[0];
     var cancelBtn = btnGroup.children[1];
+    if (JSON.parse(currentUserCookie).userType == "Admin") {
+        addBtn = btnGroup.children[0];
+        infoBtn = btnGroup.children[1];
+        cancelBtn = btnGroup.children[2];
+        addBtn.onclick = function () { 
+            document.cookie = "currentOwnerID=" + id + "; max-age=3600; path=/;";
+            window.location.href = "add_parkinglot.php";
+         };
+    }
+
     cancelBtn.onclick = function () { handleCancelButtonPress(id) };
-    infoBtn.onclick = function () { 
+    infoBtn.onclick = function () {
         console.log("checked");
-        document.cookie = "currentUserInfo=" + id + "; max-age=3600; path=/;"; 
-        document.cookie = "currentUserInfoType=Owner; max-age=3600; path=/;"; 
-      };
-      infoBtn.href = "owner_info.php"
+        document.cookie = "currentUserInfo=" + id + "; max-age=3600; path=/;";
+        document.cookie = "currentUserInfoType=Owner; max-age=3600; path=/;";
+    };
+    infoBtn.href = "owner_info.php"
 }
 
 function handleCancelButtonPress(id) {
@@ -113,9 +131,9 @@ function addAButton(row, id, content) {
     document.body.appendChild(btn);
     row.appendChild(btn);
 
-    
+
 }
 
-function addfunction(){
-    
+function addfunction() {
+
 }

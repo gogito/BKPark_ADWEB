@@ -134,11 +134,6 @@
                                         <label for="inputEmail4">Thumnail</label>
                                         <input type="email" class="form-control" id="img" placeholder="Thumnail link">
                                     </div>
-
-                                    <div class="form-group col-md-4" id = "ownerCom">
-                                        <label for="inputPersonalID">Owner ID</label>
-                                        <input type="text" class="form-control" id="ownerID" placeholder="Owner ID">
-                                    </div>
                                 </div>
 
 

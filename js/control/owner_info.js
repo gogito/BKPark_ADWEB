@@ -45,6 +45,7 @@ function updateUserInfo() {
 
 function getUserInfo(name, username, email, personalID) {
   var updatebtn = document.getElementById("updateBtn");
+
   fetch(API_OWNER_LIST + "/" + currentUserInfoCookie, {
     method: "PUT",
   })
@@ -59,6 +60,7 @@ function getUserInfo(name, username, email, personalID) {
   if (JSON.parse(currentUserCookie).userType == "Owner" ){
     updatebtn.style.display = "none";
   }
+
   getOwnedParkingLotsList();
 }
 
