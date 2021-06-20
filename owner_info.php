@@ -20,8 +20,12 @@
 
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <script src="js/control/user_info.js">
+    <script src="js/control/owner_info.js">
     </script>
+    <!-- <script src="js/control/booking.js">
+    </script> -->
+    <!-- <script src="js/control/parkinglots.js">
+    </script> -->
     <script src="model/var.js">
     </script>
 </head>
@@ -141,46 +145,41 @@
                             </div>
                         </div>
                     </div>
-                    <div id="bookingtable" class="row">
+                    <div id="parkinglottable" class="row">
                         <div class="col-xl-12 col-md-12 mb-12">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Booking Table</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Parkinglot Table</h6>
                                 </div>
                                 <div class="card-body">
-                                    <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                                <a href="add_user.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Add Booking</a>
-                            </div> -->
+                                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                                        <a href="add_parkinglot.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Add Parkinglot</a>
+                                    </div>
                                     <div class="table-responsive">
-                                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <table class="table table-bordered" id="dataParkinglotTable" width="100%" cellspacing="0">
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
-                                                    <th>User</th>
-                                                    <th>Parking lot</th>
-                                                    <th>Area name</th>
-                                                    <th>Slot ID</th>
+                                                    <th>Name</th>
+                                                    <th>Address</th>
+                                                    <th>Total Area</th>
+                                                    <th>Total Slot</th>
                                                     <th>Status</th>
-                                                    <th>Date</th>
-                                                    <th>Price</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tfoot>
                                                 <tr>
                                                     <th>ID</th>
-                                                    <th>User</th>
-                                                    <th>Parking lot</th>
-                                                    <th>Area name</th>
-                                                    <th>Slot ID</th>
+                                                    <th>Name</th>
+                                                    <th>Address</th>
+                                                    <th>Total Area</th>
+                                                    <th>Total Slot</th>
                                                     <th>Status</th>
-                                                    <th>Date</th>
-                                                    <th>Price</th>
                                                     <th>Action</th>
                                                 </tr>
-                                                </tr>
                                             </tfoot>
-                                            <tbody id='tableBody'>
+                                            <tbody id='tableBodyParkingLots'>
                                             </tbody>
                                         </table>
                                     </div>

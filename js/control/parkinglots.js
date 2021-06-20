@@ -168,6 +168,7 @@ function handleCancelButtonPress(id) {
 }
 
 function confirmCancelBooking(id) {
+  console.log(API_PARKINGLOTS_LIST + "/" + id);
   fetch(API_PARKINGLOTS_LIST + "/" + id, {
     method: "DELETE",
   })

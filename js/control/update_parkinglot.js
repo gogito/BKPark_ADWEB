@@ -1,3 +1,11 @@
+
+var update_btn =
+  '<a href="#" id="info" class="btn btn-success btn-default">' +
+  '<span class="icon text-white-50">' +
+  '<i class="fas fa-check"></i>' +
+  "</span>" +
+  "</a>";
+
 var latitudeE = document.getElementById("lat");
 var longitudeE = document.getElementById("long");
 var numberE = document.getElementById("address_number");
@@ -101,15 +109,16 @@ function updateParkinglotInfo() {
   putUserInfo(data);
 }
 
-function getOldData(){
+function getOldData() {
   // console.log("get old data");
-  getParkingLotsList()
+  // getParkingLotsList()
+  getAreaData();
   var currentParkinglotID = document.cookie
     .split("; ")
     .find((row) => row.startsWith("currentParkinglot="))
     .split("=")[1];
-    console.log(API_PARKINGLOTS_LIST + "/" + currentParkinglotID);
-    fetch(API_PARKINGLOTS_LIST + "/" + currentParkinglotID)
+  console.log(API_PARKINGLOTS_LIST + "/" + currentParkinglotID);
+  fetch(API_PARKINGLOTS_LIST + "/" + currentParkinglotID)
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
@@ -158,6 +167,124 @@ function putUserInfo(dataIn) {
     })
     .catch((error) => {
       console.log(error);
+      console.log(error.response);
+    });
+
+}
+
+function getAreaData() {
+  var currentParkinglotID = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith("currentParkinglot="))
+    .split("=")[1];
+  fetch(API_PARKINGLOTS_LIST + "/" + currentParkinglotID)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      for (var i = 0; i < data.area.length; i++) {
+        console.log(data.area[i].name);
+        createNewRow(data.area[i].name, data.area[i].slots.length, data.area[i].price, currentParkinglotID, i);
+      }
+      $(document).ready(function () {
+        $('#dataTable').DataTable();
+      });
+    });
+
+}
+function createNewRow(name, slot, price, id, number) {
+  var body = document.getElementById("tableBodyArea");
+
+  var row = document.createElement("tr");
+
+  createSingleBox(name, row, id, 1, number);
+  createSingleBox(slot, row, id, 2, number);
+  createSingleBox(price, row, id, 3, number);
+  addButton(row, id, name, number);
+  body.appendChild(row);
+}
+
+function createSingleBox(content, row, id, option, number) {
+  var p = document.createElement("td");
+  var inputTxt = document.createElement("input");
+  inputTxt.value = content;
+  switch (option) {
+    case 1:
+      inputTxt.id = "name" + id + number;
+      break;
+    case 2:
+      inputTxt.id = "slot" + id + number;
+      break;
+    case 3:
+      inputTxt.id = "price" + id + number;
+      break;
+
+  }
+  p.appendChild(inputTxt);
+  row.appendChild(p);
+}
+
+function addButton(row, id, name, number) {
+  var btn = document.createElement("td");
+  btn.id = id;
+  btn.innerHTML = update_btn;
+  document.body.appendChild(btn);
+  row.appendChild(btn);
+
+  matchFunction(btn, name, id, number);
+}
+
+function matchFunction(btnGroup, name, id, number) {
+  var id = btnGroup.id;
+  var updateBtn = btnGroup.children[0];
+
+  updateBtn.onclick = function () {
+    updateAreaData(name, id, number);
+  };
+
+
+}
+
+function updateAreaData(name, id, number){
+  var nameE = document.getElementById("name" + id + number);
+  var slotE = document.getElementById("slot" + id + number);
+  var priceE = document.getElementById("price" + id + number);
+
+  var name = nameE.value;
+  var slot = slotE.value;
+  var price = priceE.value;
+
+  var slotsStatus = [];
+  for (var i = 0; i < slot; i++){
+    slotsStatus.push(0);
+  }
+  console.log({
+    area:{
+      name: name,
+      slots: slotsStatus
+    }
+  });
+
+  fetch(API_PARKINGLOTS_LIST + "/" + id + "/area/slot", {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      area:{
+        name: name,
+        slots: slotsStatus,
+        // price: price
+      }
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      alert("Change area successfully!");
+    })
+    .catch((error) => {
+      alert("Failed to change area!");
+      // console.log(error);
       console.log(error.response);
     });
 }

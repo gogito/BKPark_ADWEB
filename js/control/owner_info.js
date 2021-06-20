@@ -40,38 +40,12 @@ function updateUserInfo() {
   var personalID = document.getElementById("personalID");
   var parkinglot = document.getElementById("parkinglot");
 
-  if (userType == "Admin") {
-    ownerParkinglot.style.display = "none";
-    updateBtn.style.display = "block";
-  } else if (userType == "Owner") {
-    updateBtn.style.display = "none";
-    ownerParkinglot.style.display = "block";
-    parkinglot.value = JSON.parse(currentUserCookie).ownedParking.length;
-  }
-
   getUserInfo(name, username, email, personalID);
 }
 
 function getUserInfo(name, username, email, personalID) {
-  // getBookingList();
-  // getParkingLotsList();
-  var LINKAPI;
-  var bookingtable = document.getElementById("bookingtable");
-  var parkinglottable = document.getElementById("parkinglottable");
-  // console.log(userTypeInfo);
-  if (userTypeInfo == "Owner") {
-    bookingtable.style.display = "none";
-    parkinglottable.style.display = "block";
-    getOwnedParkingLotsList()
-    LINKAPI = API_OWNER_LIST;
-  } else if (userTypeInfo == "User") {
-    bookingtable.style.display = "block";
-    parkinglottable.style.display = "none";
-    
-    LINKAPI = API_USER_LIST;
-  }
-  console.log(LINKAPI);
-  fetch(LINKAPI + "/" + currentUserInfoCookie, {
+  var updatebtn = document.getElementById("updateBtn");
+  fetch(API_OWNER_LIST + "/" + currentUserInfoCookie, {
     method: "PUT",
   })
     .then((response) => response.json())
@@ -81,20 +55,16 @@ function getUserInfo(name, username, email, personalID) {
       email.value = data.email;
       personalID.value = data.personalID;
     })
-    .catch((error) => {});
+    .catch((error) => { });
+  if (JSON.parse(currentUserCookie).userType == "Owner" ){
+    updatebtn.style.display = "none";
+  }
+  getOwnedParkingLotsList();
 }
 
-
 function getOwnedParkingLotsList() {
-  console.log("create Owned Parking lots List");
-  var api = API_OWNER_LIST + "/" + JSON.parse(currentUserCookie)._id + "/parking"
-  if (JSON.parse(currentUserCookie).userType == "Admin"){
-    var currentUserInfoCookie = document.cookie
-    .split("; ")
-    .find((row) => row.startsWith("currentUserInfo="))
-    .split("=")[1];
-    api = API_OWNER_LIST + "/" + currentUserInfoCookie + "/parking"
-  }
+  // console.log("create Owned Parking lots List");
+  var api = API_OWNER_LIST + "/" + currentUserInfoCookie + "/parking"
   fetch(api)
     .then((response) => response.json())
     .then((data) => {
@@ -105,7 +75,7 @@ function getOwnedParkingLotsList() {
         for (var j = 0; j < totalarea; j++) {
           totalslot =
             totalslot + data[i].area[j].freeslot + data[i].area[j].fullslot;
-            // console.log(totalslot);
+          // console.log(totalslot);
         }
         createNewRow(
           data[i]._id,
@@ -117,7 +87,7 @@ function getOwnedParkingLotsList() {
         );
       }
       $(document).ready(function () {
-        $("#dataParkinglotTable").DataTable();
+        $("#dataTable").DataTable();
       });
     });
 }
@@ -148,11 +118,11 @@ function createSingleBox(content, row) {
 function addButton(row, id, name) {
   var btn = document.createElement("td");
   btn.id = id;
-  if (JSON.parse(currentUserCookie).userType == "Admin"){
+  if (JSON.parse(currentUserCookie).userType == "Admin") {
     btn.innerHTML = info_btn + cancel_btn;
   }
-  else if (JSON.parse(currentUserCookie).userType == "Owner"){
-    btn.innerHTML = confirm_btn +  info_btn + cancel_btn;
+  else if (JSON.parse(currentUserCookie).userType == "Owner") {
+    btn.innerHTML = confirm_btn + info_btn + cancel_btn;
   }
 
   document.body.appendChild(btn);
@@ -166,7 +136,7 @@ function matchFunction(btnGroup, name) {
   var addBtn;
   var infoBtn;
   var cancelBtn;
-  if (JSON.parse(currentUserCookie).userType == "Owner"){
+  if (JSON.parse(currentUserCookie).userType == "Owner") {
     addBtn = btnGroup.children[0];
     infoBtn = btnGroup.children[1];
     cancelBtn = btnGroup.children[2];
@@ -180,7 +150,7 @@ function matchFunction(btnGroup, name) {
       window.location.href = "add_area.php";
     };
   }
-  else if (JSON.parse(currentUserCookie).userType == "Admin"){
+  else if (JSON.parse(currentUserCookie).userType == "Admin") {
     infoBtn = btnGroup.children[0];
     cancelBtn = btnGroup.children[1];
   }
@@ -218,5 +188,6 @@ function confirmCancelBooking(id) {
     .catch((error) => {
       alert("Failed to delete parking lot!");
     });
-    // location.reload();
+  // location.reload();
 }
+
