@@ -25,12 +25,13 @@ function getParkingLotsList() {
   fetch(API_PARKINGLOTS_LIST)
     .then((response) => response.json())
     .then((data) => {
+      console.log(data);
       for (var i = 0; i < data.length; i++) {
         var totalslot = 0;
         var totalarea = data[i].area.length;
         for (var j = 0; j < totalarea; j++) {
           totalslot =
-            totalslot + data[i].area[j].freeslot + data[i].area[j].fullslot;
+            totalslot + data[i].area[j].slots.length;
         }
         createNewRow(
           data[i]._id,
