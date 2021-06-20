@@ -95,6 +95,8 @@
                                             <th>Area name</th>
                                             <th>Slot ID</th>
                                             <th>Status</th>
+                                            <th>Created At</th>
+                                            <th>Price</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -106,6 +108,8 @@
                                             <th>Area name</th>
                                             <th>Slot ID</th>
                                             <th>Status</th>
+                                            <th>Created At</th>
+                                            <th>Price</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>

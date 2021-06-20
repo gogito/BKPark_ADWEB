@@ -30,10 +30,10 @@
             var profile = document.getElementById("profile");
             if (userType == "Admin") {
                 profile.style.display = "none";
-                userinfo.textContent = JSON.parse(currentUserCookie).name.FName + " " + JSON.parse(currentUserCookie).name.LName;
+                userinfo.textContent = JSON.parse(currentUserCookie).name.FName + " " + JSON.parse(currentUserCookie).name.LName + " (Admin)";
             } else if (userType == "Owner") {
                 profile.style.display = "block";
-                userinfo.textContent = JSON.parse(currentUserCookie).name.FName + " " + JSON.parse(currentUserCookie).name.LName + "(Owner)";
+                userinfo.textContent = JSON.parse(currentUserCookie).name.FName + " " + JSON.parse(currentUserCookie).name.LName + " (Owner)";
                 // parkinglot.value = JSON.parse(currentUserCookie).ownedParking.length;
             }
             console.log(userinfo.textContent);
