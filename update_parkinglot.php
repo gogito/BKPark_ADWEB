@@ -73,13 +73,13 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Update parking lot</h1>
-                    <p class="mb-4">Update Parkinglot using the form below or download our mobile app at<a target="_blank" href="https://datatables.net"> BK Parking</a>.</p>
+                    <h1 class="h3 mb-2 text-gray-800">Update Parkinglot</h1>
+                    <p class="mb-4">Update Parkingot using the form below or download our mobile app at<a target="_blank" href="https://datatables.net"> BK Parking</a>.</p>
 
                     <!-- Main Content -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Update parking lot Form</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Update Parkinglot Form</h6>
                         </div>
                         <div class="card-body">
                             <form>
@@ -167,54 +167,52 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                    <div id="addareatable" class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 id="parkinglotName" class="m-0 font-weight-bold text-primary">Add Area Form</h6>
+                        </div>
+                        <div class="card-body">
+                            
+                                <form>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="inputFirstname">Area Name</label>
+                                            <input type="text" class="form-control" id="areaname" placeholder="Name">
+                                        </div>
 
-                <div id="addareatable" class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 id="parkinglotName" class="m-0 font-weight-bold text-primary">Add Area Form</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <form>
-
-
-
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="inputFirstname">Area Name</label>
-                                        <input type="text" class="form-control" id="areaname" placeholder="Name">
+                                        <div class="form-group col-md-6">
+                                            <label for="inputLastname">Number of Slots</label>
+                                            <input type="text" class="form-control" id="areaslot" placeholder="Total Slot">
+                                        </div>
                                     </div>
 
-                                    <div class="form-group col-md-6">
-                                        <label for="inputLastname">Number of Slots</label>
-                                        <input type="text" class="form-control" id="areaslot" placeholder="Total Slot">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="inputUsername4">Price</label>
+                                            <input type="text" class="form-control" id="areaprice" placeholder="Price">
+                                        </div>
                                     </div>
-                                </div>
-
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="inputUsername4">Price</label>
-                                        <input type="text" class="form-control" id="areaprice" placeholder="Price">
-                                    </div>
-                                </div>
-                                <a onClick="addArea()" type="submit" class="btn btn-primary">Add Area</a>
-                            </form>
+                                    <a onClick="addArea()" type="submit" class="btn btn-primary">Add Area</a>
+                                </form>
+                            
                         </div>
                     </div>
+
+
+
+
                 </div>
+                <!-- /.container-fluid -->
 
             </div>
-            <!-- /.container-fluid -->
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <?php include 'footer.php'; ?>
+            <!-- End of Footer -->
 
         </div>
-        <!-- End of Main Content -->
-
-        <!-- Footer -->
-        <?php include 'footer.php'; ?>
-        <!-- End of Footer -->
-
-    </div>
-    <!-- End of Content Wrapper -->
+        <!-- End of Content Wrapper -->
 
     </div>
     <!-- End of Page Wrapper -->
