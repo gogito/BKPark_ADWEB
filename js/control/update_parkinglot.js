@@ -5,6 +5,10 @@ var update_btn =
   '<i class="fas fa-check"></i>' +
   "</span>" +
   "</a>";
+var currentParkingrCookie = document.cookie
+  .split("; ")
+  .find((row) => row.startsWith("currentParkinglot="))
+  .split("=")[1]
 
 var latitudeE = document.getElementById("lat");
 var longitudeE = document.getElementById("long");
@@ -15,6 +19,12 @@ var cityE = document.getElementById("address_city");
 var countryE = document.getElementById("address_country");
 var nameE = document.getElementById("name");
 var thumnailE = document.getElementById("img");
+var parkinglottable = document.getElementById("areatable");
+var addareatable = document.getElementById("addareatable");
+
+// var areaname = document.getElementById("name");
+// var areaslot = document.getElementById("slot");
+// var areaprice = document.getElementById("price");
 function updateParkinglotInfo() {
   var latitude = latitudeE.value;
   var longitude = longitudeE.value;
@@ -108,10 +118,13 @@ function updateParkinglotInfo() {
   console.log(data);
   putUserInfo(data);
 }
-
 function getOldData() {
   // console.log("get old data");
   // getParkingLotsList()
+  if (JSON.parse(currentUserCookie).userType == "Admin") {
+    parkinglottable.style.display = "none";
+    addareatable.style.display = "none";
+  }
   getAreaData();
   var currentParkinglotID = document.cookie
     .split("; ")
@@ -205,16 +218,19 @@ function createNewRow(name, slot, price, id, number) {
 
 function createSingleBox(content, row, id, option, number) {
   var p = document.createElement("td");
-  var inputTxt = document.createElement("input");
-  inputTxt.value = content;
+  var inputTxt
   switch (option) {
     case 1:
+      inputTxt = document.createTextNode(content);
       inputTxt.id = "name" + id + number;
       break;
     case 2:
+      inputTxt = document.createTextNode(content);
       inputTxt.id = "slot" + id + number;
       break;
     case 3:
+      inputTxt = document.createElement("input");
+      inputTxt.value = content;
       inputTxt.id = "price" + id + number;
       break;
 
@@ -244,36 +260,29 @@ function matchFunction(btnGroup, name, id, number) {
 
 }
 
-function updateAreaData(name, id, number){
-  var nameE = document.getElementById("name" + id + number);
-  var slotE = document.getElementById("slot" + id + number);
+function updateAreaData(name, id, number) {
+  // var nameE = document.getElementById("name" + id + number);
   var priceE = document.getElementById("price" + id + number);
 
-  var name = nameE.value;
-  var slot = slotE.value;
+  // var name = nameE.innerHTML;
   var price = priceE.value;
 
-  var slotsStatus = [];
-  for (var i = 0; i < slot; i++){
-    slotsStatus.push(0);
-  }
   console.log({
-    area:{
+    area: {
       name: name,
-      slots: slotsStatus
+      price: price
     }
   });
 
-  fetch(API_PARKINGLOTS_LIST + "/" + id + "/area/slot", {
+  fetch(API_PARKINGLOTS_LIST + "/" + id + "/area/price", {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      area:{
+      area: {
         name: name,
-        slots: slotsStatus,
-        // price: price
+        price: price
       }
     }),
   })
@@ -286,5 +295,54 @@ function updateAreaData(name, id, number){
       alert("Failed to change area!");
       // console.log(error);
       console.log(error.response);
+    });
+}
+
+
+function addArea() {
+  var nameE = document.getElementById("areaname");
+  var slotE = document.getElementById("areaslot");
+  var priceE = document.getElementById("areaprice");
+
+  var name = nameE.value;
+  var slot = slotE.value;
+  var price = priceE.value;
+  var slotsStatus = [];
+  for (var i = 0; i < slot; i++) {
+    slotsStatus.push(0);
+  }
+  console.log({
+    area: {
+      name: name,
+      price: price,
+      slots: slotsStatus
+    }
+  });
+  fetch(API_PARKINGLOTS_LIST + "/" + currentParkingrCookie + "/area", {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      area: {
+        name: name,
+        price: price,
+        slots: slotsStatus
+      }
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      alert("Add area successfully!");
+      window.location.href = "update_parkinglot.php"
+    })
+    .catch((error) => {
+      console.log(error);
+      console.log(error.response);
+      alert("Failed to add area!");
+      nameE.value = "";
+      priceE.value = "";
+      slotE.value = "";
     });
 }

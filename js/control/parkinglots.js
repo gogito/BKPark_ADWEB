@@ -51,11 +51,11 @@ function getParkingLotsList() {
 function getOwnedParkingLotsList() {
   console.log("create Owned Parking lots List");
   var api = API_OWNER_LIST + "/" + JSON.parse(currentUserCookie)._id + "/parking"
-  if (JSON.parse(currentUserCookie).userType == "Admin"){
+  if (JSON.parse(currentUserCookie).userType == "Admin") {
     var currentUserInfoCookie = document.cookie
-    .split("; ")
-    .find((row) => row.startsWith("currentUserInfo="))
-    .split("=")[1];
+      .split("; ")
+      .find((row) => row.startsWith("currentUserInfo="))
+      .split("=")[1];
     api = API_OWNER_LIST + "/" + currentUserInfoCookie + "/parking"
   }
   fetch(api)
@@ -68,7 +68,7 @@ function getOwnedParkingLotsList() {
         for (var j = 0; j < totalarea; j++) {
           totalslot =
             totalslot + data[i].area[j].freeslot + data[i].area[j].fullslot;
-            // console.log(totalslot);
+          // console.log(totalslot);
         }
         createNewRow(
           data[i]._id,
@@ -111,12 +111,9 @@ function createSingleBox(content, row) {
 function addButton(row, id, name) {
   var btn = document.createElement("td");
   btn.id = id;
-  if (JSON.parse(currentUserCookie).userType == "Admin"){
-    btn.innerHTML = info_btn + cancel_btn;
-  }
-  else if (JSON.parse(currentUserCookie).userType == "Owner"){
-    btn.innerHTML = confirm_btn +  info_btn + cancel_btn;
-  }
+
+  btn.innerHTML = info_btn + cancel_btn;
+
 
   document.body.appendChild(btn);
   row.appendChild(btn);
@@ -129,24 +126,9 @@ function matchFunction(btnGroup, name) {
   var addBtn;
   var infoBtn;
   var cancelBtn;
-  if (JSON.parse(currentUserCookie).userType == "Owner"){
-    addBtn = btnGroup.children[0];
-    infoBtn = btnGroup.children[1];
-    cancelBtn = btnGroup.children[2];
 
-    var cookie = {
-      id: btnGroup.id,
-      name: name
-    }
-    addBtn.onclick = function () {
-      document.cookie = "updateParkinglot=" + JSON.stringify(cookie) + "; max-age=300; path=/;";
-      window.location.href = "add_area.php";
-    };
-  }
-  else if (JSON.parse(currentUserCookie).userType == "Admin"){
-    infoBtn = btnGroup.children[0];
-    cancelBtn = btnGroup.children[1];
-  }
+  infoBtn = btnGroup.children[0];
+  cancelBtn = btnGroup.children[1];
 
   cancelBtn.onclick = function () {
     handleCancelButtonPress(id);
@@ -182,5 +164,5 @@ function confirmCancelBooking(id) {
     .catch((error) => {
       alert("Failed to delete parking lot!");
     });
-    // location.reload();
+  // location.reload();
 }

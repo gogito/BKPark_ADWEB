@@ -30,12 +30,14 @@
             var profile = document.getElementById("profile");
             if (userType == "Admin") {
                 profile.style.display = "none";
+                userinfo.textContent = JSON.parse(currentUserCookie).name.FName + " " + JSON.parse(currentUserCookie).name.LName;
             } else if (userType == "Owner") {
                 profile.style.display = "block";
+                userinfo.textContent = JSON.parse(currentUserCookie).name.FName + " " + JSON.parse(currentUserCookie).name.LName + "(Owner)";
                 // parkinglot.value = JSON.parse(currentUserCookie).ownedParking.length;
             }
             console.log(userinfo.textContent);
-            userinfo.textContent = JSON.parse(currentUserCookie).name.FName + " " + JSON.parse(currentUserCookie).name.LName;
+            
 
             function setInfo(){
                 document.cookie = "currentUserInfo=" + JSON.parse(currentUserCookie)._id + "; max-age=3600; path=/;";
