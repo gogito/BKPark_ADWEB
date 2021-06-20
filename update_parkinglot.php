@@ -20,7 +20,7 @@
 
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <script src="js/control/parkinglots.js">
+    <!-- <script src="js/control/parkinglots.js"> -->
     </script>
     <script src="model/var.js">
     </script>
@@ -143,34 +143,25 @@
                             <h6 class="m-0 font-weight-bold text-primary">Area Table</h6>
                         </div>
                         <div class="card-body">
-                            <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                                <a href="add_parkinglot.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Add Area</a>
-                            </div>
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
-                                            <th>Name</th>
-                                            <th>Address</th>
-                                            <th>Total Area</th>
+                                            <th>Area name</th>
                                             <th>Total Slot</th>
-                                            <th>Status</th>
+                                            <th>Price</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Name</th>
-                                            <th>Address</th>
-                                            <th>Total Area</th>
+                                    <tr>
+                                            <th>Area name</th>
                                             <th>Total Slot</th>
-                                            <th>Status</th>
+                                            <th>Price</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>
-                                    <tbody id='tableBodyParkingLots'>
+                                    <tbody id='tableBodyArea'>
                                     </tbody>
                                 </table>
                             </div>
