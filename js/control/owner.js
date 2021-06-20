@@ -71,9 +71,9 @@ function addButton(row, id) {
     var btn = document.createElement("td");
     btn.id = id;
     btn.innerHTML = info_btn + cancel_btn;
-    if (JSON.parse(currentUserCookie).userType == "Admin") {
-        btn.innerHTML = confirm_btn + info_btn + cancel_btn;
-    }
+    // if (JSON.parse(currentUserCookie).userType == "Admin") {
+    //     btn.innerHTML = confirm_btn + info_btn + cancel_btn;
+    // }
     document.body.appendChild(btn);
     row.appendChild(btn);
     matchFunction(btn);
@@ -85,15 +85,15 @@ function matchFunction(btnGroup) {
     var addBtn;
     var infoBtn = btnGroup.children[0];
     var cancelBtn = btnGroup.children[1];
-    if (JSON.parse(currentUserCookie).userType == "Admin") {
-        addBtn = btnGroup.children[0];
-        infoBtn = btnGroup.children[1];
-        cancelBtn = btnGroup.children[2];
-        addBtn.onclick = function () { 
-            document.cookie = "currentOwnerID=" + id + "; max-age=3600; path=/;";
-            window.location.href = "add_parkinglot.php";
-         };
-    }
+    // if (JSON.parse(currentUserCookie).userType == "Admin") {
+    //     addBtn = btnGroup.children[0];
+    //     infoBtn = btnGroup.children[1];
+    //     cancelBtn = btnGroup.children[2];
+    //     addBtn.onclick = function () { 
+    //         document.cookie = "currentOwnerID=" + id + "; max-age=3600; path=/;";
+    //         window.location.href = "add_parkinglot.php";
+    //      };
+    // }
 
     cancelBtn.onclick = function () { handleCancelButtonPress(id) };
     infoBtn.onclick = function () {

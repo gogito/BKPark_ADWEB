@@ -188,6 +188,75 @@
                         </div>
                     </div>
 
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Add Parkinglot Form</h6>
+                        </div>
+                        <div class="card-body">
+                            <form>
+
+
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="inputUsername4">Name</label>
+                                        <input type="text" class="form-control" id="plname" placeholder="Name">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="inputFirstname">Latitude</label>
+                                        <input type="text" class="form-control" id="pllat" placeholder="Latitude">
+                                    </div>
+
+                                    <div class="form-group col-md-4">
+                                        <label for="inputLastname">Longitude</label>
+                                        <input type="text" class="form-control" id="pllong" placeholder="Longitude">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+
+
+                                    <div class="form-group col-md-2">
+                                        <label for="inputPassword4">Number</label>
+                                        <input type="text" class="form-control" id="pladdress_number" placeholder="Address">
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="inputPassword4">Street</label>
+                                        <input type="text" class="form-control" id="pladdress_street" placeholder="Address">
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="inputPassword4">district</label>
+                                        <input type="text" class="form-control" id="pladdress_district" placeholder="Address">
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="inputPassword4">City</label>
+                                        <input type="text" class="form-control" id="pladdress_city" placeholder="Address">
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="inputPassword4">Country</label>
+                                        <input type="text" class="form-control" id="pladdress_country" placeholder="Address">
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="inputEmail4">Thumnail</label>
+                                        <input type="email" class="form-control" id="plimg" placeholder="Thumnail link">
+                                    </div>
+                                </div>
+
+
+
+
+
+
+                                <a onClick="addParkinglot()" type="submit" class="btn btn-primary">Add Parking lot</a>
+                            </form>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <!-- /.container-fluid -->

@@ -25,7 +25,7 @@ function addParkinglot() {
   var thumnail = thumnailE.value;
   var ownerID = document.cookie
     .split("; ")
-    .find((row) => row.startsWith("currentOwnerID="))
+    .find((row) => row.startsWith("currentUserInfo="))
     .split("=")[1];
 
   console.log(JSON.parse(currentUserCookie).userType);
