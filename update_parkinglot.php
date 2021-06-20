@@ -138,35 +138,6 @@
                             </form>
                         </div>
                     </div>
-                    <div id="areatable" class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Area Table</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Area name</th>
-                                            <th>Total Slot</th>
-                                            <th>Price</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Area name</th>
-                                            <th>Total Slot</th>
-                                            <th>Price</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody id='tableBodyArea'>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
                     <div id="addareatable" class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 id="parkinglotName" class="m-0 font-weight-bold text-primary">Add Area Form</h6>
@@ -197,6 +168,36 @@
                             
                         </div>
                     </div>
+                    <div id="areatable" class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Area Table</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Area name</th>
+                                            <th>Total Slot</th>
+                                            <th>Price</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Area name</th>
+                                            <th>Total Slot</th>
+                                            <th>Price</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody id='tableBodyArea'>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                   
 
 
 
