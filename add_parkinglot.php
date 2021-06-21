@@ -114,7 +114,7 @@
                                         <input type="text" class="form-control" id="address_street" placeholder="Address">
                                     </div>
                                     <div class="form-group col-md-3">
-                                        <label for="inputPassword4">district</label>
+                                        <label for="inputPassword4">District</label>
                                         <input type="text" class="form-control" id="address_district" placeholder="Address">
                                     </div>
                                     <div class="form-group col-md-2">
@@ -131,8 +131,8 @@
 
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
-                                        <label for="inputEmail4">Thumnail</label>
-                                        <input type="email" class="form-control" id="img" placeholder="Thumnail link">
+                                        <label for="inputEmail4">Thumnnail</label>
+                                        <input type="email" class="form-control" id="img" placeholder="Thumbnail link">
                                     </div>
                                 </div>
 

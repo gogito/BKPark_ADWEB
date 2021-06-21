@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>BK Parking - Add User</title>
+    <title>BK Parking - Owner Info</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -225,7 +225,7 @@
                                         <input type="text" class="form-control" id="pladdress_street" placeholder="Address">
                                     </div>
                                     <div class="form-group col-md-3">
-                                        <label for="inputPassword4">district</label>
+                                        <label for="inputPassword4">District</label>
                                         <input type="text" class="form-control" id="pladdress_district" placeholder="Address">
                                     </div>
                                     <div class="form-group col-md-2">
@@ -242,8 +242,8 @@
 
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
-                                        <label for="inputEmail4">Thumnail</label>
-                                        <input type="email" class="form-control" id="plimg" placeholder="Thumnail link">
+                                        <label for="inputEmail4">Thumbnail</label>
+                                        <input type="email" class="form-control" id="plimg" placeholder="Thumbnail link">
                                     </div>
                                 </div>
 
