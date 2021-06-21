@@ -1,7 +1,7 @@
 var confirm_btn =
   '<a href="#" id="confirm" class="btn btn-primary btn-default">' +
   '<span class="icon text-white-50">' +
-  '<i class="fas fa-plus"></i>' +
+  '<i class="fas fa-check"></i>' +
   "</span>" +
   "</a>";
 var info_btn =
@@ -91,7 +91,7 @@ function createNewRow(id, userid, parkingid, areaname, slotid, status, price, da
   createSingleBox(parkingid, row);
   createSingleBox(areaname, row);
   createSingleBox(slotid, row);
-  createSingleBox(status, row);
+  createSingleBoxStatusBooking(status, row);
   createSingleBox(date, row);
   createSingleBox(price, row);
   if (status == "Booked") {
@@ -111,6 +111,27 @@ function createSingleBox(content, row) {
   row.appendChild(p);
 }
 
+function createSingleBoxStatusBooking(content, row) {
+  var p = document.createElement("td");
+  
+  var ih = document.createElement("span");
+  if(content == "Failed"){
+  ih.className = 'badge badge-danger';
+  }
+  else if (content == "Success") {
+    ih.className = 'badge badge-primary';
+  }
+
+  else if (content == "Booked") {
+    ih.className = 'badge badge-success';
+  }
+
+  var pTxt = document.createTextNode(content);
+  p.appendChild(ih);
+ 
+  ih.appendChild(pTxt);
+  row.appendChild(p);
+}
 
 function addButton(row, id, option) {
   var btn = document.createElement("td");
