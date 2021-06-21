@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>BK Parking - Add User</title>
+    <title>BK Parking - Owner Info</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -46,31 +46,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-                    <!-- Sidebar Toggle (Topbar) -->
-                    <form class="form-inline">
-                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                            <i class="fa fa-bars"></i>
-                        </button>
-                    </form>
-
-                    <!-- Topbar Search -->
-                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-
-                    <!-- Topbar Navbar -->
-                    <?php include 'top_nav.php'; ?>
-
-                </nav>
+               <?php include 'main_nav.php'; ?>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -156,8 +132,8 @@
                                         <a href="add_parkinglot.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Add Parkinglot</a>
                                     </div>
                                     <div class="table-responsive">
-                                        <table class="table table-bordered" id="dataParkinglotTable" width="100%" cellspacing="0">
-                                            <thead>
+                                    <table class="table table-striped table-hover table-bordered" id="dataParkinglotTable" width="100%" cellspacing="0">
+                                            <thead class = "thead-dark">
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>Name</th>
@@ -168,7 +144,7 @@
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
-                                            <tfoot>
+                                            <tfoot class = "thead-dark">
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>Name</th>
@@ -225,7 +201,7 @@
                                         <input type="text" class="form-control" id="pladdress_street" placeholder="Address">
                                     </div>
                                     <div class="form-group col-md-3">
-                                        <label for="inputPassword4">district</label>
+                                        <label for="inputPassword4">District</label>
                                         <input type="text" class="form-control" id="pladdress_district" placeholder="Address">
                                     </div>
                                     <div class="form-group col-md-2">
@@ -242,8 +218,8 @@
 
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
-                                        <label for="inputEmail4">Thumnail</label>
-                                        <input type="email" class="form-control" id="plimg" placeholder="Thumnail link">
+                                        <label for="inputEmail4">Thumbnail</label>
+                                        <input type="email" class="form-control" id="plimg" placeholder="Thumbnail link">
                                     </div>
                                 </div>
 
@@ -279,23 +255,7 @@
     </a>
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php include 'logout.php'; ?>
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
