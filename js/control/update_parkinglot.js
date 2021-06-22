@@ -223,7 +223,9 @@ function createNewRow(name, slot, price, id, number) {
   var body = document.getElementById("tableBodyArea");
 
   var row = document.createElement("tr");
-  price = numberWithCommas(price);
+  if (price >= 0){
+    price = numberWithCommas(price);
+  }
   createSingleBox(name, row, id, 1, number);
   createSingleBox(slot, row, id, 2, number);
   createSingleBox(price, row, id, 3, number);
@@ -426,6 +428,7 @@ function createNewRowPL(id, userid, parkingid, areaname, slotid, status, price, 
   var body = document.getElementById("tableBookingBody");
 
   var row = document.createElement("tr");
+  if (price >= 0)
   price = numberWithCommas(price); 
   
   createSingleBoxPL(id, row);
