@@ -59,7 +59,7 @@ function createNewRow(id, userid, parkingid, areaname, slotid, status, price, da
   var body = document.getElementById("tableBody");
 
   var row = document.createElement("tr");
-
+  price = numberWithCommas(price);
   createSingleBox(id, row);
   createSingleBox(userid, row);
   createSingleBox(parkingid, row);
@@ -77,6 +77,10 @@ function createNewRow(id, userid, parkingid, areaname, slotid, status, price, da
 
   body.appendChild(row);
 }
+
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+} 
 
 function createSingleBox(content, row) {
   var p = document.createElement("td");

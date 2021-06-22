@@ -67,7 +67,7 @@ function getOwnedParkingLotsList() {
         var totalarea = data[i].area.length;
         for (var j = 0; j < totalarea; j++) {
           totalslot =
-            totalslot + data[i].area[j].freeslot + data[i].area[j].fullslot;
+            totalslot + data[i].area[j].length;
           // console.log(totalslot);
         }
         createNewRow(

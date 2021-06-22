@@ -223,7 +223,7 @@ function createNewRow(name, slot, price, id, number) {
   var body = document.getElementById("tableBodyArea");
 
   var row = document.createElement("tr");
-
+  price = numberWithCommas(price);
   createSingleBox(name, row, id, 1, number);
   createSingleBox(slot, row, id, 2, number);
   createSingleBox(price, row, id, 3, number);
@@ -425,7 +425,8 @@ function createNewRowPL(id, userid, parkingid, areaname, slotid, status, price, 
   var body = document.getElementById("tableBookingBody");
 
   var row = document.createElement("tr");
-
+  price = numberWithCommas(price); 
+  
   createSingleBoxPL(id, row);
   createSingleBoxPL(userid, row);
   createSingleBoxPL(parkingid, row);
@@ -444,6 +445,9 @@ function createNewRowPL(id, userid, parkingid, areaname, slotid, status, price, 
   body.appendChild(row);
 }
 
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
 function createSingleBoxPL(content, row) {
   var p = document.createElement("td");
   var pTxt = document.createTextNode(content);
