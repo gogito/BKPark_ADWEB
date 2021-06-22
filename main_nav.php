@@ -7,7 +7,7 @@
 
     <!-- Topbar Search -->
     <div>
-        <p id="timeupdated">Loaded At: 00:00:00</p>
+        <span class = "badge badge-success" id="timeupdated">Loaded At: 00:00:00</span>
     </div>
 
     <!-- Topbar Navbar -->
@@ -44,3 +44,25 @@
         timeinfo.innerHTML = "Updated: " + time;
     </script>
 </nav>
+<!-- 
+function createSingleBoxStatusBooking(content, row) {
+  var p = document.createElement("td");
+  
+  var ih = document.createElement("span");
+  if(content == "Failed"){
+  ih.className = 'badge badge-danger';
+  }
+  else if (content == "Success") {
+    ih.className = 'badge badge-primary';
+  }
+
+  else if (content == "Booked") {
+    ih.className = 'badge badge-success';
+  }
+
+  var pTxt = document.createTextNode(content);
+  p.appendChild(ih);
+ 
+  ih.appendChild(pTxt);
+  row.appendChild(p);
+} -->
