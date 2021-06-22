@@ -59,7 +59,9 @@ function createNewRow(id, userid, parkingid, areaname, slotid, status, price, da
   var body = document.getElementById("tableBody");
 
   var row = document.createElement("tr");
-  price = numberWithCommas(price);
+  if (price >= 0)
+  // console.log(price);
+    price = numberWithCommas(price);
   createSingleBox(id, row);
   createSingleBox(userid, row);
   createSingleBox(parkingid, row);
