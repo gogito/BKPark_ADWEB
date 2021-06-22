@@ -123,7 +123,7 @@ function addButton(row, id, option) {
   btn.id = id;
   switch (option) {
     case 1:
-      btn.innerHTML = confirm_btn + cancel_btn;
+      btn.innerHTML = confirm_btn + " " + cancel_btn;
       break;
   }
   document.body.appendChild(btn);

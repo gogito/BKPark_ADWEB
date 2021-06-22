@@ -70,7 +70,7 @@ function createSingleBox(content, row) {
 function addButton(row, id) {
     var btn = document.createElement("td");
     btn.id = id;
-    btn.innerHTML = info_btn + cancel_btn;
+    btn.innerHTML = info_btn + " " + cancel_btn;
     // if (JSON.parse(currentUserCookie).userType == "Admin") {
     //     btn.innerHTML = confirm_btn + info_btn + cancel_btn;
     // }

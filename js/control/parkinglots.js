@@ -112,7 +112,7 @@ function addButton(row, id, name) {
   var btn = document.createElement("td");
   btn.id = id;
 
-  btn.innerHTML = info_btn + cancel_btn;
+  btn.innerHTML = info_btn + " " + cancel_btn;
 
 
   document.body.appendChild(btn);
