@@ -168,7 +168,7 @@ function putUserInfo(dataIn) {
       console.log(data);
       if (data._id != null) {
         alert("Update parking lot successfully");
-        window.location.href = "parkinglots.php";
+        window.location.href = "index.php?page=pl";
       } else {
         console.log(data);
         latitudeE.value = "";
@@ -379,7 +379,7 @@ function addArea() {
     .then((data) => {
       console.log(data);
       alert("Add area successfully!");
-      window.location.href = "update_parkinglot.php";
+      window.location.href = "index.php?page=upl";
     })
     .catch((error) => {
       console.log(error);

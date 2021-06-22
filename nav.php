@@ -13,14 +13,14 @@
 
     <!-- Nav Item - Dashboard -->
     <li id="dashboard_ad" class="nav-item active">
-        <a class="nav-link" href="homepage.php">
+        <a class="nav-link" href="index.php?page=db">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
 
 
     <li id="dashboard_owner" class="nav-item active">
-        <a class="nav-link" href="owner_dashboard.php">
+        <a class="nav-link" href="index.php?page=odb">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span> Dashboard</span></a>
     </li>
@@ -35,28 +35,28 @@
 
     <!-- Nav Item - Tables -->
     <li id="user_ad" class="nav-item">
-        <a class="nav-link" href="user.php">
+        <a class="nav-link" href="index.php?page=us">
             <i class="fas fa-fw fa-table"></i>
             <span>Users</span></a>
     </li>
 
     <!-- Nav Item - Tables -->
     <li id="owner_ad" class="nav-item">
-        <a class="nav-link" href="owner.php">
+        <a class="nav-link" href="index.php?page=on">
             <i class="fas fa-fw fa-table"></i>
             <span>Owners</span></a>
     </li>
 
     <!-- Nav Item - Tables -->
     <li id="booking_ad" class="nav-item">
-        <a class="nav-link" href="booking.php">
+        <a class="nav-link" href="index.php?page=bk">
             <i class="fas fa-fw fa-table"></i>
             <span>Bookings</span></a>
     </li>
 
     <!-- Nav Item - Tables -->
     <li id="pl_ad" class="nav-item">
-        <a class="nav-link" href="parkinglots.php">
+        <a class="nav-link" href="index.php?page=pl">
             <i class="fas fa-fw fa-table"></i>
             <span>Parking Lots</span></a>
     </li>
@@ -118,7 +118,7 @@
             booking_ad.style.display = 'block';
             user_ad.style.display = 'block';
             owner_ad.style.display = 'block';
-            logo.href = "homepage.php"
+            logo.href = "index.php?page=db"
         } else {
             dashboard_owner.style.display = 'block';
             pl_owner.style.display = 'block';
@@ -128,7 +128,7 @@
             booking_ad.style.display = 'none';
             user_ad.style.display = 'none';
             owner_ad.style.display = 'none';
-            logo.href = "owner_dashboard.php"
+            logo.href = "index.php?page=odb"
 
         }
     </script>

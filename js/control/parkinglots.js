@@ -136,7 +136,7 @@ function matchFunction(btnGroup, name) {
 
   infoBtn.onclick = function () {
     document.cookie = "currentParkinglot=" + id + "; max-age=3000; path=/;";
-    window.location.href = "update_parkinglot.php";
+    window.location.href = "index.php?page=upl";
   };
 
 
@@ -159,7 +159,7 @@ function confirmCancelBooking(id) {
     .then((data) => {
       console.log(data);
       alert("Delete parking lot successfully!");
-      window.location.href("parkinglots.php");
+      window.location.href("index.php?page=pl");
     })
     .catch((error) => {
       alert("Failed to delete parking lot!");

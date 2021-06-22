@@ -116,7 +116,7 @@
 
 
 
-                                <a id="updateBtn" href="update_user.php" type="submit" class="btn btn-primary">Update</a>
+                                <a id="updateBtn" href="index.php?page=uu" type="submit" class="btn btn-primary">Update</a>
                                 </form>
                             </div>
                         </div>
@@ -129,7 +129,7 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                                        <a href="add_parkinglot.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Add Parkinglot</a>
+                                        <a href="index.php?page=apl" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Add Parkinglot</a>
                                     </div>
                                     <div class="table-responsive">
                                     <table class="table table-striped table-hover table-bordered" id="dataParkinglotTable" width="100%" cellspacing="0">

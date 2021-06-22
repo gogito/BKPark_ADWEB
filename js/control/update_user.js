@@ -53,7 +53,7 @@ function putUserInfo() {
             console.log(data);
             if (data._id != null) {
                 alert("Update account successfully");
-                window.location.href = "user.php";
+                window.location.href = "index.php?page=us";
             } else {
                 console.log(data);
                 fnameE.value = "";
@@ -98,7 +98,7 @@ function putOwnerInfo() {
             console.log(data);
             if (data._id != null) {
                 alert("Update account successfully");
-                window.location.href = "owner.php";
+                window.location.href = "index.php?page=on";
             } else {
                 console.log(data);
                 fnameE.value = "";

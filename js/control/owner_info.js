@@ -141,7 +141,7 @@ function matchFunction(btnGroup, name) {
 
   infoBtn.onclick = function () {
     document.cookie = "currentParkinglot=" + id + "; max-age=3000; path=/;";
-    window.location.href = "update_parkinglot.php";
+    window.location.href = "index.php?page=upl";
   };
 }
 
