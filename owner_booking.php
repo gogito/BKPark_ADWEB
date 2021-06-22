@@ -72,7 +72,7 @@
                                             <th>Slot ID</th>
                                             <th>Status</th>
                                             <th>Created At</th>
-                                            <th>Price</th>
+                                            <th>Price(VNĐ)</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -85,7 +85,7 @@
                                             <th>Slot ID</th>
                                             <th>Status</th>
                                             <th>Created At</th>
-                                            <th>Price</th>
+                                            <th>Price(VNĐ)</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>

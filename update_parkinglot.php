@@ -42,7 +42,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-               <?php include 'main_nav.php'; ?>
+                <?php include 'main_nav.php'; ?>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -119,29 +119,29 @@
                             <h6 id="parkinglotName" class="m-0 font-weight-bold text-primary">Add Area Form</h6>
                         </div>
                         <div class="card-body">
-                            
-                                <form>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <label for="inputFirstname">Area Name</label>
-                                            <input type="text" class="form-control" id="areaname" placeholder="Name">
-                                        </div>
 
-                                        <div class="form-group col-md-6">
-                                            <label for="inputLastname">Number of Slots</label>
-                                            <input type="text" class="form-control" id="areaslot" placeholder="Total Slot">
-                                        </div>
+                            <form>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputFirstname">Area Name</label>
+                                        <input type="text" class="form-control" id="areaname" placeholder="Name">
                                     </div>
 
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <label for="inputUsername4">Price</label>
-                                            <input type="text" class="form-control" id="areaprice" placeholder="Price">
-                                        </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="inputLastname">Number of Slots</label>
+                                        <input type="text" class="form-control" id="areaslot" placeholder="Total Slot">
                                     </div>
-                                    <a onClick="addArea()" type="submit" class="btn btn-primary">Add Area</a>
-                                </form>
-                            
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputUsername4">Price(VNĐ)</label>
+                                        <input type="text" class="form-control" id="areaprice" placeholder="Price">
+                                    </div>
+                                </div>
+                                <a onClick="addArea()" type="submit" class="btn btn-primary">Add Area</a>
+                            </form>
+
                         </div>
                     </div>
                     <div id="areatable" class="card shadow mb-4">
@@ -150,8 +150,8 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                            <table class="table table-striped table-hover table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead class ="thead-dark">
+                                <table class="table table-striped table-hover table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead class="thead-dark">
                                         <tr>
                                             <th>Area name</th>
                                             <th>Total Slot</th>
@@ -159,12 +159,12 @@
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tfoot class = "thead-dark">
+                                    <tfoot class="thead-dark">
                                         <tr>
                                             <th>Area name</th>
                                             <th>Total Slot</th>
-                                            <th>Price</th>
-                                            <th>Action</th>
+                                            <th>Price(VNĐ)</th>
+                                            <th>Action(VNĐ)</th>
                                         </tr>
                                     </tfoot>
                                     <tbody id='tableBodyArea'>
@@ -173,9 +173,61 @@
                             </div>
                         </div>
                     </div>
-                   
 
 
+
+
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Booking Table</h6>
+                        </div>
+                        <div class="card-body">
+                            <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                                <a href="add_user.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Add Booking</a>
+                            </div> -->
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover table-bordered" id="dataTable1" width="100%" cellspacing="0">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>User</th>
+                                            <th>Parking lot</th>
+                                            <th>Area name</th>
+                                            <th>Slot ID</th>
+                                            <th>Status</th>
+                                            <th>Date</th>
+                                            <th>Price(VNĐ)</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot class="thead-dark">
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>User</th>
+                                            <th>Parking lot</th>
+                                            <th>Area name</th>
+                                            <th>Slot ID</th>
+                                            <th>Status</th>
+                                            <th>Date</th>
+                                            <th>Price(VNĐ)</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody id='tableBookingBody'>
+                                        <!-- <tr>
+                                            <td>Tiger Nixon</td>
+                                            <td>System Architect</td>
+                                            <td>Edinburgh</td>
+                                            <td>61</td>
+                                            <td>2011/04/25</td>
+                                            <td>$320,800</td>
+                                        </tr> -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
 
 
                 </div>

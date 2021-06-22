@@ -138,7 +138,7 @@
                                                     <th>Slot ID</th>
                                                     <th>Status</th>
                                                     <th>Date</th>
-                                                    <th>Price</th>
+                                                    <th>Price(VNĐ)</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -151,7 +151,7 @@
                                                     <th>Slot ID</th>
                                                     <th>Status</th>
                                                     <th>Date</th>
-                                                    <th>Price</th>
+                                                    <th>Price(VNĐ)</th>
                                                     <th>Action</th>
                                                 </tr>
                                                 </tr>

@@ -1,3 +1,8 @@
+var confirm_btn = '<a href="#" id="confirm" class="btn btn-primary btn-default">'
+  + '<span class="icon text-white-50">'
+  + '<i class="fas fa-check"></i>'
+  + '</span>'
+  + '</a>'
 var update_btn =
   '<a href="#" id="info" class="btn btn-success btn-default">' +
   '<span class="icon text-white-50">' +
@@ -131,6 +136,7 @@ function getOldData() {
     addareatable.style.display = "none";
   }
   getAreaData();
+  getParkinglotBookingList();
   var currentParkinglotID = document.cookie
     .split("; ")
     .find((row) => row.startsWith("currentParkinglot="))
@@ -388,5 +394,159 @@ function addArea() {
       nameE.value = "";
       priceE.value = "";
       slotE.value = "";
+    });
+}
+
+
+
+function getParkinglotBookingList() {
+  console.log("create Owner Booking List");
+  var currentUserCookie = document.cookie
+  .split('; ')
+  .find(row => row.startsWith('currentUser='))
+  .split('=')[1];
+  console.log(API_PARKINGLOTS_LIST + "/" + currentParkingrCookie + "/booking");
+  fetch(API_PARKINGLOTS_LIST + "/" + currentParkingrCookie + "/booking")
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      for (var i = 0; i < data.length; i++) {
+        // createNewRow(data[i]._id, data[i].userName.FName + " " + data[i].userName.LName, data[i].parkinglotName, data[i].areaName, data[i].slot_id, data[i].status);
+        createNewRowPL(data[i]._id, data[i].userName? data[i].userName.FName + " " + data[i].userName.LName : "Username", data[i].parkinglotName, data[i].areaName, data[i].slot_id, data[i].status, data[i].price, data[i].created_at);
+      }
+      $(document).ready(function () {
+        $('#dataTable1').DataTable();
+      });
+
+    });
+}
+
+function createNewRowPL(id, userid, parkingid, areaname, slotid, status, price, date) {
+  var body = document.getElementById("tableBookingBody");
+
+  var row = document.createElement("tr");
+
+  createSingleBoxPL(id, row);
+  createSingleBoxPL(userid, row);
+  createSingleBoxPL(parkingid, row);
+  createSingleBoxPL(areaname, row);
+  createSingleBoxPL(slotid, row);
+  createSingleBoxStatusBookingPL(status, row);
+  createSingleBoxPL(date, row);
+  createSingleBoxPL(price, row);
+  if (status == "Booked") {
+    addButtonPL(row, id, 1);
+  }
+  else {
+    addButtonPL(row, id, 2);
+  }
+
+  body.appendChild(row);
+}
+
+function createSingleBoxPL(content, row) {
+  var p = document.createElement("td");
+  var pTxt = document.createTextNode(content);
+  p.appendChild(pTxt);
+  row.appendChild(p);
+}
+
+function createSingleBoxStatusBookingPL(content, row) {
+  var p = document.createElement("td");
+  
+  var ih = document.createElement("span");
+  if(content == "Failed"){
+  ih.className = 'badge badge-danger';
+  }
+  else if (content == "Success") {
+    ih.className = 'badge badge-primary';
+  }
+
+  else if (content == "Booked") {
+    ih.className = 'badge badge-success';
+  }
+
+  var pTxt = document.createTextNode(content);
+  p.appendChild(ih);
+ 
+  ih.appendChild(pTxt);
+  row.appendChild(p);
+}
+
+/* <span class="mr-2">
+  <i class="fas fa-circle text-danger"></i> 
+  Failed
+  </span> */
+
+function addButtonPL(row, id, option) {
+  var btn = document.createElement("td");
+  btn.id = id;
+  switch (option) {
+    case 1:
+      btn.innerHTML = confirm_btn + cancel_btn;
+      break;
+  }
+  document.body.appendChild(btn);
+  row.appendChild(btn);
+
+  matchFunctionPL(btn, option);
+
+}
+
+function matchFunctionPL(btnGroup, option) {
+  var id = btnGroup.id;
+  switch (option) {
+    case 1:
+      var confirmBtn = btnGroup.children[0];
+      var cancelBtn = btnGroup.children[1];
+      confirmBtn.onclick = function () { handleConfirmButtonPressPL(id) };
+      cancelBtn.onclick = function () { handleCancelButtonPressPL(id) };
+      // handleConfirmButtonPress();
+      break;
+    case 2:
+      // btn.innerHTML = info_btn;
+      break;
+  }
+}
+
+function handleConfirmButtonPressPL(id) {
+  // alert(id);
+  console.log(id);
+  if (confirm("Are you sure to make this booking success?")) {
+    confirmSuccessBookingPL(id);
+    // location.reload();
+  }
+}
+
+function confirmSuccessBookingPL(id) {
+  fetch(API_BOOKING_LIST + "/" + id, {
+    method: "PUT",
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      location.reload();
+    })
+    .catch((error) => {
+    });
+}
+function handleCancelButtonPressPL(id) {
+  console.log(id);
+  if (confirm("Are you sure to cancel this booking?")) {
+    confirmCancelBookingPL(id);
+    // location.reload();
+  }
+}
+
+function confirmCancelBookingPL(id) {
+  fetch(API_BOOKING_LIST + "/" + id, {
+    method: "DELETE",
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      location.reload();
+    })
+    .catch((error) => {
     });
 }
