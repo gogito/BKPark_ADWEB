@@ -23,14 +23,17 @@ function addParkinglot() {
   var country = countryE.value;
   var name = nameE.value;
   var thumnail = thumnailE.value;
-  var ownerID = document.cookie
-    .split("; ")
-    .find((row) => row.startsWith("currentUserInfo="))
-    .split("=")[1];
+  var ownerID ;
 
   console.log(JSON.parse(currentUserCookie).userType);
   if (JSON.parse(currentUserCookie).userType == "Owner") {
     ownerID = JSON.parse(currentUserCookie)._id;
+  }
+  else {
+    ownerID = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith("currentUserInfo="))
+    .split("=")[1];
   }
 
   fetch(API_PARKINGLOTS_LIST, {

@@ -1,3 +1,5 @@
+
+
 function login() {
   var userE = document.getElementById("username");
   var passE = document.getElementById("password");
@@ -21,6 +23,8 @@ function login() {
 }
 
 function adminLogin(user, pass) {
+  var userE = document.getElementById("username");
+  var passE = document.getElementById("password");
   fetch("http://bkparking.ddns.net:3002/admin_login", {
     method: "POST", // or 'PUT'
     headers: {
@@ -43,10 +47,15 @@ function adminLogin(user, pass) {
       }
     })
     .catch((error) => {
+      userE.value = "";
+    passE.value = "";
+      alert("Wrong username or password");
       // console.log(error.response);
     });
 }
 function ownerLogin(user, pass) {
+  var userE = document.getElementById("username");
+  var passE = document.getElementById("password");
   fetch("http://bkparking.ddns.net:3002/ownerlogin", {
     method: "POST", // or 'PUT'
     headers: {
@@ -69,6 +78,9 @@ function ownerLogin(user, pass) {
       }
     })
     .catch((error) => {
+      userE.value = "";
+    passE.value = "";
+      alert("Wrong username or password");
       // console.log(error.response);
     });
 }

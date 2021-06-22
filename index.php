@@ -22,7 +22,7 @@ if (!isset($_COOKIE['currentUser'])) {
         } elseif ($page == "on") {
             require_once "owner.php";
         } elseif ($page == "opl") {
-            require_once "owner_parkinglots.php";
+            require_once "owner_parkinglot.php";
         } elseif ($page == "obk") {
             require_once "owner_booking.php";
         } elseif ($page == "ui") {

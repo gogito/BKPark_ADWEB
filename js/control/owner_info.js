@@ -228,7 +228,7 @@ function addParkinglot() {
       console.log(data);
       if (data._id != null) {
         alert("Create parking lot successfully");
-        window.location.href = "owner_info.php";
+        location.reload();
       } else {
         console.log(data);
         latitudeE.value = "";

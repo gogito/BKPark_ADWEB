@@ -159,7 +159,7 @@ function confirmCancelBooking(id) {
     .then((data) => {
       console.log(data);
       alert("Delete parking lot successfully!");
-      window.location.href("index.php?page=pl");
+      location.reload();
     })
     .catch((error) => {
       alert("Failed to delete parking lot!");
