@@ -305,6 +305,7 @@ function updateAreaData(name, id, number) {
     .then((data) => {
       console.log(data);
       alert("Change area successfully!");
+      location.reload();
     })
     .catch((error) => {
       alert("Failed to change area!");
@@ -385,7 +386,7 @@ function addArea() {
     .then((data) => {
       console.log(data);
       alert("Add area successfully!");
-      window.location.href = "index.php?page=upl";
+      location.reload();  
     })
     .catch((error) => {
       console.log(error);
