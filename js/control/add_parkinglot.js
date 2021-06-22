@@ -62,9 +62,9 @@ function addParkinglot() {
       if (data._id != null) {
         alert("Create parking lot successfully");
         if (JSON.parse(currentUserCookie).userType == "Admin") {
-          window.location.href = "parkinglots.php";
+          window.location.href = "index.php?page=pl";
         } else if (JSON.parse(currentUserCookie).userType == "Owner") {
-          window.location.href = "owner_parkinglot.php";
+          window.location.href = "index.php?page=opl";
         }
       } else {
         console.log(data);

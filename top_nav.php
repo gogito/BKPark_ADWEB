@@ -37,12 +37,14 @@
                 // parkinglot.value = JSON.parse(currentUserCookie).ownedParking.length;
             }
             console.log(userinfo.textContent);
-            
 
-            function setInfo(){
+
+            function setInfo() {
                 document.cookie = "currentUserInfo=" + JSON.parse(currentUserCookie)._id + "; max-age=3600; path=/;";
                 document.cookie = "currentUserInfoType=" + JSON.parse(currentUserCookie).userType + "; max-age=3600; path=/;";
             }
+
+            
         </script>
 
     </ul>

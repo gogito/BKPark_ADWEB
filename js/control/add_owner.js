@@ -36,7 +36,7 @@ function addOwner() {
         console.log(data);
         if (data._id != null) {
           alert("Create account successfully");
-          window.location.href = "owner.php";
+          window.location.href = "index.php?page=on";
         } else {
         //   console.log(data);
           fnameE.value = "";

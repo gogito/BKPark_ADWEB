@@ -36,7 +36,7 @@ function addParkinglot() {
     .then((data) => {
       console.log(data);
       alert("Add area successfully!");
-      window.location.href = "owner_parkinglot.php"
+      window.location.href = "index.php?page=opl"
     })
     .catch((error) => {
       console.log(error);

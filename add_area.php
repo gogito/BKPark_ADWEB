@@ -76,7 +76,7 @@
 
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="inputUsername4">Price</label>
+                                        <label for="inputUsername4">Price(VNĐ)</label>
                                         <input type="text" class="form-control" id="price" placeholder="Price">
                                     </div>
                                 </div>

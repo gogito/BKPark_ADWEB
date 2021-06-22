@@ -112,7 +112,7 @@
 
 
 
-                                <a id="updateBtn" href="update_user.php" type="submit" class="btn btn-primary">Update</a>
+                                <a id="updateBtn" href="index.php?page=uu" type="submit" class="btn btn-primary">Update</a>
                                 </form>
                             </div>
                         </div>
@@ -138,7 +138,7 @@
                                                     <th>Slot ID</th>
                                                     <th>Status</th>
                                                     <th>Date</th>
-                                                    <th>Price</th>
+                                                    <th>Price(VNĐ)</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -151,7 +151,7 @@
                                                     <th>Slot ID</th>
                                                     <th>Status</th>
                                                     <th>Date</th>
-                                                    <th>Price</th>
+                                                    <th>Price(VNĐ)</th>
                                                     <th>Action</th>
                                                 </tr>
                                                 </tr>

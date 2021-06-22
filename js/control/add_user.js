@@ -38,7 +38,7 @@ function addUser() {
       console.log(data);
       if (data._id != null) {
         alert("Create account successfully");
-        window.location.href = "user.php";
+        window.location.href = "index.php?page=us";
       } else {
         console.log(data);
         fnameE.value = "";

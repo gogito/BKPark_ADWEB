@@ -33,7 +33,7 @@ function adminLogin(user, pass) {
       // window.location.href = "index.html"
       if (data._id != null) {
         console.log("Success");
-        window.location.href = "homepage.php";
+        window.location.href = "index.php?page=db";
         document.cookie = "currentUser=" + JSON.stringify(data) + "; max-age=86400; path=/;";
       } else {
         console.log(data);
@@ -59,7 +59,7 @@ function ownerLogin(user, pass) {
       // window.location.href = "index.html"
       if (data._id != null) {
         console.log("Success");
-        window.location.href = "owner_dashboard.php";
+        window.location.href = "index.php?page=odb";
         document.cookie = "currentUser=" + JSON.stringify(data) + "; max-age=86400; path=/;";
       } else {
         console.log(data);

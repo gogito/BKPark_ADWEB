@@ -35,7 +35,7 @@ function register(){
         .then(data => {
             if (data._id != null) {
                 alert("Create account successfully");
-                window.location.href = "login.html";
+                window.location.href = "index.php?page=login";
             }
             else{
                 console.log(data);
