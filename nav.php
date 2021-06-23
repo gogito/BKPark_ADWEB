@@ -88,7 +88,7 @@
 
     <!-- Sidebar Message -->
     <div class="sidebar-card d-lg-flex">
-        <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
+        <img class="sidebar-card-illustration mb-2" src="Logo-hcmut.svg.png" alt="...">
         <p class="text-center mb-2"><strong>BKpark Android App</strong> is packed with premium features, components, and
             more!</p>
         <a class="btn btn-success btn-sm" href="apk/BKPark.apk">Download BKpark</a>
