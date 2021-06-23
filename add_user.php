@@ -50,7 +50,7 @@
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Add Users</h1>
-                    <p class="mb-4">Add New User using the form below or download our mobile app at<a target="_blank" href="https://datatables.net"> BK Parking</a>.</p>
+                    <p class="mb-4">Add New User using the form below or download our mobile app at<a target="_blank" href="apk/BKPark.apk"> BK Parking</a>.</p>
 
                     <!-- Main Content -->
                     <div class="card shadow mb-4">
