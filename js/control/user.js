@@ -1,14 +1,14 @@
-var confirm_btn = '<a href="#" id="confirm" class="btn btn-primary btn-default">'
+var confirm_btn = '<a href="#" id="confirm" class="btn btn-primary btn-default custom">'
   + '<span class="icon text-white-50">'
   + '<i class="fas fa-check"></i>'
   + '</span>'
   + '</a>'
-var info_btn = '<a href="#" id="info" class="btn btn-success btn-default">'
+var info_btn = '<a href="#" id="info" class="btn btn-success btn-default custom">'
   + '<span class="icon text-white-50">'
   + '<i class="fas fa-info"></i>'
   + '</span>'
   + '</a>'
-var cancel_btn = '<a href="#" id="cancel" class="btn btn-danger btn-default">'
+var cancel_btn = '<a href="#" id="cancel" class="btn btn-danger btn-default custom">'
   + '<span class="icon text-white-50">'
   + '<i class="fas fa-times"></i>'
   + '</span>'
@@ -63,7 +63,7 @@ function createSingleBox(content, row) {
 function addButton(row, id) {
   var btn = document.createElement("td");
   btn.id = id;
-  btn.innerHTML = info_btn + cancel_btn;
+  btn.innerHTML = info_btn + " " + cancel_btn;
   document.body.appendChild(btn);
   row.appendChild(btn);
 

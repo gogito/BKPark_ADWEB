@@ -258,7 +258,7 @@ function createSingleBox(content, row, id, option, number) {
 function addButton(row, id, name, number) {
   var btn = document.createElement("td");
   btn.id = id;
-  btn.innerHTML = update_btn + cancel_btn;
+  btn.innerHTML = update_btn + " " + cancel_btn;
   document.body.appendChild(btn);
   row.appendChild(btn);
 
