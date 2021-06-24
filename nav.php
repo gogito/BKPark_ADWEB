@@ -65,14 +65,14 @@
 
     <!-- Nav Item - Tables -->
     <li id="booking_owner" class="nav-item">
-        <a class="nav-link" href="owner_booking.php">
+        <a class="nav-link" href="index.php?page=obk">
             <i class="fas fa-fw fa-table"></i>
             <span>Bookings</span></a>
     </li>
 
     <!-- Nav Item - Tables -->
     <li id="pl_owner" class="nav-item">
-        <a class="nav-link" href="owner_parkinglot.php">
+        <a class="nav-link" href="index.php?page=opl">
             <i class="fas fa-fw fa-table"></i>
             <span>Parking Lots</span></a>
     </li>
