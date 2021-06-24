@@ -61,6 +61,13 @@
             <span>Parking Lots</span></a>
     </li>
 
+    <!-- Nav Item - Edge -->
+    <li id="pl_ad" class="nav-item">
+        <a class="nav-link" href="edge.php">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Edge</span></a>
+    </li>
+
 
 
     <!-- Nav Item - Tables -->
