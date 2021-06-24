@@ -140,7 +140,7 @@
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Line Chart Left</h6>
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -157,7 +157,7 @@
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
+                                        <canvas id="myAreaChart-Left"></canvas>
                                     </div>
                                 </div>
                             </div>
@@ -168,7 +168,7 @@
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Line Chart Right</h6>
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -185,7 +185,7 @@
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <div class="chart-area">
-                                        <canvas id="myAreaChartNew"></canvas>
+                                        <canvas id="myAreaChart-Right"></canvas>
                                     </div>
                                 </div>
                             </div>
@@ -196,11 +196,11 @@
                         <div class="col-xl-6 col-lg-6">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Bar Chart Left</h6>
                                 </div>
                                 <div class="card-body">
                                     <div class="chart-bar">
-                                        <canvas id="myBarChart"></canvas>
+                                        <canvas id="myBarChart-Left"></canvas>
                                     </div>
 
                                 </div>
@@ -211,11 +211,11 @@
                         <div class="col-xl-6 col-lg-6">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Bar Chart 2</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Bar Chart Right</h6>
                                 </div>
                                 <div class="card-body">
                                     <div class="chart-bar">
-                                        <canvas id="myBarChart-2"></canvas>
+                                        <canvas id="myBarChart-Right"></canvas>
                                     </div>
 
                                 </div>
@@ -270,11 +270,11 @@
     <script src="vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-area-demo-new.js"></script>
+    <script src="js/demo/line-chart-left.js"></script>
+    <script src="js/demo/line-chart-right.js"></script>
 
-    <script src="js/demo/chart-bar-demo-2.js"></script>
-    <script src="js/demo/chart-bar-demo.js"></script>
+    <script src="js/demo/bar-chart-left.js"></script>
+    <script src="js/demo/bar-chart-right.js"></script>
     <script src="js/control/dashboard.js"></script>
 
 
