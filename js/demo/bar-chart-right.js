@@ -28,17 +28,21 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 }
 
 // Bar Chart Example
-var ctx = document.getElementById("myBarChart-Right");
-var myBarChart = new Chart(ctx, {
+var ctxBarR = document.getElementById("myBarChart-Right");
+var labelBarR = ["", "", "", "", "", ""];
+var dataBarR = [0, 0, 0, 0, 0, 0];
+var myBarChartR;
+function UpdateBarR() {
+myBarChartR = new Chart(ctxBarR, {
   type: 'bar',
   data: {
-    labels: ["January", "February", "March", "April", "May", "June"],
+    labels: labelBarR,
     datasets: [{
       label: "Revenue",
       backgroundColor: "#4e73df",
       hoverBackgroundColor: "#2e59d9",
       borderColor: "#4e73df",
-      data: [4000,5000,6000,6000,5000,4000],
+      data: dataBarR,
     }],
   },
   options: {
@@ -73,7 +77,7 @@ var myBarChart = new Chart(ctx, {
           padding: 10,
           // Include a dollar sign in the ticks
           callback: function(value, index, values) {
-            return '$' + number_format(value);
+            return  number_format(value);
           }
         },
         gridLines: {
@@ -103,9 +107,45 @@ var myBarChart = new Chart(ctx, {
       callbacks: {
         label: function(tooltipItem, chart) {
           var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-          return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
+          return datasetLabel + number_format(tooltipItem.yLabel);
         }
       }
     },
   }
 });
+}
+//Loop
+getDataBarChartR();
+setInterval(function () {
+  getDataBarChartR();
+}, 5000);
+
+function pushdataBarR(data) {
+  data.sort(compare);
+  for (var i = 0; i < dataBarR.length; i++){
+    dataBarR[i] = data[i].count;
+    labelBarR[i] = data[i].parkinglotID;
+  }
+  // console.log(data);
+}
+
+function getDataBarChartR() {
+  fetch(API_REQUEST + "/count")
+    .then((response) => response.json())
+    .then((data) => {
+      pushdataBarR(data.total_parkinglot_array);
+      // console.log(data);
+      UpdateBarR();
+    });
+
+}
+
+function compare( a, b ) {
+  if ( a.count < b.count ){
+    return 1;
+  }
+  if (a.count > b.count ){
+    return -1;
+  }
+  return 0;
+}
