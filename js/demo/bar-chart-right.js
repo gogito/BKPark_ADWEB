@@ -124,7 +124,7 @@ function pushdataBarR(data) {
   data.sort(compare);
   for (var i = 0; i < dataBarR.length; i++){
     dataBarR[i] = data[i].count;
-    labelBarR[i] = data[i].parkinglotID;
+    labelBarR[i] = data[i].name;
   }
   // console.log(data);
 }

@@ -3,27 +3,32 @@ var totalParkinglot = document.getElementById("totalParkinglot");
 var totalRequest = document.getElementById("totalRequest");
 
 console.log("Edge có chạy nha");
-getRequest();
 getCount();
 setInterval(function () {
-    getRequest();
-    getCount();
+  getCount();
 }, 5000);
+
 function getCount() {
-    fetch(API_REQUEST + "/count")
-        .then((response) => response.json())
-        .then((data) => {
-            console.log(data);
-            totalEdge.innerHTML = data.total_edge_id_array.length;
-            totalParkinglot.innerHTML = data.total_parkinglot_array.length;
-        });
+  var currentUserCookie = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith("currentUser="))
+    .split("=")[1];
 
-}
-function getRequest() {
-    fetch(API_REQUEST + "/total")
-        .then((response) => response.json())
-        .then((data) => {
-            totalRequest.innerHTML = data.total_request;
+  var userType = JSON.parse(currentUserCookie).userType;
 
-        });
+  var api = API_REQUEST + "/count";
+  if (userType == "Owner") {
+    var ctxBarR = document.getElementById("myBarChart-Right");
+    ctxBarR.style.display = "none";
+    api = API_REQUEST + "/count/" + JSON.parse(currentUserCookie)._id;
+  }
+  console.log(api);
+  fetch(api)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      totalEdge.innerHTML = data.total_edge_id_array.length;
+      totalParkinglot.innerHTML = data.total_parkinglot_array.length;
+      totalRequest.innerHTML = data.total_request;
+    });
 }

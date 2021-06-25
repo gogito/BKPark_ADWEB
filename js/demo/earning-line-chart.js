@@ -147,14 +147,24 @@ function pushData(data, time) {
 
 function getDataLineChart() {
   var time = getTimeLineChart();
-  fetch(API_REQUEST + "/total")
+  var currentUserCookie = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith("currentUser="))
+    .split("=")[1];
+
+  var userType = JSON.parse(currentUserCookie).userType;
+
+  var api = API_REQUEST + "/count";
+  if (userType == "Owner") {
+    api = API_REQUEST + "/count/" + JSON.parse(currentUserCookie) ._id;
+  }
+  fetch(api)
     .then((response) => response.json())
     .then((data) => {
       pushData(data.total_request, time);
       console.log("Data:" + data + " Time: " + time);
       UpdateChart();
     });
-
 }
 
 function getTimeLineChart() {
