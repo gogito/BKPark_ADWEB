@@ -19,8 +19,7 @@
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <script src="model/var.js" type="text/javascript">
     </script>
-    <script src="control/update_user.js" type="text/javascript">
-    </script>
+    
 </head>
 
 <body id="page-top">
@@ -62,8 +61,8 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Total Bookings</div>
-                                            <div id="totalBooking" class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                                                Total Edges</div>
+                                            <div id="totalEdge" class="h5 mb-0 font-weight-bold text-gray-800">0</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-car fa-2x text-gray-300"></i>
@@ -80,8 +79,8 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Total Users</div>
-                                            <div id="totalUser" class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                                                Total Parkinglots</div>
+                                            <div id="totalParkinglot" class="h5 mb-0 font-weight-bold text-gray-800">0</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-user fa-2x text-gray-300"></i>
@@ -98,8 +97,8 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Total Parking Lots</div>
-                                            <div id="totalParkingLot" class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                                                Total Request</div>
+                                            <div id="totalRequest" class="h5 mb-0 font-weight-bold text-gray-800">0</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-map-marker fa-2x text-gray-300"></i>
@@ -110,23 +109,6 @@
                         </div>
 
 
-                        <!-- Total Owners Card -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-danger shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
-                                                Total Owners</div>
-                                            <div id="totalOwner" class="h5 mb-0 font-weight-bold text-gray-800">0</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-male fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
 
                     </div>
@@ -140,7 +122,7 @@
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Line Chart Left</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Total Request Base Time</h6>
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -196,7 +178,7 @@
                         <div class="col-xl-6 col-lg-6">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Bar Chart Left</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Top 6 Highest Request (Edge)</h6>
                                 </div>
                                 <div class="card-body">
                                     <div class="chart-bar">
@@ -211,7 +193,7 @@
                         <div class="col-xl-6 col-lg-6">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Bar Chart Right</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Top 6 Highest Request (Parking lot)</h6>
                                 </div>
                                 <div class="card-body">
                                     <div class="chart-bar">
@@ -275,8 +257,9 @@
 
     <script src="js/demo/bar-chart-left.js"></script>
     <script src="js/demo/bar-chart-right.js"></script>
-    <script src="js/control/dashboard.js"></script>
-
+    <!-- <script src="js/control/dashboard.js"></script> -->
+    <script src="js/control/edge.js">
+    </script>
 
 </body>
 
