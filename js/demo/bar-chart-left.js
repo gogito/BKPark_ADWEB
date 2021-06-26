@@ -123,7 +123,9 @@ setInterval(function () {
 
 function pushDataBarL(data) {
   data.sort(compare);
-  for (var i = 0; i < dataBarL.length; i++){
+  var lowerRange = Math.min(data.length, dataBarL.length);
+
+  for (var i = 0; i < lowerRange; i++) {
     dataBarL[i] = data[i].count;
     labelBarL[i] = data[i].edge_id;
   }
@@ -131,8 +133,18 @@ function pushDataBarL(data) {
 }
 
 function getDataBarChartL() {
-  var time = getTimeLineChartL();
-  fetch(API_REQUEST + "/count")
+  var currentUserCookie = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith("currentUser="))
+    .split("=")[1];
+
+  var userType = JSON.parse(currentUserCookie).userType;
+
+  var api = API_REQUEST + "/count";
+  if (userType == "Owner") {
+    api = API_REQUEST + "/count/" + JSON.parse(currentUserCookie)._id; 
+  }
+  fetch(api)
     .then((response) => response.json())
     .then((data) => {
       pushDataBarL(data.total_edge_id_array);
