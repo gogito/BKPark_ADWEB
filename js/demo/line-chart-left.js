@@ -41,7 +41,7 @@ function UpdateChartL() {
       labels: labelLineL,
       datasets: [
         {
-          label: "Earnings",
+          label: "Requests",
           lineTension: 0.3,
           backgroundColor: "rgba(78, 115, 223, 0.05)",
           borderColor: "rgba(78, 115, 223, 1)",
@@ -122,8 +122,8 @@ function UpdateChartL() {
         callbacks: {
           label: function (tooltipItem, chart) {
             var datasetLabel =
-              chart.datasets[tooltipItem.datasetIndex].label || "";
-            return datasetLabel + number_format(tooltipItem.yLabel);
+              chart.datasets[tooltipItem.datasetIndex].label || " ";
+            return number_format(tooltipItem.yLabel) + " " + datasetLabel;
           },
         },
       },

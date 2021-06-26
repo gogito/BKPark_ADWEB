@@ -38,7 +38,7 @@ function UpdateBarL() {
     data: {
       labels: labelBarL,
       datasets: [{
-        label: "Revenue",
+        label: "Requests",
         backgroundColor: "#4e73df",
         hoverBackgroundColor: "#2e59d9",
         borderColor: "#4e73df",
@@ -72,7 +72,6 @@ function UpdateBarL() {
         yAxes: [{
           ticks: {
             min: 0,
-            max: 15000,
             maxTicksLimit: 5,
             padding: 10,
             // Include a dollar sign in the ticks
@@ -107,7 +106,7 @@ function UpdateBarL() {
         callbacks: {
           label: function (tooltipItem, chart) {
             var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-            return datasetLabel + number_format(tooltipItem.yLabel);
+            return number_format(tooltipItem.yLabel) + " " + datasetLabel;
           }
         }
       },
