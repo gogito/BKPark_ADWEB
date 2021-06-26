@@ -41,6 +41,8 @@ if (!isset($_COOKIE['currentUser'])) {
             require_once "add_parkinglot.php";
         } elseif ($page == "aa") {
             require_once "add_area.php";
+        } elseif ($page == "edge") {
+            require_once "edge.php";
         }
     } else {
         if ($user['userType'] == "Admin") require_once "homepage.php";
