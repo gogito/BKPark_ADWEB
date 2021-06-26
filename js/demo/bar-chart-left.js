@@ -123,7 +123,9 @@ setInterval(function () {
 
 function pushDataBarL(data) {
   data.sort(compare);
-  for (var i = 0; i < dataBarL.length; i++){
+  var lowerRange = Math.min(data.length, dataBarL.length);
+
+  for (var i = 0; i < lowerRange; i++) {
     dataBarL[i] = data[i].count;
     labelBarL[i] = data[i].edge_id;
   }

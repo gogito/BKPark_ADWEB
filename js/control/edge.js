@@ -18,15 +18,13 @@ function getCount() {
 
   var api = API_REQUEST + "/count";
   if (userType == "Owner") {
-    var ctxBarR = document.getElementById("myBarChart-Right");
-    ctxBarR.style.display = "none";
     api = API_REQUEST + "/count/" + JSON.parse(currentUserCookie)._id;
   }
   console.log(api);
   fetch(api)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+    //   console.log(data);
       totalEdge.innerHTML = data.total_edge_id_array.length;
       totalParkinglot.innerHTML = data.total_parkinglot_array.length;
       totalRequest.innerHTML = data.total_request;

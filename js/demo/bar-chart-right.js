@@ -122,7 +122,8 @@ setInterval(function () {
 
 function pushdataBarR(data) {
   data.sort(compare);
-  for (var i = 0; i < dataBarR.length; i++){
+  var lowerRange = Math.min(data.length, dataBarR.length);
+  for (var i = 0; i < lowerRange; i++){
     dataBarR[i] = data[i].count;
     labelBarR[i] = data[i].name;
   }
@@ -130,7 +131,18 @@ function pushdataBarR(data) {
 }
 
 function getDataBarChartR() {
-  fetch(API_REQUEST + "/count")
+  var currentUserCookie = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith("currentUser="))
+    .split("=")[1];
+
+  var userType = JSON.parse(currentUserCookie).userType;
+
+  var api = API_REQUEST + "/count";
+  if (userType == "Owner") {
+    api = API_REQUEST + "/count/" + JSON.parse(currentUserCookie)._id; 
+  }
+  fetch(api)
     .then((response) => response.json())
     .then((data) => {
       pushdataBarR(data.total_parkinglot_array);
