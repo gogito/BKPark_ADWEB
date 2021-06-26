@@ -63,7 +63,7 @@
 
     <!-- Nav Item - Edge -->
     <li id="pl_ad" class="nav-item">
-        <a class="nav-link" href="edge.php">
+        <a class="nav-link" href="index.php?page=edge">
             <i class="fas fa-fw fa-table"></i>
             <span>Edge</span></a>
     </li>
