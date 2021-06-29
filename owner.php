@@ -62,7 +62,7 @@
                                 <a href="add_owner.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Add Owner</a>
                             </div>
                             <div class="table-responsive">
-                            <table class="table table-striped table-hover table-bordered" id="dataTableUser" width="100%" cellspacing="0">
+                            <table class="table table-striped table-hover table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead class = "thead-dark">
                                         <tr>
                                             <th>ID</th>
