@@ -101,7 +101,7 @@ function matchFunction(btnGroup) {
         document.cookie = "currentUserInfo=" + id + "; max-age=3600; path=/;";
         document.cookie = "currentUserInfoType=Owner; max-age=3600; path=/;";
     };
-    infoBtn.href = "owner_info.php"
+    infoBtn.href = "index.php?page=oi"
 }
 
 function handleCancelButtonPress(id) {
