@@ -174,7 +174,11 @@ function putUserInfo(dataIn) {
       console.log(data);
       if (data._id != null) {
         alert("Update parking lot successfully");
-        window.location.href = "index.php?page=pl";
+        if (JSON.parse(currentUserCookie).userType == "Admin") {
+          window.location.href = "index.php?page=pl";
+        }
+        else window.location.href = "index.php?page=opl";
+        
       } else {
         console.log(data);
         latitudeE.value = "";
