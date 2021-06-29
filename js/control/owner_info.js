@@ -88,7 +88,7 @@ function getOwnedParkingLotsList() {
         );
       }
       $(document).ready(function () {
-        $("#dataTable").DataTable();
+        $("#dataParkinglotTable").DataTable();
       });
     });
 }
