@@ -31,7 +31,13 @@ var nameE = document.getElementById("name");
 var thumnailE = document.getElementById("img");
 var parkinglottable = document.getElementById("areatable");
 var addareatable = document.getElementById("addareatable");
-
+var data = { info: {detail_address:{
+  number:'',
+   street:'',
+  district: '',
+  city_province: '',
+  country:''
+}} };
 // var areaname = document.getElementById("name");
 // var areaslot = document.getElementById("slot");
 // var areaprice = document.getElementById("price");
@@ -45,79 +51,25 @@ function updateParkinglotInfo() {
   var country = countryE.value;
   var name = nameE.value;
   var thumnail = thumnailE.value;
-  var data = { info: {} };
   //   console.log(latitude);
   if (latitude.length > 0 && longitude.length > 0) {
     // console.log("Run");
     data.info = { coordinate: { longitude: latitude, latitude: longitude } };
   }
   if (country != "")
-    data.info = {
-      ...data.info,
-      detail_address: {
-        country: country,
-      },
-    };
+    data.info.detail_address.country = country;
   if (city != "") {
-    if (data.info.detail_address) {
-      data.info.detail_address = {
-        ...data.info.detail_address,
-        city_province: city,
-      };
-    } else {
-      data.info = {
-        ...data.info,
-        detail_address: {
-          city_province: city,
-        },
-      };
-    }
+    data.info.detail_address.city_province = city;
   }
   if (district != "") {
-    if (data.info.detail_address) {
-      data.info.detail_address = {
-        ...data.info.detail_address,
-        district: district,
-      };
-    } else {
-      data.info = {
-        ...data.info,
-        detail_address: {
-          district: district,
-        },
-      };
-    }
+    data.info.detail_address.district = district;
   }
   if (street != "") {
-    if (data.info.detail_address) {
-      data.info.detail_address = {
-        ...data.info.detail_address,
-        street: street,
-      };
-    } else {
-      data.info = {
-        ...data.info,
-        detail_address: {
-          street: street,
-        },
-      };
-    }
+    data.info.detail_address.street = street;
   }
 
   if (number != "") {
-    if (data.info.detail_address) {
-      data.info.detail_address = {
-        ...data.info.detail_address,
-        number: number,
-      };
-    } else {
-      data.info = {
-        ...data.info,
-        detail_address: {
-          number: number,
-        },
-      };
-    }
+    data.info.detail_address.number = number;
   }
   if (name != "") {
     data.info = { ...data.info, name: name };
@@ -144,19 +96,27 @@ function getOldData() {
   console.log(API_PARKINGLOTS_LIST + "/" + currentParkinglotID);
   fetch(API_PARKINGLOTS_LIST + "/" + currentParkinglotID)
     .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-      latitudeE.placeholder = data.coordinate.longitude;
-      longitudeE.placeholder = data.coordinate.latitude;
-      nameE.placeholder = data.name;
-      numberE.placeholder = data.detail_address.number;
-      streetE.placeholder = data.detail_address.street;
-      districtE.placeholder = data.detail_address.district;
-      cityE.placeholder = data.detail_address.city_province;
-      countryE.placeholder = data.detail_address.country;
+    .then((dataRes) => {
+      console.log(dataRes);
+      latitudeE.placeholder = dataRes.coordinate.longitude;
+      longitudeE.placeholder = dataRes.coordinate.latitude;
+      nameE.placeholder = dataRes.name;
+      numberE.placeholder = dataRes.detail_address.number;
+      streetE.placeholder = dataRes.detail_address.street;
+      districtE.placeholder = dataRes.detail_address.district;
+      cityE.placeholder = dataRes.detail_address.city_province;
+      countryE.placeholder = dataRes.detail_address.country;
+      data.info.detail_address = {
+        number: dataRes.detail_address.number,
+        street: dataRes.detail_address.street,
+        district: dataRes.detail_address.district,
+        city_province: dataRes.detail_address.city_province,
+        country: dataRes.detail_address.country
+      };
     });
 }
 function putUserInfo(dataIn) {
+  console.log(dataIn);
   var currentParkinglotID = document.cookie
     .split("; ")
     .find((row) => row.startsWith("currentParkinglot="))
