@@ -145,7 +145,7 @@
 
     <!-- Page level custom scripts
     <script src="js/demo/datatables-demo.js"></script> -->
-    <script src="js/control/dashboard.js"></script>
+    <!-- <script src="js/control/dashboard.js"></script> -->
 </body>
 
 </html>
