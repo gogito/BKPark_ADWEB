@@ -161,13 +161,13 @@ function getDataLineChartR() {
     .then((response) => response.json())
     .then((data) => {
       pushDataR(pushdataLineR(data.total_parkinglot_array), time);
-      console.log(dataLineR);
+      //console.log(dataLineR);
       UpdateChartR();
     });
 }
 function pushdataLineR(data) {
   data.sort(compare);
-  console.log(data);
+  //console.log(data);
   chartName.innerHTML = data[0].name;
  return data[0].count;
   

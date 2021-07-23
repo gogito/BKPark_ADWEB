@@ -14,7 +14,7 @@ function addOwner() {
     var email = emailE.value;
     var personal = personalE.value;
     // var plate = plateE.value;
-    console.log(fname + lname + username + password + email + personal);
+    // console.log(fname + lname + username + password + email + personal);
     fetch(API_OWNER_LIST, {
       method: "POST",
       headers: {
@@ -33,7 +33,7 @@ function addOwner() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data._id != null) {
           alert("Create account successfully");
           window.location.href = "index.php?page=on";
@@ -50,7 +50,7 @@ function addOwner() {
         }
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
         console.log(error.response);
       });
   }

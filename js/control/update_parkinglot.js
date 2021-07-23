@@ -51,9 +51,9 @@ function updateParkinglotInfo() {
   var country = countryE.value;
   var name = nameE.value;
   var thumnail = thumnailE.value;
-  //   console.log(latitude);
+  //   //console.log(latitude);
   if (latitude.length > 0 && longitude.length > 0) {
-    // console.log("Run");
+    // //console.log("Run");
     data.info = { coordinate: { longitude: latitude, latitude: longitude } };
   }
   if (country != "")
@@ -77,11 +77,11 @@ function updateParkinglotInfo() {
   if (thumnail != "") {
     data.info = { ...data.info, image: thumnail };
   }
-  console.log(data);
+  // //console.log(data);
   putUserInfo(data);
 }
 function getOldData() {
-  // console.log("get old data");
+  // //console.log("get old data");
   // getParkingLotsList()
   if (JSON.parse(currentUserCookie).userType == "Admin") {
     parkinglottable.style.display = "none";
@@ -93,11 +93,11 @@ function getOldData() {
     .split("; ")
     .find((row) => row.startsWith("currentParkinglot="))
     .split("=")[1];
-  console.log(API_PARKINGLOTS_LIST + "/" + currentParkinglotID);
+  //console.log(API_PARKINGLOTS_LIST + "/" + currentParkinglotID);
   fetch(API_PARKINGLOTS_LIST + "/" + currentParkinglotID)
     .then((response) => response.json())
     .then((dataRes) => {
-      console.log(dataRes);
+      //console.log(dataRes);
       latitudeE.placeholder = dataRes.coordinate.longitude;
       longitudeE.placeholder = dataRes.coordinate.latitude;
       nameE.placeholder = dataRes.name;
@@ -116,12 +116,12 @@ function getOldData() {
     });
 }
 function putUserInfo(dataIn) {
-  console.log(dataIn);
+  //console.log(dataIn);
   var currentParkinglotID = document.cookie
     .split("; ")
     .find((row) => row.startsWith("currentParkinglot="))
     .split("=")[1];
-  console.log(JSON.stringify(dataIn));
+  //console.log(JSON.stringify(dataIn));
   fetch(API_PARKINGLOTS_LIST + "/" + currentParkinglotID, {
     method: "PUT",
     headers: {
@@ -131,7 +131,7 @@ function putUserInfo(dataIn) {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      //console.log(data);
       if (data._id != null) {
         alert("Update parking lot successfully");
         if (JSON.parse(currentUserCookie).userType == "Admin") {
@@ -140,7 +140,7 @@ function putUserInfo(dataIn) {
         else window.location.href = "index.php?page=opl";
         
       } else {
-        console.log(data);
+        //console.log(data);
         latitudeE.value = "";
         longitudeE.value = "";
         numberE.value = "";
@@ -154,8 +154,8 @@ function putUserInfo(dataIn) {
       }
     })
     .catch((error) => {
-      console.log(error);
-      console.log(error.response);
+      //console.log(error);
+      //console.log(error.response);
     });
 }
 
@@ -167,9 +167,9 @@ function getAreaData() {
   fetch(API_PARKINGLOTS_LIST + "/" + currentParkinglotID)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      //console.log(data);
       for (var i = 0; i < data.area.length; i++) {
-        console.log(data.area[i].name);
+        //console.log(data.area[i].name);
         createNewRow(
           data.area[i].name,
           data.area[i].slots.length,
@@ -248,12 +248,12 @@ function updateAreaData(name, id, number) {
   // var name = nameE.innerHTML;
   var price = priceE.value;
 
-  console.log({
-    area: {
-      name: name,
-      price: price,
-    },
-  });
+  //console.log({
+  //   area: {
+  //     name: name,
+  //     price: price,
+  //   },
+  // });
 
   fetch(API_PARKINGLOTS_LIST + "/" + id + "/area/price", {
     method: "PUT",
@@ -269,19 +269,19 @@ function updateAreaData(name, id, number) {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      //console.log(data);
       alert("Change area successfully!");
       location.reload();
     })
     .catch((error) => {
       alert("Failed to change area!");
-      // console.log(error);
-      console.log(error.response);
+      // //console.log(error);
+      //console.log(error.response);
     });
 }
 
 function handleCancelButtonPress(id, name) {
-  console.log(id);
+  //console.log(id);
   if (confirm("Are you sure to DELETE this area?")) {
     confirmDeleteArea(id, name);
     // window.location.href("parkinglots.php");
@@ -289,9 +289,9 @@ function handleCancelButtonPress(id, name) {
 }
 
 function confirmDeleteArea(id, name) {
-  console.log({area: {
-    name: name,
-  },});
+  // //console.log({area: {
+  //   name: name,
+  // },});
   fetch(API_PARKINGLOTS_LIST + "/" + id  + "/area", {
     method: "DELETE",
     headers: {
@@ -305,7 +305,7 @@ function confirmDeleteArea(id, name) {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      //console.log(data);
       alert("Delete area successfully!");
       location.reload();
     })
@@ -328,13 +328,13 @@ function addArea() {
   for (var i = 0; i < slot; i++) {
     slotsStatus.push(0);
   }
-  console.log({
-    area: {
-      name: name,
-      price: price,
-      slots: slotsStatus,
-    },
-  });
+  //console.log({
+  //   area: {
+  //     name: name,
+  //     price: price,
+  //     slots: slotsStatus,
+  //   },
+  // });
   fetch(API_PARKINGLOTS_LIST + "/" + currentParkingrCookie + "/area", {
     method: "PUT",
     headers: {
@@ -350,13 +350,13 @@ function addArea() {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      //console.log(data);
       alert("Add area successfully!");
       location.reload();  
     })
     .catch((error) => {
-      console.log(error);
-      console.log(error.response);
+      //console.log(error);
+      //console.log(error.response);
       alert("Failed to add area!");
       nameE.value = "";
       priceE.value = "";
@@ -367,16 +367,16 @@ function addArea() {
 
 
 function getParkinglotBookingList() {
-  console.log("create Owner Booking List");
+  //console.log("create Owner Booking List");
   var currentUserCookie = document.cookie
   .split('; ')
   .find(row => row.startsWith('currentUser='))
   .split('=')[1];
-  console.log(API_PARKINGLOTS_LIST + "/" + currentParkingrCookie + "/booking");
+  //console.log(API_PARKINGLOTS_LIST + "/" + currentParkingrCookie + "/booking");
   fetch(API_PARKINGLOTS_LIST + "/" + currentParkingrCookie + "/booking")
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      //console.log(data);
       for (var i = 0; i < data.length; i++) {
         // createNewRow(data[i]._id, data[i].userName.FName + " " + data[i].userName.LName, data[i].parkinglotName, data[i].areaName, data[i].slot_id, data[i].status);
         createNewRowPL(data[i]._id, data[i].userName? data[i].userName.FName + " " + data[i].userName.LName : "Username", data[i].parkinglotName, data[i].areaName, data[i].slot_id, data[i].status, data[i].price, data[i].created_at);
@@ -483,7 +483,7 @@ function matchFunctionPL(btnGroup, option) {
 
 function handleConfirmButtonPressPL(id) {
   // alert(id);
-  console.log(id);
+  //console.log(id);
   if (confirm("Are you sure to make this booking success?")) {
     confirmSuccessBookingPL(id);
     // location.reload();
@@ -496,14 +496,14 @@ function confirmSuccessBookingPL(id) {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      //console.log(data);
       location.reload();
     })
     .catch((error) => {
     });
 }
 function handleCancelButtonPressPL(id) {
-  console.log(id);
+  //console.log(id);
   if (confirm("Are you sure to cancel this booking?")) {
     confirmCancelBookingPL(id);
     // location.reload();
@@ -516,7 +516,7 @@ function confirmCancelBookingPL(id) {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      //console.log(data);
       location.reload();
     })
     .catch((error) => {

@@ -168,7 +168,7 @@
             .split("; ")
             .find((row) => row.startsWith("currentUser="))
             .split("=")[1];
-        console.log(JSON.parse(currentUserCookie).userType);
+        // console.log(JSON.parse(currentUserCookie).userType);
         if (JSON.parse(currentUserCookie).userType == "Admin") {
             ownerIDE.style.display = "block";
         } else if (JSON.parse(currentUserCookie).userType == "Owner") {

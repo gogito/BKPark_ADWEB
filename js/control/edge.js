@@ -2,7 +2,7 @@ var totalEdge = document.getElementById("totalEdge");
 var totalParkinglot = document.getElementById("totalParkinglot");
 var totalRequest = document.getElementById("totalRequest");
 
-console.log("Edge có chạy nha");
+// console.log("Edge có chạy nha");
 getCount();
 setInterval(function () {
   getCount();
@@ -20,7 +20,7 @@ function getCount() {
   if (userType == "Owner") {
     api = API_REQUEST + "/count/" + JSON.parse(currentUserCookie)._id;
   }
-  console.log(api);
+  // console.log(api);
   fetch(api)
     .then((response) => response.json())
     .then((data) => {

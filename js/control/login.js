@@ -36,11 +36,11 @@ function adminLogin(user, pass) {
     .then((data) => {
       // window.location.href = "index.html"
       if (data._id != null) {
-        console.log("Success");
+        // console.log("Success");
         window.location.href = "index.php?page=db";
         document.cookie = "currentUser=" + JSON.stringify(data) + "; max-age=86400; path=/;";
       } else {
-        console.log(data);
+        // console.log(data);
         userE.value = "";
         passE.value = "";
         alert("Wrong username or password");
@@ -67,11 +67,11 @@ function ownerLogin(user, pass) {
     .then((data) => {
       // window.location.href = "index.html"
       if (data._id != null) {
-        console.log("Success");
+        // console.log("Success");
         window.location.href = "index.php?page=odb";
         document.cookie = "currentUser=" + JSON.stringify(data) + "; max-age=86400; path=/;";
       } else {
-        console.log(data);
+        // console.log(data);
         userE.value = "";
         passE.value = "";
         alert("Wrong username or password");

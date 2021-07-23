@@ -151,7 +151,7 @@ function matchFunction(btnGroup, option) {
 
 function handleConfirmButtonPress(id) {
   // alert(id);
-  console.log(id);
+  // console.log(id);
   if (confirm("Are you sure to make this booking success?")) {
     confirmSuccessBooking(id);
     // location.reload();
@@ -164,14 +164,14 @@ function confirmSuccessBooking(id) {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       location.reload();
     })
     .catch((error) => {
     });
 }
 function handleCancelButtonPress(id) {
-  console.log(id);
+  // console.log(id);
   if (confirm("Are you sure to cancel this booking?")) {
     confirmCancelBooking(id);
     // location.reload();
@@ -184,7 +184,7 @@ function confirmCancelBooking(id) {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       location.reload();
     })
     .catch((error) => {

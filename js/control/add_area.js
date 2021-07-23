@@ -34,12 +34,12 @@ function addParkinglot() {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       alert("Add area successfully!");
       window.location.href = "index.php?page=opl"
     })
     .catch((error) => {
-      console.log(error);
+      // console.log(error);
       console.log(error.response);
       alert("Failed to add area!");
       nameE.value = "";

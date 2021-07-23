@@ -10,7 +10,7 @@ var totalParkinglotData = 0;
 var totalBookingData = 0;
 
 // function updateData() {
-console.log("DATA UPDATING");
+// console.log("DATA UPDATING");
 var totalUser = document.getElementById("totalUser");
 var totalOwner = document.getElementById("totalOwner");
 var totalParkinglot = document.getElementById("totalParkingLot");

@@ -30,7 +30,7 @@ function putUserInfo() {
     var lname = lnameE.value;
     var email = emailE.value;
     var personal = personalIDE.value;
-    console.log(fname + lname);
+    ////console.log(fname + lname);
     // window.location.href = "../user.php";
     fetch(API_USER_LIST + "/" + currentUserInfoCookie, {
         method: "PUT",
@@ -50,12 +50,12 @@ function putUserInfo() {
     })
         .then((response) => response.json())
         .then((data) => {
-            console.log(data);
+            ////console.log(data);
             if (data._id != null) {
                 alert("Update account successfully");
                 window.location.href = "index.php?page=us";
             } else {
-                console.log(data);
+                //console.log(data);
                 fnameE.value = "";
                 lnameE.value = "";
                 personalIDE.value = "";
@@ -64,8 +64,8 @@ function putUserInfo() {
             }
         })
         .catch((error) => {
-            console.log(error);
-            console.log(error.response);
+            //console.log(error);
+            //console.log(error.response);
         });
 }
 
@@ -75,7 +75,7 @@ function putOwnerInfo() {
     var lname = lnameE.value;
     var email = emailE.value;
     var personal = personalIDE.value;
-    console.log(fname + lname);
+    //console.log(fname + lname);
     // window.location.href = "../user.php";
     fetch(API_OWNER_LIST + "/" + currentUserInfoCookie, {
         method: "PUT",
@@ -95,12 +95,12 @@ function putOwnerInfo() {
     })
         .then((response) => response.json())
         .then((data) => {
-            console.log(data);
+            //console.log(data);
             if (data._id != null) {
                 alert("Update account successfully");
                 window.location.href = "index.php?page=on";
             } else {
-                console.log(data);
+                //console.log(data);
                 fnameE.value = "";
                 lnameE.value = "";
                 personalIDE.value = "";
@@ -109,8 +109,8 @@ function putOwnerInfo() {
             }
         })
         .catch((error) => {
-            console.log(error);
-            console.log(error.response);
+            //console.log(error);
+            //console.log(error.response);
         });
 }
 

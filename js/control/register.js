@@ -38,7 +38,7 @@ function register(){
                 window.location.href = "index.php?page=login";
             }
             else{
-                console.log(data);
+                // console.log(data);
                 fnameE.value = '';
                 lnameE.value = '';
                 usernameE.value = '';

@@ -25,7 +25,7 @@ function addParkinglot() {
   var thumnail = thumnailE.value;
   var ownerID ;
 
-  console.log(JSON.parse(currentUserCookie).userType);
+  // console.log(JSON.parse(currentUserCookie).userType);
   if (JSON.parse(currentUserCookie).userType == "Owner") {
     ownerID = JSON.parse(currentUserCookie)._id;
   }
@@ -61,7 +61,7 @@ function addParkinglot() {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       if (data._id != null) {
         alert("Create parking lot successfully");
         if (JSON.parse(currentUserCookie).userType == "Admin") {
@@ -70,7 +70,7 @@ function addParkinglot() {
           window.location.href = "index.php?page=opl";
         }
       } else {
-        console.log(data);
+        // console.log(data);
         latitudeE.value = "";
         longitudeE.value = "";
         numberE.value = "";
@@ -84,8 +84,8 @@ function addParkinglot() {
       }
     })
     .catch((error) => {
-      console.log(error);
-      console.log(error.response);
+      // console.log(error);
+      // console.log(error.response);
     });
 
 }

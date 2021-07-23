@@ -115,7 +115,7 @@
             .split('; ')
             .find(row => row.startsWith('currentUser='))
             .split('=')[1];
-        console.log(currentUserCookie);
+        // console.log(currentUserCookie);
         if (JSON.parse(currentUserCookie).userType == "Admin") {
             dashboard_owner.style.display = 'none';
             pl_owner.style.display = 'none';

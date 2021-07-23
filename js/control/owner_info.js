@@ -70,13 +70,13 @@ function getOwnedParkingLotsList() {
   fetch(api)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       for (var i = 0; i < data.length; i++) {
         var totalslot = 0;
         var totalarea = data[i].area.length;
         for (var j = 0; j < totalarea; j++) {
           totalslot = totalslot + data[i].area[j].slots.length;
-          console.log(totalslot);
+          // console.log(totalslot);
         }
         createNewRow(
           data[i]._id,
@@ -104,7 +104,7 @@ function createNewRow(id, userid, parkingid, areaname, slotid, status) {
   createSingleBox(areaname, row);
   createSingleBox(slotid, row);
   createSingleBox(status, row);
-  console.log(userid);
+  // console.log(userid);
   addButton(row, id, userid);
   body.appendChild(row);
 }
@@ -159,7 +159,7 @@ function confirmCancelBooking(id) {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       alert("Delete parking lot successfully!");
       location.reload();
     })
@@ -225,12 +225,12 @@ function addParkinglot() {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       if (data._id != null) {
         alert("Create parking lot successfully");
         location.reload();
       } else {
-        console.log(data);
+        // console.log(data);
         latitudeE.value = "";
         longitudeE.value = "";
         numberE.value = "";
@@ -244,7 +244,7 @@ function addParkinglot() {
       }
     })
     .catch((error) => {
-      console.log(error);
+      // console.log(error);
       console.log(error.response);
     });
 }
