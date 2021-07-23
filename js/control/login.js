@@ -25,7 +25,7 @@ function login() {
 function adminLogin(user, pass) {
   var userE = document.getElementById("username");
   var passE = document.getElementById("password");
-  fetch("http://bkparking.ddns.net:3002/admin_login", {
+  fetch(API_ADMIN_LOGIN, {
     method: "POST", // or 'PUT'
     headers: {
       "Content-Type": "application/json",
@@ -56,7 +56,7 @@ function adminLogin(user, pass) {
 function ownerLogin(user, pass) {
   var userE = document.getElementById("username");
   var passE = document.getElementById("password");
-  fetch("http://bkparking.ddns.net:3002/ownerlogin", {
+  fetch(API_OWNER_LOGIN, {
     method: "POST", // or 'PUT'
     headers: {
       "Content-Type": "application/json",
