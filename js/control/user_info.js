@@ -29,7 +29,7 @@ var currentUserInfoCookie = document.cookie
   .find((row) => row.startsWith("currentUserInfo="))
   .split("=")[1];
 
-// console.log(userTypeInfo);
+// //console.log(userTypeInfo);
 function updateUserInfo() {
   var ownerParkinglot = document.getElementById("ownerParkinglot");
   var updateBtn = document.getElementById("updateBtn");
@@ -48,7 +48,7 @@ function getUserInfo(name, username, email, personalID) {
   // getParkingLotsList();
   // var LINKAPI;
   var bookingtable = document.getElementById("bookingtable");
-  // console.log(LINKAPI);
+  // //console.log(LINKAPI);
   fetch(API_USER_LIST + "/" + currentUserInfoCookie, {
     method: "PUT",
   })
@@ -66,11 +66,11 @@ function getUserInfo(name, username, email, personalID) {
 
 function getUserBookingList() {
 
-  console.log("create Booking List");
+  //console.log("create Booking List");
   fetch(API_USER_LIST + "/" +  currentUserInfoCookie + "/booking")
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      //console.log(data);
       for (var i = 0; i < data.length; i++) {
         createNewRow(data[i]._id, data[i].userName? data[i].userName.FName + " " + data[i].userName.LName : "Username", data[i].parkinglotName, data[i].areaName, data[i].slot_id, data[i].status, data[i].price, data[i].created_at);
       }
@@ -169,7 +169,7 @@ function matchFunction(btnGroup, option) {
 
 function handleConfirmButtonPress(id) {
   // alert(id);
-  console.log(id);
+  //console.log(id);
   if (confirm("Are you sure to make this booking success?")) {
     confirmSuccessBooking(id);
     // location.reload();
@@ -182,14 +182,14 @@ function confirmSuccessBooking(id) {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      //console.log(data);
       location.reload();
     })
     .catch((error) => {
     });
 }
 function handleCancelButtonPress(id) {
-  console.log(id);
+  //console.log(id);
   if (confirm("Are you sure to cancel this booking?")) {
     confirmCancelBooking(id);
     // location.reload();
@@ -202,7 +202,7 @@ function confirmCancelBooking(id) {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      //console.log(data);
       location.reload();
     })
     .catch((error) => {

@@ -21,11 +21,11 @@ var currentUserCookie = document.cookie
   .find((row) => row.startsWith("currentUser="))
   .split("=")[1];
 function getParkingLotsList() {
-  console.log("create Parking lots List");
+  // console.log("create Parking lots List");
   fetch(API_PARKINGLOTS_LIST)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       for (var i = 0; i < data.length; i++) {
         var totalslot = 0;
         var totalarea = data[i].area.length;
@@ -49,7 +49,7 @@ function getParkingLotsList() {
 }
 
 function getOwnedParkingLotsList() {
-  console.log("create Owned Parking lots List");
+  // console.log("create Owned Parking lots List");
   var api = API_OWNER_LIST + "/" + JSON.parse(currentUserCookie)._id + "/parking"
   if (JSON.parse(currentUserCookie).userType == "Admin") {
     var currentUserInfoCookie = document.cookie
@@ -61,7 +61,7 @@ function getOwnedParkingLotsList() {
   fetch(api)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       for (var i = 0; i < data.length; i++) {
         var totalslot = 0;
         var totalarea = data[i].area.length;
@@ -96,7 +96,7 @@ function createNewRow(id, userid, parkingid, areaname, slotid, status) {
   createSingleBox(areaname, row);
   createSingleBox(slotid, row);
   createSingleBox(status, row);
-  console.log(userid);
+  // console.log(userid);
   addButton(row, id, userid);
   body.appendChild(row);
 }
@@ -143,7 +143,7 @@ function matchFunction(btnGroup, name) {
 }
 
 function handleCancelButtonPress(id) {
-  console.log(id);
+  // console.log(id);
   if (confirm("Are you sure to DELETE this parking lot?")) {
     confirmCancelBooking(id);
     // window.location.href("parkinglots.php");
@@ -151,13 +151,13 @@ function handleCancelButtonPress(id) {
 }
 
 function confirmCancelBooking(id) {
-  console.log(API_PARKINGLOTS_LIST + "/" + id);
+  // console.log(API_PARKINGLOTS_LIST + "/" + id);
   fetch(API_PARKINGLOTS_LIST + "/" + id, {
     method: "DELETE",
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       alert("Delete parking lot successfully!");
       location.reload();
     })

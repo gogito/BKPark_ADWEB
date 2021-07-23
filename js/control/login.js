@@ -25,7 +25,7 @@ function login() {
 function adminLogin(user, pass) {
   var userE = document.getElementById("username");
   var passE = document.getElementById("password");
-  fetch("http://bkparking.ddns.net:3002/admin_login", {
+  fetch(API_ADMIN_LOGIN, {
     method: "POST", // or 'PUT'
     headers: {
       "Content-Type": "application/json",
@@ -36,11 +36,11 @@ function adminLogin(user, pass) {
     .then((data) => {
       // window.location.href = "index.html"
       if (data._id != null) {
-        console.log("Success");
+        // console.log("Success");
         window.location.href = "index.php?page=db";
         document.cookie = "currentUser=" + JSON.stringify(data) + "; max-age=86400; path=/;";
       } else {
-        console.log(data);
+        // console.log(data);
         userE.value = "";
         passE.value = "";
         alert("Wrong username or password");
@@ -56,7 +56,7 @@ function adminLogin(user, pass) {
 function ownerLogin(user, pass) {
   var userE = document.getElementById("username");
   var passE = document.getElementById("password");
-  fetch("http://bkparking.ddns.net:3002/ownerlogin", {
+  fetch(API_OWNER_LOGIN, {
     method: "POST", // or 'PUT'
     headers: {
       "Content-Type": "application/json",
@@ -67,11 +67,11 @@ function ownerLogin(user, pass) {
     .then((data) => {
       // window.location.href = "index.html"
       if (data._id != null) {
-        console.log("Success");
+        // console.log("Success");
         window.location.href = "index.php?page=odb";
         document.cookie = "currentUser=" + JSON.stringify(data) + "; max-age=86400; path=/;";
       } else {
-        console.log(data);
+        // console.log(data);
         userE.value = "";
         passE.value = "";
         alert("Wrong username or password");

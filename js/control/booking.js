@@ -22,7 +22,7 @@ function getBookingList() {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      for (var i = 0; i < data.length; i++) {
+      for (var i = data.length - 1; i >= 0; i--) {
         // createNewRow(data[i]._id, data[i].userName.FName + " " + data[i].userName.LName, data[i].parkinglotName, data[i].areaName, data[i].slot_id, data[i].status);
         createNewRow(data[i]._id, data[i].userName? data[i].userName.FName + " " + data[i].userName.LName : "Username", data[i].parkinglotName, data[i].areaName, data[i].slot_id, data[i].status, data[i].price, data[i].created_at);
       }
@@ -151,7 +151,7 @@ function matchFunction(btnGroup, option) {
 
 function handleConfirmButtonPress(id) {
   // alert(id);
-  console.log(id);
+  // console.log(id);
   if (confirm("Are you sure to make this booking success?")) {
     confirmSuccessBooking(id);
     // location.reload();
@@ -164,14 +164,14 @@ function confirmSuccessBooking(id) {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       location.reload();
     })
     .catch((error) => {
     });
 }
 function handleCancelButtonPress(id) {
-  console.log(id);
+  // console.log(id);
   if (confirm("Are you sure to cancel this booking?")) {
     confirmCancelBooking(id);
     // location.reload();
@@ -184,7 +184,7 @@ function confirmCancelBooking(id) {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       location.reload();
     })
     .catch((error) => {

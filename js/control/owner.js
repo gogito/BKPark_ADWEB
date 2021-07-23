@@ -21,7 +21,7 @@ var currentUserCookie = document.cookie
 
 function getOwnerList() {
 
-    console.log("create Owner List");
+    // console.log("create Owner List");
     fetch(API_OWNER_LIST)
         .then((response) => response.json())
         .then((data) => {
@@ -97,7 +97,7 @@ function matchFunction(btnGroup) {
 
     cancelBtn.onclick = function () { handleCancelButtonPress(id) };
     infoBtn.onclick = function () {
-        console.log("checked");
+        // console.log("checked");
         document.cookie = "currentUserInfo=" + id + "; max-age=3600; path=/;";
         document.cookie = "currentUserInfoType=Owner; max-age=3600; path=/;";
     };
@@ -105,7 +105,7 @@ function matchFunction(btnGroup) {
 }
 
 function handleCancelButtonPress(id) {
-    console.log(id);
+    // console.log(id);
     if (confirm("Are you sure to DELETE this user?")) {
         confirmCancelBooking(id);
         // location.reload();
@@ -118,7 +118,7 @@ function confirmCancelBooking(id) {
     })
         .then((response) => response.json())
         .then((data) => {
-            console.log(data);
+            // console.log(data);
             location.reload();
         })
         .catch((error) => {

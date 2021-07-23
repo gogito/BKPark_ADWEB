@@ -36,7 +36,7 @@
                 userinfo.textContent = JSON.parse(currentUserCookie).name.FName + " " + JSON.parse(currentUserCookie).name.LName + " (Owner)";
                 // parkinglot.value = JSON.parse(currentUserCookie).ownedParking.length;
             }
-            console.log(userinfo.textContent);
+            // console.log(userinfo.textContent);
 
 
             function setInfo() {

@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin="">
     </script>
-
+    <script src="model/var.js">
+    </script>
     <style>
         .text-labels {
             font-size: 8pt;
@@ -172,7 +173,7 @@
         }
 
         function showDetail(id) {
-            fetch("http://bkparking.ddns.net:3002/parkinglots/" + id)
+            fetch(API_PARKINGLOTS_LIST + "/" + id)
                 .then((response) => response.json())
                 .then((data) => {
                     updateDetailPopup(id, data.name, Math.round(data.status * 100) + "% free");
@@ -180,7 +181,7 @@
         }
 
         function updateDetailPopup(id, name, status) {
-            console.log(popupArray[id]);
+            // console.log(popupArray[id]);
             popupArray[id].setContent("<p>" + name + "<br/>" + status + "</p>");
         }
         var currentUserCookie = document.cookie
@@ -188,17 +189,17 @@
             .find(row => row.startsWith('currentUser='))
             .split('=')[1];
         if (JSON.parse(currentUserCookie).userType == "Admin") {
-            fetch("http://bkparking.ddns.net:3002/parkinglots")
+            fetch(API_PARKINGLOTS_LIST)
                 .then((response) => response.json())
                 .then((data) => {
-                    console.log(data);
+                    // console.log(data);
                     for (var i = 0; i < data.length; i++) {
                         // console.log(data[i]);
                         markLocation(data[i].coordinate.longitude, data[i].coordinate.latitude, 1, data[i]._id);
                     }
                 });
         } else {
-            fetch("http://bkparking.ddns.net:3002/owners/" + JSON.parse(currentUserCookie)._id)
+            fetch(API_OWNER_LIST + '/' + JSON.parse(currentUserCookie)._id)
                 .then((response) => response.json())
                 .then((data) => {
                     // console.log(data[0]);
@@ -209,7 +210,7 @@
         }
 
         function markParkingLot(id) {
-            fetch("http://bkparking.ddns.net:3002/parkinglots/" + id)
+            fetch(API_PARKINGLOTS_LIST + '/' + id)
                 .then((response) => response.json())
                 .then((data) => {
                     markLocation(data.coordinate.longitude, data.coordinate.latitude, 1, data._id);

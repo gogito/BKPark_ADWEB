@@ -17,7 +17,7 @@ var cancel_btn = '<a href="#" id="cancel" class="btn btn-danger btn-default cust
 
 function getUserList() {
 
-  console.log("create Booking List");
+  //console.log("create Booking List");
   fetch(API_USER_LIST)
     .then((response) => response.json())
     .then((data) => {
@@ -79,7 +79,7 @@ function matchFunction(btnGroup) {
   // confirmBtn.onclick = function () { handleConfirmButtonPress(id) };
   cancelBtn.onclick = function () { handleCancelButtonPress(id) };
   infoBtn.onclick = function () { 
-    console.log("checked");
+    //console.log("checked");
     document.cookie = "currentUserInfo=" + id + "; max-age=3600; path=/;"; 
     document.cookie = "currentUserInfoType=User; max-age=3600; path=/;"; 
   };
@@ -87,7 +87,7 @@ function matchFunction(btnGroup) {
 }
 
 function handleCancelButtonPress(id) {
-  console.log(id);
+  //console.log(id);
   if (confirm("Are you sure to DELETE this user?")) {
     confirmCancelBooking(id);
     // location.reload();
@@ -100,7 +100,7 @@ function confirmCancelBooking(id) {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      //console.log(data);
       location.reload();
     })
     .catch((error) => {

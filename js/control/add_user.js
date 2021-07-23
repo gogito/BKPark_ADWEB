@@ -14,8 +14,8 @@ function addUser() {
   var email = emailE.value;
   var personal = personalE.value;
   var plate = plateE.value;
-  console.log(fname + lname + username + password + email + personal);
-  console.log(API_USER_REGISTER);
+  // console.log(fname + lname + username + password + email + personal);
+  // console.log(API_USER_REGISTER);
   // window.location.href = "../user.php";
   fetch(API_USER_REGISTER, {
     method: "POST",
@@ -35,12 +35,12 @@ function addUser() {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       if (data._id != null) {
         alert("Create account successfully");
         window.location.href = "index.php?page=us";
       } else {
-        console.log(data);
+        // console.log(data);
         fnameE.value = "";
         lnameE.value = "";
         usernameE.value = "";
@@ -52,7 +52,7 @@ function addUser() {
       }
     })
     .catch((error) => {
-      console.log(error);
+      // console.log(error);
       console.log(error.response);
     });
 }
